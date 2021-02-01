@@ -22,7 +22,7 @@ save('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebe
 This sample tif file has 7 images (numimgs = 7) shown below.
 
 ```matlab
->>size(I{1}.image)
+>> size(I{1}.image)
 
 ans =
 
