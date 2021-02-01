@@ -23,6 +23,8 @@ This sample tif file has 7 images (numimgs = 7) shown below.
 
 <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img1.png" title="Image 1" /> <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img2.png" title="Image 2" /> <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img3.png" title="Image 3" /> <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img4.png" title="Image 4" /> <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img5.png" title="Image 5" /> <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img6.png" title="Image 6" /> <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img7.png" title="Image 7" /><br/>
 
+Though most of the images look same, the first image in the tif stack/file is the high resolution image of the slide, which was based on the image size in pixels shown below in matlab. 
+
 ```matlab
 >> size(I{1}.image)
 
