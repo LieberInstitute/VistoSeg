@@ -23,7 +23,7 @@ This sample tif file has 7 images (numimgs = 7) shown below.
 
 <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img1.png" title="Image 1" /> <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img2.png" title="Image 2" /> <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img3.png" title="Image 3" /> <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img4.png" title="Image 4" /> <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img5.png" title="Image 5" /> <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img6.png" title="Image 6" /> <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img7.png" title="Image 7" /><br/>
 
-Though most of the images look same, the first image in the tif stack/file is the high resolution image of the slide, which was based on the image size in pixels shown below in matlab. 
+Though most of the images look same, the first image in the tif stack/file is the high resolution image of the slide, which was based on the image size (y,x,z dimensions) in pixels shown below in matlab. 
 
 ```matlab
 >> size(I{1}.image)
@@ -69,3 +69,26 @@ ans =
          612        1600           3
 
 ```
+
+The image (Img) is split into 4 sub images (Img1,Img2,Img3,Img4) by dividing the x(160858) dimesion into 4 equal parts. Each sub image is resized to 70% of the original size (eg 100 X 100 Pixel region is resized to 70 X 70 pixel region) and saved as individual tif and mat files in the same location as the raw tif files. Images are resized as matlab cannot store images that occupies more than 2^32 - 1 bytes of data
+
+```matlab
+Img = I{1}.image;
+
+[y,x,z] = size(Img);
+
+Img1 = Img(:,1:round(x/4),:);
+Img2 = Img(:,round(x/4):round(x/4)*2,:);
+Img3 = Img(:,round(x/4)*2:round(x/4)*3,:);
+Img4 = Img(:,round(x/4)*3:end,:);
+
+IMG1 = imresize(Img1,0.7);
+IMG2 = imresize(Img2,0.7);
+IMG3 = imresize(Img3,0.7);
+IMG4 = imresize(Img4,0.7);
+
+for i = 1:4
+save(['/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Lieber_Institute_OTS-20-7690_rush_anterior_',num2str(i),'.mat'],['Img',num2str(i)],'-v7.3');
+eval(['imwrite(IMG',num2str(i),',''/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Lieber_Institute_OTS-20-7690_rush_anterior_',num2str(i),'.tif'')']);
+end
+
