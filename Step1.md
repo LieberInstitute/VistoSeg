@@ -70,7 +70,7 @@ ans =
 
 ```
 
-The image (Img) is split into 4 sub images (Img1,Img2,Img3,Img4) by dividing the x(160858) dimesion into 4 equal parts. Each sub image is resized to 70% of the original size (eg 100 X 100 Pixel region is resized to 70 X 70 pixel region) and saved as individual tif and mat files in the same location as the raw tif files. Images are resized as matlab cannot store images that occupies more than 2^32 - 1 bytes of data
+The image (Img) is split into 4 sub images (Img1,Img2,Img3,Img4) by dividing the x(160858) dimesion into 4 equal parts. Sometimes the center of the imade is not the center of the slide, in such case the offset is adjusted manually. Each sub image is resized to 70% of the original size (eg 100 X 100 Pixel region is resized to 70 X 70 pixel region) and saved as individual tif and mat files in the same location as the raw tif files. Images are resized as matlab cannot store images that occupies more than 2^32 - 1 bytes of data
 
 ```matlab
 Img = I{1}.image;
