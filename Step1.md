@@ -1,4 +1,4 @@
-
+# SPLIT HISTOLOGY IMAGE INTO SUBSECTIONS 
 The raw histology image file from the slide scanner (JHU imaging core) is a multiplane tif file. The sample 'Lieber_Institute_OTS-20-7690_rush_anterior.tif' (DLPFC data) is used here to run through the pipeline. 
 
 The tif file is loaded and saved as matlab structure as shown below. 
