@@ -1,3 +1,10 @@
-link to the repo for running spaceranger
+# SPACERANGER
+
+The following links and the flowchart provide useful information for running spaceranger on histology images. 
+
+Blog post on running spaceranger on JHPCE http://research.libd.org/rstatsclub/2020/10/20/using-space-ranger-at-jhpce/#.YBpZO2QzYq0
+link to the github repo for running spaceranger, video tutorial etc.
 
 flow chart for running sapceranger 
+
+The output files 'scalefactors_json.json' and 'tissue_positions_list.csv' from the spaceranger saved in the spatial folder, are required for the following image processing steps.
