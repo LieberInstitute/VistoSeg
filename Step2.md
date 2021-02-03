@@ -7,7 +7,7 @@ We have been using two methods for nuclei segmentation in histology images.
 
 The following shows both the segmentations for the 1st sub image of 'Lieber_Institute_OTS-20-7690_rush_anterior.tif' used is Step1.
 
-#Intensity thresholding
+# Intensity thresholding
 ```matlab
 load('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_anterior_1.mat') %loads the image data variable Img
 thresh = greythresh(rgb2grey(Img));
@@ -16,7 +16,7 @@ BW = imbinarize(rgb2grey(Img),thresh);
 save('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_anterior_1_nucleisegmentation.mat','BW')
 imwrite(BW,'/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_anterior_1_nucleisegmentation.tif')
 ```
-#Kmeans segmentation
+# Kmeans segmentation
 
 ```matlab
 load('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_anterior_1.mat')
