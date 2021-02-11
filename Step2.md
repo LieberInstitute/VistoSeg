@@ -9,7 +9,8 @@ The following shows both the segmentations for the 1st sub image of 'Lieber_Inst
 
 # Intensity thresholding
 ```matlab
-load('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1.mat') %loads the image data variable Img
+fname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1.tif';
+Img = imread(fname,1);
 thresh = greythresh(rgb2grey(Img));
 BW = imbinarize(rgb2grey(Img),thresh);
 
@@ -19,7 +20,8 @@ imwrite(BW,'/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images
 # Kmeans segmentation
 
 ```matlab
-load('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1.mat')
+fname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1.tif';
+Img = imread(fname,1);
 Img_smooth = imgaussfilt(Img,4);
 Img_smooth_adj = imadjust(Img_smooth, [.2 .3 0; .6 .7 1],[]);
 
