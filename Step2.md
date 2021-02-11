@@ -11,8 +11,8 @@ The following shows both the segmentations for the 1st sub image of 'Lieber_Inst
 ```matlab
 fname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1.tif';
 Img = imread(fname,1);
-thresh = greythresh(rgb2grey(Img));
-BW = imbinarize(rgb2grey(Img),thresh);
+thresh = graythresh(rgb2gray(Img));
+BW = imbinarize(rgb2gray(Img),thresh);
 
 save('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1_nucleisegmentation.mat','BW')
 imwrite(BW,'/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1_nucleisegmentation.tif')
