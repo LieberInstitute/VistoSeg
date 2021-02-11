@@ -5,21 +5,21 @@ We have been using two methods for nuclei segmentation in histology images.
 1) Intensity thesholding: works fine with high resolution images 
 2) Kmeans color based segmentation: works well with low contrast, noisy background, low resolution images. (ex: 10x images)
 
-The following shows both the segmentations for the 1st sub image of 'Lieber_Institute_OTS-20-7690_rush_anterior.tif' used is Step1.
+The following shows both the segmentations for the 1st sub image of 'Lieber_Institute_OTS-20-7748_rush_posterior.tif' used is Step1.
 
 # Intensity thresholding
 ```matlab
-load('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_anterior_1.mat') %loads the image data variable Img
+load('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1.mat') %loads the image data variable Img
 thresh = greythresh(rgb2grey(Img));
 BW = imbinarize(rgb2grey(Img),thresh);
 
-save('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_anterior_1_nucleisegmentation.mat','BW')
-imwrite(BW,'/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_anterior_1_nucleisegmentation.tif')
+save('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1_nucleisegmentation.mat','BW')
+imwrite(BW,'/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1_nucleisegmentation.tif')
 ```
 # Kmeans segmentation
 
 ```matlab
-load('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_anterior_1.mat')
+load('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1.mat')
 Img_smooth = imgaussfilt(Img,4);
 Img_smooth_adj = imadjust(Img_smooth, [.2 .3 0; .6 .7 1],[]);
 
@@ -36,6 +36,6 @@ cluster{i} = he .* uint8(mask{i});
 end
 
 nuclei_mask = mask{4};
-imwrite(cluster{4},'/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/MiSeq_Pilot/Images/Raw/Lieber-Institute_OTS-20-7043_1_2_cluster4Nuclei.tif') 
-save('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/MiSeq_Pilot/Images/Raw/Lieber-Institute_OTS-20-7043_1_2_nucleisegmentation.mat','nuclei_mask')
+imwrite(cluster{4},'/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/MiSeq_Pilot/Images/Raw/Lieber-Institute_OTS-20-7748_rush_posterior_1_cluster4Nuclei.tif') 
+save('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/MiSeq_Pilot/Images/Raw/Lieber-Institute_OTS-20-7748_rush_posterior_1_nucleisegmentation.mat','nuclei_mask')
 ```
