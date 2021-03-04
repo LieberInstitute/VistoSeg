@@ -4,7 +4,7 @@ The raw histology image file from the slide scanner (JHU imaging core) is a mult
 The tif file is loaded and saved as matlab structure as shown below. 
 
 ```matlab
-fname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Lieber_Institute_OTS-20-7748_rush_posterior.tif';
+fname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior.tif';
 numimgs = size(imfinfo(fname),1); %numimgs is the number of images in the tif file
 
 parfor i = 1:numimgs
