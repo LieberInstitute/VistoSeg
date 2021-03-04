@@ -15,7 +15,7 @@ disp(num2str(i))
 end
 
 %save tif image in mat format
-save('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Lieber_Institute_OTS-20-7748_rush_posterior.mat','I', '-v7.3');
+save([fname(1:end-4),'.mat'],'I', '-v7.3');
 
 ```
 
