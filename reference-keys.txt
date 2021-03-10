@@ -1,0 +1,7 @@
+step-1-split-histology-images-into-subsections
+step-2-segment-nuclei-from-each-histology-subsection
+intensity-thresholding
+kmeans-segmentation
+step-3-run-spaceranger
+step-4-spotspotcheck-for-quality-check-on-nuclei-segmentations-and-counts
+step-5-atlasaligner
