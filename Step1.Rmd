@@ -1,5 +1,6 @@
-# SPLIT HISTOLOGY IMAGE INTO SUBSECTIONS 
-The raw histology image file from the slide scanner (JHU imaging core) is a multiplane tif file. The sample 'Lieber_Institute_OTS-20-7748_rush_posterior.tif' (DLPFC data) is used here to run through the pipeline. 
+# Step 1: Split histology images into subsections
+
+The raw histology image file from the slide scanner (JHU imaging core) is a multiplane tif file. The sample `Lieber_Institute_OTS-20-7748_rush_posterior.tif` (DLPFC data) is used here to run through the pipeline. 
 
 The tif file is loaded and saved as matlab structure as shown below. 
 
@@ -21,7 +22,7 @@ save([fname(1:end-4),'.mat'],'I', '-v7.3');
 
 This sample tif file has 7 images (numimgs = 7) shown below.
 
-<img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img1.png" title="Image 1" /> <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img2.png" title="Image 2" /> <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img3.png" title="Image 3" /> <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img4.png" title="Image 4" /> <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img5.png" title="Image 5" /> <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img6.png" title="Image 6" /> <img src="https://github.com/LieberInstitute/Spatial_ImgProcessing/blob/main/img7.png" title="Image 7" /><br/>
+<img src="images/img1.png" title="Image 1" /> <img src="images/img2.png" title="Image 2" /> <img src="images/img3.png" title="Image 3" /> <img src="images/img4.png" title="Image 4" /> <img src="images/img5.png" title="Image 5" /> <img src="images/img6.png" title="Image 6" /> <img src="images/img7.png" title="Image 7" /><br/>
 
 Though most of the images look same, the first image in the tif stack/file is the high resolution image of the slide, which was based on the image size (y,x,z dimensions) in pixels shown below in matlab. 
 
@@ -91,4 +92,4 @@ for i = 1:4
 save(['/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Lieber_Institute_OTS-20-7748_rush_posterior_',num2str(i),'.mat'],['Img',num2str(i)],'-v7.3');
 eval(['imwrite(IMG',num2str(i),',''/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Lieber_Institute_OTS-20-7748_rush_posterior_',num2str(i),'.tif'')']);
 end
-
+```

@@ -1,13 +1,14 @@
-
-# NUCLEI SEGMENTATION
+# Step 2: Segment nuclei from each histology subsection
 
 We have been using two methods for nuclei segmentation in histology images.
-1) Intensity thesholding: works fine with high resolution images 
-2) Kmeans color based segmentation: works well with low contrast, noisy background, low resolution images. (ex: 10x images)
 
-The following shows both the segmentations for the 1st sub image of 'Lieber_Institute_OTS-20-7748_rush_posterior.tif' used is Step1.
+1. Intensity thresholding: works fine with high resolution images 
+1. Kmeans color based segmentation: works well with low contrast, noisy background, low resolution images. (ex: 10x images)
 
-# Intensity thresholding
+The following shows both the segmentations for the 1st sub image of `Lieber_Institute_OTS-20-7748_rush_posterior.tif` used is Step1.
+
+## Intensity thresholding
+
 ```matlab
 fname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1.tif';
 Img = imread(fname,1);
@@ -17,7 +18,8 @@ BW = imbinarize(rgb2gray(Img),thresh);
 save('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1_nucleisegmentation.mat','BW')
 imwrite(BW,'/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1_nucleisegmentation.tif')
 ```
-# Kmeans segmentation
+
+## Kmeans segmentation
 
 ```matlab
 fname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1.tif';

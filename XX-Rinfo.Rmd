@@ -1,0 +1,17 @@
+# R session information {-}
+
+Details on the R version used for making this book. The source code is available at [`LieberInstitute/VisiumImgProcessing`](https://github.com/LieberInstitute/VisiumImgProcessing).
+
+```{r session_packages, eval = TRUE, message = FALSE}
+## Load the package at the top of your script
+library("sessioninfo")
+```
+
+```{r session_info}
+## Reproducibility information
+options(width = 120)
+session_info()
+proc.time()
+```
+
+This book was last updated at `r Sys.time()`.

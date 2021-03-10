@@ -1,4 +1,4 @@
-# SPACERANGER
+# Step 3: Run spaceranger
 
 The following links and the flowchart provide useful information for running spaceranger on histology images. 
 
@@ -7,4 +7,4 @@ link to the github repo for running spaceranger, video tutorial etc.
 
 flow chart for running sapceranger 
 
-The output files 'scalefactors_json.json' and 'tissue_positions_list.csv' from the spaceranger saved in the spatial folder, are required for the following image processing steps.
+The output files `scalefactors_json.json` and `tissue_positions_list.csv` from the spaceranger saved in the spatial folder, are required for the following image processing steps.
