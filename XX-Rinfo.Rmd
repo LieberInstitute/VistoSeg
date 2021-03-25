@@ -1,6 +1,6 @@
 # R session information {-}
 
-Details on the R version used for making this book. The source code is available at [`LieberInstitute/VisiumImgProcessing`](https://github.com/LieberInstitute/VisiumImgProcessing).
+Details on the R version used for making this book. The source code is available at [`LieberInstitute/VisiumLIBD`](https://github.com/LieberInstitute/VisiumLIBD).
 
 ```{r session_packages, eval = TRUE, message = FALSE}
 ## Load the package at the top of your script
