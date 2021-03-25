@@ -1,5 +1,5 @@
-# VisiumLIBD
+# VisiumLIBD <img src="man/figures/logo.png" align="right" />
 
-Image processing pipeline for spatial projects
+Welcome to the `VisiumLIBD`! 
 
-This repository describes steps to run Image processing on visium/histology images for Spatial transcriptomics. You can see the documentation at http://research.libd.org/VisiumImgProcessing.
+This repository describes steps to run Image processing on visium/histology images for Spatial transcriptomics. You can see the documentation at http://research.libd.org/VisiumLIBD.
