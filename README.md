@@ -1,4 +1,4 @@
-# VisiumImgProcessing
+# VisiumLIBD
 
 Image processing pipeline for spatial projects
 
