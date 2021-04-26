@@ -16,8 +16,8 @@ output:
 
 \centering
 ![](images/visium_imaging.png)
+\centering
 (https://www.10xgenomics.com/products/spatial-gene-expression)
-
 \centering
 ![](images/visium_spot.png)
 
