@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Visium Image Processing</title>
-  <meta name="description" content="Visium Image Processing" />
+  <title>VisiumLIBD: Visium Image Processing</title>
+  <meta name="description" content="VisiumLIBD: Visium Image Processing" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Visium Image Processing" />
+  <meta property="og:title" content="VisiumLIBD: Visium Image Processing" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="LieberInstitute/VisiumLIBD" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Visium Image Processing" />
+  <meta name="twitter:title" content="VisiumLIBD: Visium Image Processing" />
   
   
   
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Visium Image Processing</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">VisiumLIBD: Visium Image Processing</a>
           </h1>
         </div>
 
@@ -161,19 +161,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Visium Image Processing</h1>
+<h1 class="title">VisiumLIBD: Visium Image Processing</h1>
 <p class="author"><em>Madhavi Tippani</em></p>
 <p class="author"><em>true</em></p>
 </div>
 <div id="overview" class="section level1 unnumbered">
 <h1>Overview</h1>
-<p><code>*Visium imaging*</code> is a part of whole <code>*spatial transcriptomics*</code> workflow, a barcoding-based transcriptome-wide technology released by <a href="https://www.10xgenomics.com">10X genomics</a>.</p>
-<p><img src="images/visium_imaging.png" title="Visium Imaging" align="middle" width="500px"/>
+<p><code>Visium imaging</code> is a part of whole <code>spatial transcriptomics</code> workflow, a barcoding-based transcriptome-wide technology released by <a href="https://www.10xgenomics.com">10X genomics</a>.</p>
+<p><img src="images/visium_imaging.png" />
+<img src="images/visium_imaging.png" title="Visium Imaging" align="middle" width="500px"/>
 (<a href="https://www.10xgenomics.com/products/spatial-gene-expression" class="uri">https://www.10xgenomics.com/products/spatial-gene-expression</a>)
 <img src="images/visium_spot.png" title="Gene Expression Slide" align="middle" width="500px"/></p>
 <div id="why-spatial-transcriptomics-or-visium-imaging" class="section level2 unnumbered">
 <h2>Why <em>spatial transcriptomics</em> or <em>visium imaging</em>??</h2>
-<p>Methods like RNAseq can profile single cells transcriptome-wide and enable researchers to identify cell type compositions but can necessarily destroy the spatial information. Multiplexing methods on other hand can provide spatial information but has significant limitations on the number of genes that can be processed and has issues with microscopy and related computational challenges. <code>*spatial transcriptomics*</code> provides solutions to these limitations allowing us to quantify gene expression with high spatial resolution. The key to this system is the <code>*visium imaging*</code> and <code>*visium gene expression slide*</code>, where the tissue sections from subjects goes onto the capture areas(green squares) on the slide. The whole slide is imaged at once and produces a huge output image file with all capture areas. The whole slide image has to be split into individual capture area images(necessarily JPEG or tiff) and processed accordingly for the downstream analysis.</p>
+<p>Methods like RNAseq can profile single cells transcriptome-wide and enable researchers to identify cell type compositions but can necessarily destroy the spatial information. Multiplexing methods on other hand can provide spatial information but has significant limitations on the number of genes that can be processed and has issues with microscopy and related computational challenges. <code>spatial transcriptomics</code> provides solutions to these limitations allowing us to quantify gene expression with high spatial resolution. The key to this system is the <code>visium imaging</code> and <code>visium gene expression slide</code>, where the tissue sections from subjects goes onto the capture areas(green squares) on the slide. The whole slide is imaged at once and produces a huge output image file with all capture areas. The whole slide image has to be split into individual capture area images(necessarily JPEG or tiff) and processed accordingly for the downstream analysis.</p>
 <p>This website describes the steps required to split, visualize and process the visium images from spatial transcriptomics projects generated by the <a href="https://www.10xgenomics.com/spatial-transcriptomics">10x Genomics Visium</a> commercial platform.</p>
 <p><img src="images/VisiumLIBD.png" title="VisiumLIBD" align="middle" width="500px"/></p>
 <p>The above figure describes the VisiumLIBD pipeline, where sections (A) and (B) correspond to visium imaging and the rest describes the workflow in a step-by-step procedure. (C) First, the whole slide image is split into the respective capture areas. (D) Then the nuclei from individual tiffs are segmented using <a href="https://www.mathworks.com/help/images/color-based-segmentation-using-k-means-clustering.html">Kmeans</a> color based segmentation (E) The output tiff files from (D) serve as input into the <a href="https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/using/count">Spaceranger</a> module for subsequent spatial transcriptomics processing and analysis. (F) Next we extract nuclei count per visium spot in the image. (G) Finally, the pipeline provides a GUI that allows the user to perform visual inspection of the segmentations by allowing the user to toggle between the visium and binary images, and also by providing zoom in/out options to clearly see the nuclei in the visium spot.</p>
