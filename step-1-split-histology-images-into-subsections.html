@@ -32,6 +32,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="step-2-segment-nuclei-from-each-histology-subsection.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -49,22 +50,21 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -129,11 +129,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#cite-us"><i class="fa fa-check"></i>Cite us</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="step-1-split-histology-images-into-subsections.html"><a href="step-1-split-histology-images-into-subsections.html"><i class="fa fa-check"></i><b>1</b> Step 1: Split histology images into subsections</a></li>
-<li class="chapter" data-level="2" data-path="step-2-segment-nuclei-from-each-histology-subsection.html"><a href="step-2-segment-nuclei-from-each-histology-subsection.html"><i class="fa fa-check"></i><b>2</b> Step 2: Segment nuclei from each histology subsection</a><ul>
+<li class="chapter" data-level="2" data-path="step-2-segment-nuclei-from-each-histology-subsection.html"><a href="step-2-segment-nuclei-from-each-histology-subsection.html"><i class="fa fa-check"></i><b>2</b> Step 2: Segment nuclei from each histology subsection</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="step-2-segment-nuclei-from-each-histology-subsection.html"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#intensity-thresholding"><i class="fa fa-check"></i><b>2.1</b> Intensity thresholding</a></li>
 <li class="chapter" data-level="2.2" data-path="step-2-segment-nuclei-from-each-histology-subsection.html"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#kmeans-segmentation"><i class="fa fa-check"></i><b>2.2</b> Kmeans segmentation</a></li>
 </ul></li>
@@ -158,85 +160,85 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="step-1-split-histology-images-into-subsections" class="section level1">
+<div id="step-1-split-histology-images-into-subsections" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Step 1: Split histology images into subsections</h1>
 <p>The raw histology image file from the slide scanner (JHU imaging core) is a multiplane tif file. The sample <code>Lieber_Institute_OTS-20-7748_rush_posterior.tif</code> (DLPFC data) is used here to run through the pipeline.</p>
 <p>The tif file is loaded and saved as matlab structure as shown below.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb1-1"><a href="step-1-split-histology-images-into-subsections.html#cb1-1"></a>fname = <span class="st">&#39;/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior.tif&#39;</span>;</span>
-<span id="cb1-2"><a href="step-1-split-histology-images-into-subsections.html#cb1-2"></a>numimgs = size(imfinfo(fname),<span class="fl">1</span>); <span class="co">%numimgs is the number of images in the tif file</span></span>
-<span id="cb1-3"><a href="step-1-split-histology-images-into-subsections.html#cb1-3"></a></span>
-<span id="cb1-4"><a href="step-1-split-histology-images-into-subsections.html#cb1-4"></a>parfor i = <span class="fl">1</span>:numimgs</span>
-<span id="cb1-5"><a href="step-1-split-histology-images-into-subsections.html#cb1-5"></a>    tic</span>
-<span id="cb1-6"><a href="step-1-split-histology-images-into-subsections.html#cb1-6"></a>    I{i}.image = imread(fname,i);</span>
-<span id="cb1-7"><a href="step-1-split-histology-images-into-subsections.html#cb1-7"></a>    toc</span>
-<span id="cb1-8"><a href="step-1-split-histology-images-into-subsections.html#cb1-8"></a>disp(num2str(i))</span>
-<span id="cb1-9"><a href="step-1-split-histology-images-into-subsections.html#cb1-9"></a>end</span>
-<span id="cb1-10"><a href="step-1-split-histology-images-into-subsections.html#cb1-10"></a></span>
-<span id="cb1-11"><a href="step-1-split-histology-images-into-subsections.html#cb1-11"></a><span class="co">%save tif image in mat format</span></span>
-<span id="cb1-12"><a href="step-1-split-histology-images-into-subsections.html#cb1-12"></a>save([fname(<span class="fl">1</span>:end-<span class="fl">4</span>),<span class="st">&#39;.mat&#39;</span>],<span class="st">&#39;I&#39;</span>, <span class="st">&#39;-v7.3&#39;</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb1-1"><a href="step-1-split-histology-images-into-subsections.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">fname</span> <span class="op">=</span> <span class="ss">&#39;/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior.tif&#39;</span><span class="op">;</span></span>
+<span id="cb1-2"><a href="step-1-split-histology-images-into-subsections.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">numimgs</span> <span class="op">=</span> <span class="va">size</span>(<span class="va">imfinfo</span>(<span class="va">fname</span>)<span class="op">,</span><span class="fl">1</span>)<span class="op">;</span> <span class="co">%numimgs is the number of images in the tif file</span></span>
+<span id="cb1-3"><a href="step-1-split-histology-images-into-subsections.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="step-1-split-histology-images-into-subsections.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">parfor</span> <span class="va">i</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">numimgs</span></span>
+<span id="cb1-5"><a href="step-1-split-histology-images-into-subsections.html#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">tic</span></span>
+<span id="cb1-6"><a href="step-1-split-histology-images-into-subsections.html#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="va">I</span>{<span class="va">i</span>}.<span class="va">image</span> <span class="op">=</span> <span class="va">imread</span>(<span class="va">fname</span><span class="op">,</span><span class="va">i</span>)<span class="op">;</span></span>
+<span id="cb1-7"><a href="step-1-split-histology-images-into-subsections.html#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="va">toc</span></span>
+<span id="cb1-8"><a href="step-1-split-histology-images-into-subsections.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="va">disp</span>(<span class="va">num2str</span>(<span class="va">i</span>))</span>
+<span id="cb1-9"><a href="step-1-split-histology-images-into-subsections.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb1-10"><a href="step-1-split-histology-images-into-subsections.html#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="step-1-split-histology-images-into-subsections.html#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">%save tif image in mat format</span></span>
+<span id="cb1-12"><a href="step-1-split-histology-images-into-subsections.html#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="va">save</span>([<span class="va">fname</span>(<span class="fl">1</span><span class="op">:</span><span class="kw">end</span><span class="op">-</span><span class="fl">4</span>)<span class="op">,</span><span class="ss">&#39;.mat&#39;</span>]<span class="op">,</span><span class="ss">&#39;I&#39;</span><span class="op">,</span> <span class="ss">&#39;-v7.3&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <p>This sample tif file has 7 images (numimgs = 7) shown below.</p>
 <p><img src="images/img1.png" title="Image 1" /> <img src="images/img2.png" title="Image 2" /> <img src="images/img3.png" title="Image 3" /> <img src="images/img4.png" title="Image 4" /> <img src="images/img5.png" title="Image 5" /> <img src="images/img6.png" title="Image 6" /> <img src="images/img7.png" title="Image 7" /><br/></p>
 <p>Though most of the images look same, the first image in the tif stack/file is the high resolution image of the slide, which was based on the image size (y,x,z dimensions) in pixels shown below in matlab.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb2-1"><a href="step-1-split-histology-images-into-subsections.html#cb2-1"></a>&gt;&gt; size(I{<span class="fl">1</span>}.image)</span>
-<span id="cb2-2"><a href="step-1-split-histology-images-into-subsections.html#cb2-2"></a></span>
-<span id="cb2-3"><a href="step-1-split-histology-images-into-subsections.html#cb2-3"></a>ans =</span>
-<span id="cb2-4"><a href="step-1-split-histology-images-into-subsections.html#cb2-4"></a></span>
-<span id="cb2-5"><a href="step-1-split-histology-images-into-subsections.html#cb2-5"></a>       <span class="fl">53384</span>      <span class="fl">160858</span>           <span class="fl">3</span></span>
-<span id="cb2-6"><a href="step-1-split-histology-images-into-subsections.html#cb2-6"></a></span>
-<span id="cb2-7"><a href="step-1-split-histology-images-into-subsections.html#cb2-7"></a>&gt;&gt; size(I{<span class="fl">2</span>}.image)</span>
-<span id="cb2-8"><a href="step-1-split-histology-images-into-subsections.html#cb2-8"></a></span>
-<span id="cb2-9"><a href="step-1-split-histology-images-into-subsections.html#cb2-9"></a>ans =</span>
-<span id="cb2-10"><a href="step-1-split-histology-images-into-subsections.html#cb2-10"></a></span>
-<span id="cb2-11"><a href="step-1-split-histology-images-into-subsections.html#cb2-11"></a>         <span class="fl">339</span>        <span class="fl">1024</span>           <span class="fl">3</span></span>
-<span id="cb2-12"><a href="step-1-split-histology-images-into-subsections.html#cb2-12"></a></span>
-<span id="cb2-13"><a href="step-1-split-histology-images-into-subsections.html#cb2-13"></a>&gt;&gt; size(I{<span class="fl">3</span>}.image)</span>
-<span id="cb2-14"><a href="step-1-split-histology-images-into-subsections.html#cb2-14"></a></span>
-<span id="cb2-15"><a href="step-1-split-histology-images-into-subsections.html#cb2-15"></a>ans =</span>
-<span id="cb2-16"><a href="step-1-split-histology-images-into-subsections.html#cb2-16"></a></span>
-<span id="cb2-17"><a href="step-1-split-histology-images-into-subsections.html#cb2-17"></a>       <span class="fl">13346</span>       <span class="fl">40214</span>           <span class="fl">3</span></span>
-<span id="cb2-18"><a href="step-1-split-histology-images-into-subsections.html#cb2-18"></a>       </span>
-<span id="cb2-19"><a href="step-1-split-histology-images-into-subsections.html#cb2-19"></a>&gt;&gt; size(I{<span class="fl">4</span>}.image)</span>
-<span id="cb2-20"><a href="step-1-split-histology-images-into-subsections.html#cb2-20"></a></span>
-<span id="cb2-21"><a href="step-1-split-histology-images-into-subsections.html#cb2-21"></a>ans =</span>
-<span id="cb2-22"><a href="step-1-split-histology-images-into-subsections.html#cb2-22"></a></span>
-<span id="cb2-23"><a href="step-1-split-histology-images-into-subsections.html#cb2-23"></a>        <span class="fl">3336</span>       <span class="fl">10053</span>           <span class="fl">3</span></span>
-<span id="cb2-24"><a href="step-1-split-histology-images-into-subsections.html#cb2-24"></a></span>
-<span id="cb2-25"><a href="step-1-split-histology-images-into-subsections.html#cb2-25"></a>&gt;&gt; size(I{<span class="fl">5</span>}.image)  </span>
-<span id="cb2-26"><a href="step-1-split-histology-images-into-subsections.html#cb2-26"></a></span>
-<span id="cb2-27"><a href="step-1-split-histology-images-into-subsections.html#cb2-27"></a>ans =</span>
-<span id="cb2-28"><a href="step-1-split-histology-images-into-subsections.html#cb2-28"></a></span>
-<span id="cb2-29"><a href="step-1-split-histology-images-into-subsections.html#cb2-29"></a>         <span class="fl">834</span>        <span class="fl">2513</span>           <span class="fl">3</span></span>
-<span id="cb2-30"><a href="step-1-split-histology-images-into-subsections.html#cb2-30"></a></span>
-<span id="cb2-31"><a href="step-1-split-histology-images-into-subsections.html#cb2-31"></a>&gt;&gt; size(I{<span class="fl">6</span>}.image)</span>
-<span id="cb2-32"><a href="step-1-split-histology-images-into-subsections.html#cb2-32"></a></span>
-<span id="cb2-33"><a href="step-1-split-histology-images-into-subsections.html#cb2-33"></a>ans =</span>
-<span id="cb2-34"><a href="step-1-split-histology-images-into-subsections.html#cb2-34"></a></span>
-<span id="cb2-35"><a href="step-1-split-histology-images-into-subsections.html#cb2-35"></a>         <span class="fl">777</span>         <span class="fl">765</span>           <span class="fl">3</span></span>
-<span id="cb2-36"><a href="step-1-split-histology-images-into-subsections.html#cb2-36"></a></span>
-<span id="cb2-37"><a href="step-1-split-histology-images-into-subsections.html#cb2-37"></a>&gt;&gt; size(I{<span class="fl">7</span>}.image)  </span>
-<span id="cb2-38"><a href="step-1-split-histology-images-into-subsections.html#cb2-38"></a></span>
-<span id="cb2-39"><a href="step-1-split-histology-images-into-subsections.html#cb2-39"></a>ans =</span>
-<span id="cb2-40"><a href="step-1-split-histology-images-into-subsections.html#cb2-40"></a></span>
-<span id="cb2-41"><a href="step-1-split-histology-images-into-subsections.html#cb2-41"></a>         <span class="fl">612</span>        <span class="fl">1600</span>           <span class="fl">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb2-1"><a href="step-1-split-histology-images-into-subsections.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">size</span>(<span class="va">I</span>{<span class="fl">1</span>}.<span class="va">image</span>)</span>
+<span id="cb2-2"><a href="step-1-split-histology-images-into-subsections.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="step-1-split-histology-images-into-subsections.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="va">ans</span> <span class="op">=</span></span>
+<span id="cb2-4"><a href="step-1-split-histology-images-into-subsections.html#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="step-1-split-histology-images-into-subsections.html#cb2-5" aria-hidden="true" tabindex="-1"></a>       <span class="fl">53384</span>      <span class="fl">160858</span>           <span class="fl">3</span></span>
+<span id="cb2-6"><a href="step-1-split-histology-images-into-subsections.html#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="step-1-split-histology-images-into-subsections.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">size</span>(<span class="va">I</span>{<span class="fl">2</span>}.<span class="va">image</span>)</span>
+<span id="cb2-8"><a href="step-1-split-histology-images-into-subsections.html#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="step-1-split-histology-images-into-subsections.html#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="va">ans</span> <span class="op">=</span></span>
+<span id="cb2-10"><a href="step-1-split-histology-images-into-subsections.html#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="step-1-split-histology-images-into-subsections.html#cb2-11" aria-hidden="true" tabindex="-1"></a>         <span class="fl">339</span>        <span class="fl">1024</span>           <span class="fl">3</span></span>
+<span id="cb2-12"><a href="step-1-split-histology-images-into-subsections.html#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="step-1-split-histology-images-into-subsections.html#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">size</span>(<span class="va">I</span>{<span class="fl">3</span>}.<span class="va">image</span>)</span>
+<span id="cb2-14"><a href="step-1-split-histology-images-into-subsections.html#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="step-1-split-histology-images-into-subsections.html#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="va">ans</span> <span class="op">=</span></span>
+<span id="cb2-16"><a href="step-1-split-histology-images-into-subsections.html#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="step-1-split-histology-images-into-subsections.html#cb2-17" aria-hidden="true" tabindex="-1"></a>       <span class="fl">13346</span>       <span class="fl">40214</span>           <span class="fl">3</span></span>
+<span id="cb2-18"><a href="step-1-split-histology-images-into-subsections.html#cb2-18" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb2-19"><a href="step-1-split-histology-images-into-subsections.html#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">size</span>(<span class="va">I</span>{<span class="fl">4</span>}.<span class="va">image</span>)</span>
+<span id="cb2-20"><a href="step-1-split-histology-images-into-subsections.html#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="step-1-split-histology-images-into-subsections.html#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="va">ans</span> <span class="op">=</span></span>
+<span id="cb2-22"><a href="step-1-split-histology-images-into-subsections.html#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="step-1-split-histology-images-into-subsections.html#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="fl">3336</span>       <span class="fl">10053</span>           <span class="fl">3</span></span>
+<span id="cb2-24"><a href="step-1-split-histology-images-into-subsections.html#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="step-1-split-histology-images-into-subsections.html#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">size</span>(<span class="va">I</span>{<span class="fl">5</span>}.<span class="va">image</span>)  </span>
+<span id="cb2-26"><a href="step-1-split-histology-images-into-subsections.html#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="step-1-split-histology-images-into-subsections.html#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="va">ans</span> <span class="op">=</span></span>
+<span id="cb2-28"><a href="step-1-split-histology-images-into-subsections.html#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="step-1-split-histology-images-into-subsections.html#cb2-29" aria-hidden="true" tabindex="-1"></a>         <span class="fl">834</span>        <span class="fl">2513</span>           <span class="fl">3</span></span>
+<span id="cb2-30"><a href="step-1-split-histology-images-into-subsections.html#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="step-1-split-histology-images-into-subsections.html#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">size</span>(<span class="va">I</span>{<span class="fl">6</span>}.<span class="va">image</span>)</span>
+<span id="cb2-32"><a href="step-1-split-histology-images-into-subsections.html#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="step-1-split-histology-images-into-subsections.html#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="va">ans</span> <span class="op">=</span></span>
+<span id="cb2-34"><a href="step-1-split-histology-images-into-subsections.html#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="step-1-split-histology-images-into-subsections.html#cb2-35" aria-hidden="true" tabindex="-1"></a>         <span class="fl">777</span>         <span class="fl">765</span>           <span class="fl">3</span></span>
+<span id="cb2-36"><a href="step-1-split-histology-images-into-subsections.html#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="step-1-split-histology-images-into-subsections.html#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">size</span>(<span class="va">I</span>{<span class="fl">7</span>}.<span class="va">image</span>)  </span>
+<span id="cb2-38"><a href="step-1-split-histology-images-into-subsections.html#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="step-1-split-histology-images-into-subsections.html#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="va">ans</span> <span class="op">=</span></span>
+<span id="cb2-40"><a href="step-1-split-histology-images-into-subsections.html#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="step-1-split-histology-images-into-subsections.html#cb2-41" aria-hidden="true" tabindex="-1"></a>         <span class="fl">612</span>        <span class="fl">1600</span>           <span class="fl">3</span></span></code></pre></div>
 <p>The image (Img) is split into 4 sub images (Img1,Img2,Img3,Img4) by dividing the x(160858) dimesion into 4 equal parts. Sometimes the center of the image is not the center of the slide, in such case the offset is adjusted manually. Each sub image is resized to 70% of the original size (eg 100 X 100 Pixel region is resized to 70 X 70 pixel region) and saved as individual tif and mat files in the same location as the raw tif file. Images are resized as matlab cannot store images that occupies more than 2^32 - 1 bytes of data.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb3-1"><a href="step-1-split-histology-images-into-subsections.html#cb3-1"></a>Img = I{<span class="fl">1</span>}.image;</span>
-<span id="cb3-2"><a href="step-1-split-histology-images-into-subsections.html#cb3-2"></a></span>
-<span id="cb3-3"><a href="step-1-split-histology-images-into-subsections.html#cb3-3"></a>[y,x,z] = size(Img);</span>
-<span id="cb3-4"><a href="step-1-split-histology-images-into-subsections.html#cb3-4"></a></span>
-<span id="cb3-5"><a href="step-1-split-histology-images-into-subsections.html#cb3-5"></a>Img1 = Img(:,<span class="fl">1</span>:round(x/<span class="fl">4</span>),:);</span>
-<span id="cb3-6"><a href="step-1-split-histology-images-into-subsections.html#cb3-6"></a>Img2 = Img(:,round(x/<span class="fl">4</span>):round(x/<span class="fl">4</span>)*<span class="fl">2</span>,:);</span>
-<span id="cb3-7"><a href="step-1-split-histology-images-into-subsections.html#cb3-7"></a>Img3 = Img(:,round(x/<span class="fl">4</span>)*<span class="fl">2</span>:round(x/<span class="fl">4</span>)*<span class="fl">3</span>,:);</span>
-<span id="cb3-8"><a href="step-1-split-histology-images-into-subsections.html#cb3-8"></a>Img4 = Img(:,round(x/<span class="fl">4</span>)*<span class="fl">3</span>:end,:);</span>
-<span id="cb3-9"><a href="step-1-split-histology-images-into-subsections.html#cb3-9"></a></span>
-<span id="cb3-10"><a href="step-1-split-histology-images-into-subsections.html#cb3-10"></a>IMG1 = imresize(Img1,<span class="fl">0.7</span>);</span>
-<span id="cb3-11"><a href="step-1-split-histology-images-into-subsections.html#cb3-11"></a>IMG2 = imresize(Img2,<span class="fl">0.7</span>);</span>
-<span id="cb3-12"><a href="step-1-split-histology-images-into-subsections.html#cb3-12"></a>IMG3 = imresize(Img3,<span class="fl">0.7</span>);</span>
-<span id="cb3-13"><a href="step-1-split-histology-images-into-subsections.html#cb3-13"></a>IMG4 = imresize(Img4,<span class="fl">0.7</span>);</span>
-<span id="cb3-14"><a href="step-1-split-histology-images-into-subsections.html#cb3-14"></a></span>
-<span id="cb3-15"><a href="step-1-split-histology-images-into-subsections.html#cb3-15"></a>for i = <span class="fl">1</span>:<span class="fl">4</span></span>
-<span id="cb3-16"><a href="step-1-split-histology-images-into-subsections.html#cb3-16"></a>save([<span class="st">&#39;/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Lieber_Institute_OTS-20-7748_rush_posterior_&#39;</span>,num2str(i),<span class="st">&#39;.mat&#39;</span>],[<span class="st">&#39;Img&#39;</span>,num2str(i)],<span class="st">&#39;-v7.3&#39;</span>);</span>
-<span id="cb3-17"><a href="step-1-split-histology-images-into-subsections.html#cb3-17"></a>eval([<span class="st">&#39;imwrite(IMG&#39;</span>,num2str(i),<span class="st">&#39;,&#39;&#39;/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Lieber_Institute_OTS-20-7748_rush_posterior_&#39;</span>,num2str(i),<span class="st">&#39;.tif&#39;&#39;)&#39;</span>]);</span>
-<span id="cb3-18"><a href="step-1-split-histology-images-into-subsections.html#cb3-18"></a>end</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb3-1"><a href="step-1-split-histology-images-into-subsections.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">Img</span> <span class="op">=</span> <span class="va">I</span>{<span class="fl">1</span>}.<span class="va">image</span><span class="op">;</span></span>
+<span id="cb3-2"><a href="step-1-split-histology-images-into-subsections.html#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="step-1-split-histology-images-into-subsections.html#cb3-3" aria-hidden="true" tabindex="-1"></a>[<span class="va">y</span><span class="op">,</span><span class="va">x</span><span class="op">,</span><span class="va">z</span>] <span class="op">=</span> <span class="va">size</span>(<span class="va">Img</span>)<span class="op">;</span></span>
+<span id="cb3-4"><a href="step-1-split-histology-images-into-subsections.html#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="step-1-split-histology-images-into-subsections.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="va">Img1</span> <span class="op">=</span> <span class="va">Img</span>(<span class="op">:,</span><span class="fl">1</span><span class="op">:</span><span class="va">round</span>(<span class="va">x</span><span class="op">/</span><span class="fl">4</span>)<span class="op">,:</span>)<span class="op">;</span></span>
+<span id="cb3-6"><a href="step-1-split-histology-images-into-subsections.html#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="va">Img2</span> <span class="op">=</span> <span class="va">Img</span>(<span class="op">:,</span><span class="va">round</span>(<span class="va">x</span><span class="op">/</span><span class="fl">4</span>)<span class="op">:</span><span class="va">round</span>(<span class="va">x</span><span class="op">/</span><span class="fl">4</span>)<span class="op">*</span><span class="fl">2</span><span class="op">,:</span>)<span class="op">;</span></span>
+<span id="cb3-7"><a href="step-1-split-histology-images-into-subsections.html#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="va">Img3</span> <span class="op">=</span> <span class="va">Img</span>(<span class="op">:,</span><span class="va">round</span>(<span class="va">x</span><span class="op">/</span><span class="fl">4</span>)<span class="op">*</span><span class="fl">2</span><span class="op">:</span><span class="va">round</span>(<span class="va">x</span><span class="op">/</span><span class="fl">4</span>)<span class="op">*</span><span class="fl">3</span><span class="op">,:</span>)<span class="op">;</span></span>
+<span id="cb3-8"><a href="step-1-split-histology-images-into-subsections.html#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="va">Img4</span> <span class="op">=</span> <span class="va">Img</span>(<span class="op">:,</span><span class="va">round</span>(<span class="va">x</span><span class="op">/</span><span class="fl">4</span>)<span class="op">*</span><span class="fl">3</span><span class="op">:</span><span class="kw">end</span><span class="op">,:</span>)<span class="op">;</span></span>
+<span id="cb3-9"><a href="step-1-split-histology-images-into-subsections.html#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="step-1-split-histology-images-into-subsections.html#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="va">IMG1</span> <span class="op">=</span> <span class="va">imresize</span>(<span class="va">Img1</span><span class="op">,</span><span class="fl">0.7</span>)<span class="op">;</span></span>
+<span id="cb3-11"><a href="step-1-split-histology-images-into-subsections.html#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="va">IMG2</span> <span class="op">=</span> <span class="va">imresize</span>(<span class="va">Img2</span><span class="op">,</span><span class="fl">0.7</span>)<span class="op">;</span></span>
+<span id="cb3-12"><a href="step-1-split-histology-images-into-subsections.html#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="va">IMG3</span> <span class="op">=</span> <span class="va">imresize</span>(<span class="va">Img3</span><span class="op">,</span><span class="fl">0.7</span>)<span class="op">;</span></span>
+<span id="cb3-13"><a href="step-1-split-histology-images-into-subsections.html#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="va">IMG4</span> <span class="op">=</span> <span class="va">imresize</span>(<span class="va">Img4</span><span class="op">,</span><span class="fl">0.7</span>)<span class="op">;</span></span>
+<span id="cb3-14"><a href="step-1-split-histology-images-into-subsections.html#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="step-1-split-histology-images-into-subsections.html#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="va">i</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span></span>
+<span id="cb3-16"><a href="step-1-split-histology-images-into-subsections.html#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="va">save</span>([<span class="ss">&#39;/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Lieber_Institute_OTS-20-7748_rush_posterior_&#39;</span><span class="op">,</span><span class="va">num2str</span>(<span class="va">i</span>)<span class="op">,</span><span class="ss">&#39;.mat&#39;</span>]<span class="op">,</span>[<span class="ss">&#39;Img&#39;</span><span class="op">,</span><span class="va">num2str</span>(<span class="va">i</span>)]<span class="op">,</span><span class="ss">&#39;-v7.3&#39;</span>)<span class="op">;</span></span>
+<span id="cb3-17"><a href="step-1-split-histology-images-into-subsections.html#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="va">eval</span>([<span class="ss">&#39;imwrite(IMG&#39;</span><span class="op">,</span><span class="va">num2str</span>(<span class="va">i</span>)<span class="op">,</span><span class="ss">&#39;,&#39;&#39;/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Lieber_Institute_OTS-20-7748_rush_posterior_&#39;</span><span class="op">,</span><span class="va">num2str</span>(<span class="va">i</span>)<span class="op">,</span><span class="ss">&#39;.tif&#39;&#39;)&#39;</span>])<span class="op">;</span></span>
+<span id="cb3-18"><a href="step-1-split-histology-images-into-subsections.html#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
 
 </div>
             </section>

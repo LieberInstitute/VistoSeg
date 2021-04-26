@@ -32,6 +32,7 @@
   
 <link rel="prev" href="step-1-split-histology-images-into-subsections.html"/>
 <link rel="next" href="step-3-run-spaceranger.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -49,22 +50,21 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -129,11 +129,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#cite-us"><i class="fa fa-check"></i>Cite us</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="step-1-split-histology-images-into-subsections.html"><a href="step-1-split-histology-images-into-subsections.html"><i class="fa fa-check"></i><b>1</b> Step 1: Split histology images into subsections</a></li>
-<li class="chapter" data-level="2" data-path="step-2-segment-nuclei-from-each-histology-subsection.html"><a href="step-2-segment-nuclei-from-each-histology-subsection.html"><i class="fa fa-check"></i><b>2</b> Step 2: Segment nuclei from each histology subsection</a><ul>
+<li class="chapter" data-level="2" data-path="step-2-segment-nuclei-from-each-histology-subsection.html"><a href="step-2-segment-nuclei-from-each-histology-subsection.html"><i class="fa fa-check"></i><b>2</b> Step 2: Segment nuclei from each histology subsection</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="step-2-segment-nuclei-from-each-histology-subsection.html"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#intensity-thresholding"><i class="fa fa-check"></i><b>2.1</b> Intensity thresholding</a></li>
 <li class="chapter" data-level="2.2" data-path="step-2-segment-nuclei-from-each-histology-subsection.html"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#kmeans-segmentation"><i class="fa fa-check"></i><b>2.2</b> Kmeans segmentation</a></li>
 </ul></li>
@@ -158,7 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="step-2-segment-nuclei-from-each-histology-subsection" class="section level1">
+<div id="step-2-segment-nuclei-from-each-histology-subsection" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Step 2: Segment nuclei from each histology subsection</h1>
 <p>We have been using two methods for nuclei segmentation in histology images.</p>
 <ol style="list-style-type: decimal">
@@ -166,38 +168,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Kmeans color based segmentation: works well with low contrast, noisy background, low resolution images. (ex: 10x images)</li>
 </ol>
 <p>The following shows both the segmentations for the 1st sub image of <code>Lieber_Institute_OTS-20-7748_rush_posterior.tif</code> used is Step1.</p>
-<div id="intensity-thresholding" class="section level2">
+<div id="intensity-thresholding" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Intensity thresholding</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb4-1"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb4-1"></a>fname = <span class="st">&#39;/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1.tif&#39;</span>;</span>
-<span id="cb4-2"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb4-2"></a>Img = imread(fname,<span class="fl">1</span>);</span>
-<span id="cb4-3"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb4-3"></a>thresh = graythresh(rgb2gray(Img));</span>
-<span id="cb4-4"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb4-4"></a>BW = imbinarize(rgb2gray(Img),thresh);</span>
-<span id="cb4-5"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb4-5"></a></span>
-<span id="cb4-6"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb4-6"></a>save(<span class="st">&#39;/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1_nucleisegmentation.mat&#39;</span>,<span class="st">&#39;BW&#39;</span>)</span>
-<span id="cb4-7"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb4-7"></a>imwrite(BW,<span class="st">&#39;/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1_nucleisegmentation.tif&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb4-1"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">fname</span> <span class="op">=</span> <span class="ss">&#39;/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1.tif&#39;</span><span class="op">;</span></span>
+<span id="cb4-2"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">Img</span> <span class="op">=</span> <span class="va">imread</span>(<span class="va">fname</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span></span>
+<span id="cb4-3"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="va">thresh</span> <span class="op">=</span> <span class="va">graythresh</span>(<span class="va">rgb2gray</span>(<span class="va">Img</span>))<span class="op">;</span></span>
+<span id="cb4-4"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="va">BW</span> <span class="op">=</span> <span class="va">imbinarize</span>(<span class="va">rgb2gray</span>(<span class="va">Img</span>)<span class="op">,</span><span class="va">thresh</span>)<span class="op">;</span></span>
+<span id="cb4-5"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="va">save</span>(<span class="ss">&#39;/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1_nucleisegmentation.mat&#39;</span><span class="op">,</span><span class="ss">&#39;BW&#39;</span>)</span>
+<span id="cb4-7"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="va">imwrite</span>(<span class="va">BW</span><span class="op">,</span><span class="ss">&#39;/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1_nucleisegmentation.tif&#39;</span>)</span></code></pre></div>
 </div>
-<div id="kmeans-segmentation" class="section level2">
+<div id="kmeans-segmentation" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Kmeans segmentation</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb5-1"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-1"></a>fname = <span class="st">&#39;/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1.tif&#39;</span>;</span>
-<span id="cb5-2"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-2"></a>Img = imread(fname,<span class="fl">1</span>);</span>
-<span id="cb5-3"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-3"></a>Img_smooth = imgaussfilt(Img,<span class="fl">4</span>);</span>
-<span id="cb5-4"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-4"></a>Img_smooth_adj = imadjust(Img_smooth, [<span class="fl">.2</span> <span class="fl">.3</span> <span class="fl">0</span>; <span class="fl">.6</span> <span class="fl">.7</span> <span class="fl">1</span>],[]);</span>
-<span id="cb5-5"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-5"></a></span>
-<span id="cb5-6"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-6"></a>he = Img_smooth_adj;</span>
-<span id="cb5-7"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-7"></a>lab_he = rgb2lab(he);</span>
-<span id="cb5-8"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-8"></a>ab = lab_he(:,:,<span class="fl">2</span>:<span class="fl">3</span>);</span>
-<span id="cb5-9"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-9"></a>ab = im2single(ab);</span>
-<span id="cb5-10"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-10"></a>nColors = <span class="fl">5</span>;</span>
-<span id="cb5-11"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-11"></a>pixel_labels = imsegkmeans(ab,nColors,<span class="st">&#39;NumAttempts&#39;</span>,<span class="fl">3</span>);</span>
-<span id="cb5-12"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-12"></a></span>
-<span id="cb5-13"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-13"></a>parfor i = <span class="fl">1</span>:nColors</span>
-<span id="cb5-14"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-14"></a>mask{i} = pixel_labels==i;</span>
-<span id="cb5-15"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-15"></a>cluster{i} = he .* uint8(mask{i});</span>
-<span id="cb5-16"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-16"></a>end</span>
-<span id="cb5-17"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-17"></a></span>
-<span id="cb5-18"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-18"></a>nuclei_mask = mask{<span class="fl">4</span>};</span>
-<span id="cb5-19"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-19"></a>imwrite(cluster{<span class="fl">4</span>},<span class="st">&#39;/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/MiSeq_Pilot/Images/Raw/Lieber-Institute_OTS-20-7748_rush_posterior_1_cluster4Nuclei.tif&#39;</span>) </span>
-<span id="cb5-20"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-20"></a>save(<span class="st">&#39;/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/MiSeq_Pilot/Images/Raw/Lieber-Institute_OTS-20-7748_rush_posterior_1_nucleisegmentation.mat&#39;</span>,<span class="st">&#39;nuclei_mask&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb5-1"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="va">fname</span> <span class="op">=</span> <span class="ss">&#39;/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1.tif&#39;</span><span class="op">;</span></span>
+<span id="cb5-2"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="va">Img</span> <span class="op">=</span> <span class="va">imread</span>(<span class="va">fname</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span></span>
+<span id="cb5-3"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="va">Img_smooth</span> <span class="op">=</span> <span class="va">imgaussfilt</span>(<span class="va">Img</span><span class="op">,</span><span class="fl">4</span>)<span class="op">;</span></span>
+<span id="cb5-4"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="va">Img_smooth_adj</span> <span class="op">=</span> <span class="va">imadjust</span>(<span class="va">Img_smooth</span><span class="op">,</span> [<span class="fl">.2</span> <span class="fl">.3</span> <span class="fl">0</span><span class="op">;</span> <span class="fl">.6</span> <span class="fl">.7</span> <span class="fl">1</span>]<span class="op">,</span>[])<span class="op">;</span></span>
+<span id="cb5-5"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="va">he</span> <span class="op">=</span> <span class="va">Img_smooth_adj</span><span class="op">;</span></span>
+<span id="cb5-7"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="va">lab_he</span> <span class="op">=</span> <span class="va">rgb2lab</span>(<span class="va">he</span>)<span class="op">;</span></span>
+<span id="cb5-8"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="va">ab</span> <span class="op">=</span> <span class="va">lab_he</span>(<span class="op">:,:,</span><span class="fl">2</span><span class="op">:</span><span class="fl">3</span>)<span class="op">;</span></span>
+<span id="cb5-9"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="va">ab</span> <span class="op">=</span> <span class="va">im2single</span>(<span class="va">ab</span>)<span class="op">;</span></span>
+<span id="cb5-10"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="va">nColors</span> <span class="op">=</span> <span class="fl">5</span><span class="op">;</span></span>
+<span id="cb5-11"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="va">pixel_labels</span> <span class="op">=</span> <span class="va">imsegkmeans</span>(<span class="va">ab</span><span class="op">,</span><span class="va">nColors</span><span class="op">,</span><span class="ss">&#39;NumAttempts&#39;</span><span class="op">,</span><span class="fl">3</span>)<span class="op">;</span></span>
+<span id="cb5-12"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="kw">parfor</span> <span class="va">i</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">nColors</span></span>
+<span id="cb5-14"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="va">mask</span>{<span class="va">i</span>} <span class="op">=</span> <span class="va">pixel_labels</span><span class="op">==</span><span class="va">i</span><span class="op">;</span></span>
+<span id="cb5-15"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="va">cluster</span>{<span class="va">i</span>} <span class="op">=</span> <span class="va">he</span> <span class="op">.*</span> <span class="va">uint8</span>(<span class="va">mask</span>{<span class="va">i</span>})<span class="op">;</span></span>
+<span id="cb5-16"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb5-17"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="va">nuclei_mask</span> <span class="op">=</span> <span class="va">mask</span>{<span class="fl">4</span>}<span class="op">;</span></span>
+<span id="cb5-19"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="va">imwrite</span>(<span class="va">cluster</span>{<span class="fl">4</span>}<span class="op">,</span><span class="ss">&#39;/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/MiSeq_Pilot/Images/Raw/Lieber-Institute_OTS-20-7748_rush_posterior_1_cluster4Nuclei.tif&#39;</span>) </span>
+<span id="cb5-20"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="va">save</span>(<span class="ss">&#39;/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/MiSeq_Pilot/Images/Raw/Lieber-Institute_OTS-20-7748_rush_posterior_1_nucleisegmentation.mat&#39;</span><span class="op">,</span><span class="ss">&#39;nuclei_mask&#39;</span>)</span></code></pre></div>
 
 </div>
 </div>

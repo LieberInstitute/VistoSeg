@@ -32,6 +32,7 @@
   
 <link rel="prev" href="step-5-atlasaligner.html"/>
 
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -49,22 +50,21 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -129,11 +129,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#cite-us"><i class="fa fa-check"></i>Cite us</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="step-1-split-histology-images-into-subsections.html"><a href="step-1-split-histology-images-into-subsections.html"><i class="fa fa-check"></i><b>1</b> Step 1: Split histology images into subsections</a></li>
-<li class="chapter" data-level="2" data-path="step-2-segment-nuclei-from-each-histology-subsection.html"><a href="step-2-segment-nuclei-from-each-histology-subsection.html"><i class="fa fa-check"></i><b>2</b> Step 2: Segment nuclei from each histology subsection</a><ul>
+<li class="chapter" data-level="2" data-path="step-2-segment-nuclei-from-each-histology-subsection.html"><a href="step-2-segment-nuclei-from-each-histology-subsection.html"><i class="fa fa-check"></i><b>2</b> Step 2: Segment nuclei from each histology subsection</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="step-2-segment-nuclei-from-each-histology-subsection.html"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#intensity-thresholding"><i class="fa fa-check"></i><b>2.1</b> Intensity thresholding</a></li>
 <li class="chapter" data-level="2.2" data-path="step-2-segment-nuclei-from-each-histology-subsection.html"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#kmeans-segmentation"><i class="fa fa-check"></i><b>2.2</b> Kmeans segmentation</a></li>
 </ul></li>
@@ -161,52 +163,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="r-session-information" class="section level1 unnumbered">
 <h1>R session information</h1>
 <p>Details on the R version used for making this book. The source code is available at <a href="https://github.com/LieberInstitute/VisiumLIBD"><code>LieberInstitute/VisiumLIBD</code></a>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-session-information.html#cb7-1"></a><span class="co">## Load the package at the top of your script</span></span>
-<span id="cb7-2"><a href="r-session-information.html#cb7-2"></a><span class="kw">library</span>(<span class="st">&quot;sessioninfo&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r-session-information.html#cb8-1"></a><span class="co">## Reproducibility information</span></span>
-<span id="cb8-2"><a href="r-session-information.html#cb8-2"></a><span class="kw">options</span>(<span class="dt">width =</span> <span class="dv">120</span>)</span>
-<span id="cb8-3"><a href="r-session-information.html#cb8-3"></a><span class="kw">session_info</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-session-information.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Load the package at the top of your script</span></span>
+<span id="cb7-2"><a href="r-session-information.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;sessioninfo&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r-session-information.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Reproducibility information</span></span>
+<span id="cb8-2"><a href="r-session-information.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">width =</span> <span class="dv">120</span>)</span>
+<span id="cb8-3"><a href="r-session-information.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">session_info</span>()</span></code></pre></div>
 <pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  setting  value                       
 ##  version  R version 4.0.3 (2020-10-10)
-##  os       Ubuntu 20.04.1 LTS          
+##  os       Ubuntu 20.04 LTS            
 ##  system   x86_64, linux-gnu           
 ##  ui       X11                         
 ##  language (EN)                        
 ##  collate  en_US.UTF-8                 
 ##  ctype    en_US.UTF-8                 
 ##  tz       Etc/UTC                     
-##  date     2021-03-25                  
+##  date     2021-04-26                  
 ## 
 ## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  package     * version date       lib source        
-##  assertthat    0.2.1   2019-03-21 [2] RSPM (R 4.0.0)
-##  BiocManager * 1.30.10 2019-11-16 [2] CRAN (R 4.0.3)
+##  assertthat    0.2.1   2019-03-21 [2] RSPM (R 4.0.3)
 ##  bookdown      0.21    2020-10-13 [1] RSPM (R 4.0.2)
-##  cli           2.3.1   2021-02-23 [2] RSPM (R 4.0.3)
+##  cli           2.3.0   2021-01-31 [2] RSPM (R 4.0.3)
 ##  digest        0.6.27  2020-10-24 [2] RSPM (R 4.0.3)
-##  evaluate      0.14    2019-05-28 [2] RSPM (R 4.0.0)
-##  glue          1.4.2   2020-08-27 [2] RSPM (R 4.0.2)
+##  evaluate      0.14    2019-05-28 [2] RSPM (R 4.0.3)
+##  glue          1.4.2   2020-08-27 [2] RSPM (R 4.0.3)
 ##  htmltools     0.5.1.1 2021-01-22 [2] RSPM (R 4.0.3)
 ##  knitr         1.31    2021-01-27 [2] RSPM (R 4.0.3)
 ##  magrittr      2.0.1   2020-11-17 [2] RSPM (R 4.0.3)
 ##  rlang         0.4.10  2020-12-30 [2] RSPM (R 4.0.3)
-##  rmarkdown     2.7     2021-02-19 [1] RSPM (R 4.0.3)
+##  rmarkdown     2.6     2020-12-14 [1] RSPM (R 4.0.3)
 ##  rstudioapi    0.13    2020-11-12 [2] RSPM (R 4.0.3)
 ##  sessioninfo * 1.1.1   2018-11-05 [1] RSPM (R 4.0.3)
-##  stringi       1.5.3   2020-09-09 [2] RSPM (R 4.0.2)
-##  stringr       1.4.0   2019-02-10 [2] RSPM (R 4.0.0)
+##  stringi       1.5.3   2020-09-09 [2] RSPM (R 4.0.3)
+##  stringr       1.4.0   2019-02-10 [2] RSPM (R 4.0.3)
 ##  withr         2.4.1   2021-01-26 [2] RSPM (R 4.0.3)
-##  xfun          0.22    2021-03-11 [2] RSPM (R 4.0.3)
-##  yaml          2.2.1   2020-02-01 [2] RSPM (R 4.0.0)
+##  xfun          0.21    2021-02-10 [2] RSPM (R 4.0.3)
+##  yaml          2.2.1   2020-02-01 [2] RSPM (R 4.0.3)
 ## 
 ## [1] /__w/_temp/Library
 ## [2] /usr/local/lib/R/site-library
 ## [3] /usr/local/lib/R/library</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="r-session-information.html#cb10-1"></a><span class="kw">proc.time</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="r-session-information.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">proc.time</span>()</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.642   0.130   0.736</code></pre>
-<p>This book was last updated at 2021-03-25 18:05:04.</p>
+##   0.489   0.124   0.464</code></pre>
+<p>This book was last updated at 2021-04-26 10:51:47.</p>
 
 </div>
             </section>
