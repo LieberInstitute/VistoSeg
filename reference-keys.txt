@@ -1,4 +1,3 @@
-why-spatial-transcriptomics-or-visium-imaging
 step-1-split-histology-images-into-subsections
 step-2-segment-nuclei-from-each-histology-subsection
 intensity-thresholding
