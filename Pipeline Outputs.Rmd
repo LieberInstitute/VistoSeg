@@ -1,0 +1,15 @@
+## Individual tiff files from `Split.m` {-}
+
+should be hosted on AWS as these will be ~2GB
+
+## Binary Nuclei Segmentations {-}
+
+can be included in the repo
+
+## Output files from `Spaceranger` {-}
+
+can be included in the repo
+
+## Output files from `spotspotcheck` {-}
+
+can be included in the repo

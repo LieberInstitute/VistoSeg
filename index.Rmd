@@ -49,3 +49,33 @@ We hope that [VisiumLIBD](http://research.libd.org/VisiumLIBD/) will be useful f
 This is a project by the **Imaging Development Team** from **Keri Martinowich's Lab** at the [Lieber Institute for Brain Development](https://www.libd.org/).
 
 <img src="http://lcolladotor.github.io/img/LIBD_logo.jpg" width="250px">
+
+## Software Requirements {-}
+
+The pipeline was developed under the following software configuration.
+\centering
+![](images/Software_Configuration.png)
+`VisiumLIBD` has been tested on Linux, Windows and MacOS.
+
+### `MATLAB`
+
+MATLAB version R2019a 64-bit or later is required to run VisiumLIBD pipeline with the [Image Processing Toolbox](https://www.mathworks.com/products/image.html) preloaded. 
+
+### `Memory`
+Visium images are high resolution, and the typical size of these images produced inhouse is ~25GB. The system RAM (we use ~50GB) should be twice the size of these images and the disc space (we use ~100GB) should be thrice to store the output.
+
+### `Installation`
+
+The pipeline is availble at (https://github.com/LieberInstitute/VisiumLIBD/)
+Which can be download to your system from the Github website directly or the main repository can be cloned to your system using the following command on terminal/command prompt.
+`git clone https://github.com/LieberInstitute/VisiumLIBD.git`
+
+## Data Availability {-}
+
+The data is hosted at [the link to AWS](https://github.com/LieberInstitute/spatialLIBD#raw-data)
+I started building the repo based on the sample from new DLPFC data, the functions I recently made for the pipeline, works fine on the new DLPFC data. The pipeline should run fine on the 10X data and the pilot DLPFC data too, but is it troublesome to make the new DLPFC data public? Atleast, one sample from new DLPFC data should be good.  
+
+**Other potential datasets** 
+[LIBD pilot DLPFC](https://github.com/LieberInstitute/spatialLIBD#raw-data)
+[10x Genomics spatial data sets](https://support.10xgenomics.com/spatial-gene-expression/datasets) 
+
