@@ -134,17 +134,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="index.html#cite-visiumlibd">Cite <code>VisiumLIBD</code></a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software Requirements</a>
 <ul>
-<li class="chapter" data-level="0.0.1" data-path="index.html"><a href="index.html#matlab"><i class="fa fa-check"></i><b>0.0.1</b> <code>MATLAB</code></a></li>
-<li class="chapter" data-level="0.0.2" data-path="index.html"><a href="index.html#memory"><i class="fa fa-check"></i><b>0.0.2</b> <code>Memory</code></a></li>
-<li class="chapter" data-level="0.0.3" data-path="index.html"><a href="index.html#installation"><i class="fa fa-check"></i><b>0.0.3</b> <code>Installation</code></a></li>
+<li><a href="index.html#matlab"><code>MATLAB</code></a></li>
+<li><a href="index.html#memory"><code>Memory</code></a></li>
+<li><a href="index.html#installation"><code>Installation</code></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-availability"><i class="fa fa-check"></i>Data Availability</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#pipeline-outputs"><i class="fa fa-check"></i>Pipeline Outputs</a>
 <ul>
-<li class="chapter" data-level="0.0.4" data-path="index.html"><a href="index.html#individual-tiff-files-from-split.m"><i class="fa fa-check"></i><b>0.0.4</b> Individual tiff files from <code>Split.m</code></a></li>
-<li class="chapter" data-level="0.0.5" data-path="index.html"><a href="index.html#binary-nuclei-segmentations"><i class="fa fa-check"></i><b>0.0.5</b> Binary Nuclei Segmentations</a></li>
-<li class="chapter" data-level="0.0.6" data-path="index.html"><a href="index.html#output-files-from-spaceranger"><i class="fa fa-check"></i><b>0.0.6</b> Output files from <code>Spaceranger</code></a></li>
-<li class="chapter" data-level="0.0.7" data-path="index.html"><a href="index.html#output-files-from-spotspotcheck"><i class="fa fa-check"></i><b>0.0.7</b> Output files from <code>spotspotcheck</code></a></li>
+<li><a href="index.html#individual-tiff-files-from-split.m">Individual tiff files from <code>Split.m</code></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#binary-nuclei-segmentations"><i class="fa fa-check"></i>Binary Nuclei Segmentations</a></li>
+<li><a href="index.html#output-files-from-spaceranger">Output files from <code>Spaceranger</code></a></li>
+<li><a href="index.html#output-files-from-spotspotcheck">Output files from <code>spotspotcheck</code></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="step-1-split-histology-images-into-subsections.html"><a href="step-1-split-histology-images-into-subsections.html"><i class="fa fa-check"></i><b>1</b> Step 1: Split histology images into subsections</a></li>
@@ -218,16 +218,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <img src="images/Software_Configuration.png" />
 <code>VisiumLIBD</code> has been tested on Linux, Windows and MacOS.</p>
-<div id="matlab" class="section level3" number="0.0.1">
-<h3><span class="header-section-number">0.0.1</span> <code>MATLAB</code></h3>
+<div id="matlab" class="section level3 unnumbered">
+<h3><code>MATLAB</code></h3>
 <p>MATLAB version R2019a 64-bit or later is required to run VisiumLIBD pipeline with the <a href="https://www.mathworks.com/products/image.html">Image Processing Toolbox</a> preloaded.</p>
 </div>
-<div id="memory" class="section level3" number="0.0.2">
-<h3><span class="header-section-number">0.0.2</span> <code>Memory</code></h3>
+<div id="memory" class="section level3 unnumbered">
+<h3><code>Memory</code></h3>
 <p>Visium images are high resolution, and the typical size of these images produced inhouse is ~25GB. The system RAM (we use ~50GB) should be twice the size of these images and the disc space (we use ~100GB) should be thrice to store the output.</p>
 </div>
-<div id="installation" class="section level3" number="0.0.3">
-<h3><span class="header-section-number">0.0.3</span> <code>Installation</code></h3>
+<div id="installation" class="section level3 unnumbered">
+<h3><code>Installation</code></h3>
 <p>The pipeline is availble at (<a href="https://github.com/LieberInstitute/VisiumLIBD/" class="uri">https://github.com/LieberInstitute/VisiumLIBD/</a>)
 Which can be download to your system from the Github website directly or the main repository can be cloned to your system using the following command on terminal/command prompt.
 <code>git clone https://github.com/LieberInstitute/VisiumLIBD.git</code></p>
@@ -243,20 +243,20 @@ I started building the repo based on the sample from new DLPFC data, the functio
 </div>
 <div id="pipeline-outputs" class="section level2 unnumbered">
 <h2>Pipeline Outputs</h2>
-<div id="individual-tiff-files-from-split.m" class="section level3" number="0.0.4">
-<h3><span class="header-section-number">0.0.4</span> Individual tiff files from <code>Split.m</code></h3>
+<div id="individual-tiff-files-from-split.m" class="section level3 unnumbered">
+<h3>Individual tiff files from <code>Split.m</code></h3>
 <p>should be hosted on AWS as these will be ~2GB</p>
 </div>
-<div id="binary-nuclei-segmentations" class="section level3" number="0.0.5">
-<h3><span class="header-section-number">0.0.5</span> Binary Nuclei Segmentations</h3>
+<div id="binary-nuclei-segmentations" class="section level3 unnumbered">
+<h3>Binary Nuclei Segmentations</h3>
 <p>can be included in the repo</p>
 </div>
-<div id="output-files-from-spaceranger" class="section level3" number="0.0.6">
-<h3><span class="header-section-number">0.0.6</span> Output files from <code>Spaceranger</code></h3>
+<div id="output-files-from-spaceranger" class="section level3 unnumbered">
+<h3>Output files from <code>Spaceranger</code></h3>
 <p>can be included in the repo</p>
 </div>
-<div id="output-files-from-spotspotcheck" class="section level3" number="0.0.7">
-<h3><span class="header-section-number">0.0.7</span> Output files from <code>spotspotcheck</code></h3>
+<div id="output-files-from-spotspotcheck" class="section level3 unnumbered">
+<h3>Output files from <code>spotspotcheck</code></h3>
 <p>can be included in the repo</p>
 
 </div>
