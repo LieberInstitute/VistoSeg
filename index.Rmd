@@ -57,14 +57,14 @@ The pipeline was developed under the following software configuration.
 ![](images/Software_Configuration.png)
 `VisiumLIBD` has been tested on Linux, Windows and MacOS.
 
-### `MATLAB`
+### `MATLAB` {-}
 
 MATLAB version R2019a 64-bit or later is required to run VisiumLIBD pipeline with the [Image Processing Toolbox](https://www.mathworks.com/products/image.html) preloaded. 
 
-### `Memory`
+### `Memory` {-}
 Visium images are high resolution, and the typical size of these images produced inhouse is ~25GB. The system RAM (we use ~50GB) should be twice the size of these images and the disc space (we use ~100GB) should be thrice to store the output.
 
-### `Installation`
+### `Installation` {-}
 
 The pipeline is availble at (https://github.com/LieberInstitute/VisiumLIBD/)
 Which can be download to your system from the Github website directly or the main repository can be cloned to your system using the following command on terminal/command prompt.
@@ -81,18 +81,18 @@ I started building the repo based on the sample from new DLPFC data, the functio
 
 ## Pipeline Outputs {-}
 
-### Individual tiff files from `Split.m` 
+### Individual tiff files from `Split.m` {-}
 
 should be hosted on AWS as these will be ~2GB
 
-### Binary Nuclei Segmentations 
+### Binary Nuclei Segmentations {-}
 
 can be included in the repo
 
-### Output files from `Spaceranger`
+### Output files from `Spaceranger` {-}
 
 can be included in the repo
 
-### Output files from `spotspotcheck`
+### Output files from `spotspotcheck` {-}
 
 can be included in the repo
