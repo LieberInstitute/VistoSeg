@@ -1,3 +1,10 @@
+matlab
+memory
+installation
+individual-tiff-files-from-split.m
+binary-nuclei-segmentations
+output-files-from-spaceranger
+output-files-from-spotspotcheck
 step-1-split-histology-images-into-subsections
 step-2-segment-nuclei-from-each-histology-subsection
 intensity-thresholding
