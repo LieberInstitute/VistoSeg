@@ -1,4 +1,4 @@
-# VisiumLIBD <img src="images/img1.png" align="right" width="150px"/>
+# VisiumLIBD <img src="images/logo.png" align="right" width="150px"/>
 
 Welcome to the `VisiumLIBD`! 
 
