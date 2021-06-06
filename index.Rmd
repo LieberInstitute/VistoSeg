@@ -49,8 +49,10 @@ This is a project by the **Imaging Development Team** from **Keri Martinowich's 
 
 <img src="http://lcolladotor.github.io/img/LIBD_logo.jpg" width="250px">
 
-## Software Requirements {-}
+## Image Acquisition {-}
+The 10X [Visium Spatial Gene Expression Imaging Guidelines](https://support.10xgenomics.com/spatial-gene-expression/imaging/doc/technical-note-visium-spatial-gene-expression-imaging-guidelines) are followed for acquiring the images. Images are acquired at 40x magnification using a Leica CS2 slide scanner and saved as `.SVS files.` These `.SVS files` are then exported as `TIFF files` for downstream analysis. The entire Visium slide (4 capture areas with fiducial frames), is scanned in a single file (~20GB).
 
+## Software Requirements {-}
 The pipeline was developed under the following software configuration.
 \centering
 ![](images/Software_Configuration.png)
