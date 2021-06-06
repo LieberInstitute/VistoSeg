@@ -132,6 +132,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><a href="index.html#why-spatial-transcriptomics-or-visium-imaging">Why <code>spatial transcriptomics</code> or <code>visium imaging</code>??</a></li>
 <li><a href="index.html#cite-visiumlibd">Cite <code>VisiumLIBD</code></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#image-acquisition"><i class="fa fa-check"></i>Image Acquisition</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software Requirements</a>
 <ul>
 <li><a href="index.html#matlab"><code>MATLAB</code></a></li>
@@ -211,6 +212,10 @@ The above figure describes the VisiumLIBD pipeline, where sections (A) and (B) c
 }</code></pre>
 <p>This is a project by the <strong>Imaging Development Team</strong> from <strong>Keri Martinowich’s Lab</strong> at the <a href="https://www.libd.org/">Lieber Institute for Brain Development</a>.</p>
 <p><img src="http://lcolladotor.github.io/img/LIBD_logo.jpg" width="250px"></p>
+</div>
+<div id="image-acquisition" class="section level2 unnumbered">
+<h2>Image Acquisition</h2>
+<p>The 10X <a href="https://support.10xgenomics.com/spatial-gene-expression/imaging/doc/technical-note-visium-spatial-gene-expression-imaging-guidelines">Visium Spatial Gene Expression Imaging Guidelines</a> are followed for acquiring the images. Images are acquired at 40x magnification using a Leica CS2 slide scanner and saved as <code>.SVS files.</code> These <code>.SVS files</code> are then exported as <code>TIFF files</code> for downstream analysis. The entire Visium slide (4 capture areas with fiducial frames), is scanned in a single file (~20GB).</p>
 </div>
 <div id="software-requirements" class="section level2 unnumbered">
 <h2>Software Requirements</h2>
