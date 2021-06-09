@@ -142,7 +142,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-availability"><i class="fa fa-check"></i>Data Availability</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#pipeline-outputs"><i class="fa fa-check"></i>Pipeline Outputs</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="step-1-split-histology-images-into-subsections.html"><a href="step-1-split-histology-images-into-subsections.html"><i class="fa fa-check"></i><b>1</b> Step 1: Split histology images into subsections</a></li>
+<li class="chapter" data-level="1" data-path="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html"><i class="fa fa-check"></i><b>1</b> Step 1: Split Visium histology whole slide image into individual capture area images</a></li>
 <li class="chapter" data-level="2" data-path="step-2-segment-nuclei-from-each-histology-subsection.html"><a href="step-2-segment-nuclei-from-each-histology-subsection.html"><i class="fa fa-check"></i><b>2</b> Step 2: Segment nuclei from each histology subsection</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="step-2-segment-nuclei-from-each-histology-subsection.html"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#intensity-thresholding"><i class="fa fa-check"></i><b>2.1</b> Intensity thresholding</a></li>
@@ -172,11 +172,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="r-session-information" class="section level1 unnumbered">
 <h1>R session information</h1>
 <p>Details on the R version used for making this book. The source code is available at <a href="https://github.com/LieberInstitute/VisiumLIBD"><code>LieberInstitute/VisiumLIBD</code></a>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r-session-information.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Load the package at the top of your script</span></span>
-<span id="cb8-2"><a href="r-session-information.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;sessioninfo&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r-session-information.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Reproducibility information</span></span>
-<span id="cb9-2"><a href="r-session-information.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">width =</span> <span class="dv">120</span>)</span>
-<span id="cb9-3"><a href="r-session-information.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">session_info</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-session-information.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Load the package at the top of your script</span></span>
+<span id="cb7-2"><a href="r-session-information.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;sessioninfo&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r-session-information.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Reproducibility information</span></span>
+<span id="cb8-2"><a href="r-session-information.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">width =</span> <span class="dv">120</span>)</span>
+<span id="cb8-3"><a href="r-session-information.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">session_info</span>()</span></code></pre></div>
 <pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  setting  value                       
 ##  version  R version 4.0.3 (2020-10-10)
@@ -213,10 +213,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] /__w/_temp/Library
 ## [2] /usr/local/lib/R/site-library
 ## [3] /usr/local/lib/R/library</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r-session-information.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">proc.time</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="r-session-information.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">proc.time</span>()</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.488   0.116   0.494</code></pre>
-<p>This book was last updated at 2021-06-09 01:02:48.</p>
+##   0.555   0.115   0.524</code></pre>
+<p>This book was last updated at 2021-06-09 04:42:25.</p>
 
 </div>
             </section>

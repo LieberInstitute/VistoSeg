@@ -1,4 +1,4 @@
-step-1-split-histology-images-into-subsections
+step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images
 step-2-segment-nuclei-from-each-histology-subsection
 intensity-thresholding
 kmeans-segmentation
