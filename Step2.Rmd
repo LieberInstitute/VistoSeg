@@ -1,45 +1,54 @@
-# Step 2: Segment nuclei from each histology subsection
+# Step 2: Nuclei segmentation of individual capture areas images
 
-We have been using two methods for nuclei segmentation in histology images.
+The functions [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m)(Visium Nuclei Segmentation) and [refineVNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/refineVNS.m) from the pipeline are used to perform nuclei segmentation. 
 
-1. Intensity thresholding: works fine with high resolution images 
-1. Kmeans color based segmentation: works well with low contrast, noisy background, low resolution images. (ex: 10x images)
+## [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m) - Visium Nuclei Segmentation
+The inputs to the [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m) function  are
+1. The tif image of single capture area (output from Step 1: splitSlide function) with full path
+2. number of colors a user visually identifies in the single capture area image
 
-The following shows both the segmentations for the 1st sub image of `Lieber_Institute_OTS-20-7748_rush_posterior.tif` used is Step1.
+The [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m) function imports the capture area image, applies smoothening to it to get rid of any irregularities in the image and increases the contrast to brighten the nuclei for better detection.  
+This function is based on [Color-Based Segmentation Using K-Means Clustering](https://www.mathworks.com/help/images/color-based-segmentation-using-k-means-clustering.html#:~:text=K%2Dmeans%20clustering%20requires%20that,*'%20and%20'b*'%20values.). The smoothened and brightened image is converted from RGB color space to `CIELAB` color space also called `L*a*b` color space (L - Luminosity layer measures lightness from black to white, a - chromaticity-layer measures color along red-green axis, b - chromaticity-layer measures color along blue-yellow axis). The CIELAB color space quantifies the visual differences caused by the different colors in the image. The `a*b` color space is extracted from the `L*a*b` converted image and is given to the K-means clustering along with the number of colors the user visually identifies in the image. 
 
-## Intensity thresholding
+The [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m) function partitions the image into n (number provided by user, 5 for the sample used here) color clusters and saves them as individual objects with a index/label. The color clusters (cell array), the indexed objects (cell array) of the color clusters, images of the color clusters (tif) are all saved in the same location as the capture area tif image.
 
-```matlab
-fname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1.tif';
-Img = imread(fname,1);
-thresh = graythresh(rgb2gray(Img));
-BW = imbinarize(rgb2gray(Img),thresh);
+```MATLAB
+fname = '/path_to_capture_area_tif/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif';
+N = 5; % 5 (white,pink,dark pink,cream,blue) colors seem good for the images produced in-house
 
-save('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1_nucleisegmentation.mat','BW')
-imwrite(BW,'/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1_nucleisegmentation.tif')
+VNS(fname,N)
+
+% should add the output printed on matlab command prompt
 ```
 
-## Kmeans segmentation
+Below are the outputs of [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m) function
+1. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster1.tif](link to AWS)
+2. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster2.tif](link to AWS)
+3. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster3.tif](link to AWS)
+4. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster4.tif](link to AWS)
+5. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster5.tif](link to AWS)
+6. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster.mat](link to AWS)
+7. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_mask.mat](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/VNS/Lieber_Institute_OTS-20-7690_rush_anterior_A1_mask.mat)
 
-```matlab
-fname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Liebert_Institute_OTS-20-7748_rush_posterior_1.tif';
-Img = imread(fname,1);
-Img_smooth = imgaussfilt(Img,4);
-Img_smooth_adj = imadjust(Img_smooth, [.2 .3 0; .6 .7 1],[]);
+The color clusters and the corresponding indexed objects of the sample image are shown below.
+<img src="images/sampleimage.png" title="Sample capture area" /> <img src="images/indexedimage.png" title="Indexed object" /> <img src="images/index_label.png" title="Index labels" /> <img src="images/sampleimage_clust1.png" title="Color cluster 1" /> <img src="images/sampleimage_index1.png" title="Indexed object 1" /> <img src="images/sampleimage_clust2.png" title="Color cluster 2" /> <img src="images/sampleimage_index2.png" title="Indexed object 2" /> <img src="images/sampleimage_clust3.png" title="Color cluster 3" /> <img src="images/sampleimage_index3.png" title="Indexed object 3" /> <img src="images/sampleimage_clust4.png" title="Color cluster 4" /> <img src="images/sampleimage_index4.png" title="Indexed object 4" /> <img src="images/sampleimage_clust5.png" title="Color cluster 5" /> <img src="images/sampleimage_index5.png" title="Indexed object 5" /><br/>
 
-he = Img_smooth_adj;
-lab_he = rgb2lab(he);
-ab = lab_he(:,:,2:3);
-ab = im2single(ab);
-nColors = 5;
-pixel_labels = imsegkmeans(ab,nColors,'NumAttempts',3);
 
-parfor i = 1:nColors
-mask{i} = pixel_labels==i;
-cluster{i} = he .* uint8(mask{i});
-end
+## [refineVNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/refineVNS.m)
 
-nuclei_mask = mask{4};
-imwrite(cluster{4},'/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/MiSeq_Pilot/Images/Raw/Lieber-Institute_OTS-20-7748_rush_posterior_1_cluster4Nuclei.tif') 
-save('/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/MiSeq_Pilot/Images/Raw/Lieber-Institute_OTS-20-7748_rush_posterior_1_nucleisegmentation.mat','nuclei_mask')
+This function is used to refine the segmentations for accurate detection of nuclei.
+
+The inputs to the function are
+1. The tif image of a single capture area with full path
+2. The index of the color cluster of the nuclei 
+
+```MATLAB
+fname = '/path_to_capture_area_tif/Lieber_Institute_OTS-20-7748_rush_posterior_A1.tif';
+M = 3;
+refineVNS(fname,N)
 ```
+
+The color cluster before and after refining is shown below.
+
+
+

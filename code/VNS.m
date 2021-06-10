@@ -1,15 +1,32 @@
-function VNS(fname,N)
+function VNS(fname)
+%fname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Lieber_Institute_OTS-20-7748_rush_posterior_A1.tif
 
-Img1 = imread(fname);
-Img1_smooth = imgaussfilt(Img1,4);
-Img1_smooth_adj = imadjust(Img1_smooth, [.2 .3 0; .6 .7 1],[]);
+tic
+disp('Importing capture area')
+N = 4;
+Img1 = imread(fname); %import image
+toc 
+
+tic
+disp('Performing smoothening and contrast adjustment')
+Img1_smooth = imgaussfilt(Img1,4); %smooth image
+Img1_smooth_adj = imadjust(Img1_smooth, [.2 .3 0; .6 .7 1],[]); %adjust contrast in image
+toc 
 
 he = Img1_smooth_adj;
-lab_he = rgb2lab(he);
-ab = lab_he(:,:,2:3);
+tic
+disp('Performing rgb to Lab color space conversion')
+lab_he = rgb2lab(he); % convert from rgb color space to Lab color space
+toc
+ab = lab_he(:,:,2:3); % extract a*b color space from Lab
 ab = im2single(ab);
-pixel_labels = imsegkmeans(ab,N,'NumAttempts',3);
+tic
+disp('Applying Kmeans')
+pixel_labels = imsegkmeans(ab,N,'NumAttempts',3); % apply Kmeans
+toc
 
+tic
+disp('saving outputs')
 parfor i = 1:N
 mask{i} = pixel_labels==i;
 cluster{i} = he .* uint8(mask{i});
@@ -18,8 +35,5 @@ end
 
 save([fname(1:end-4),'_mask.mat'],'mask','-v7.3')
 save([fname(1:end-4),'_cluster.mat'],'cluster','-v7.3')
-save([fname(1:end-4),'.mat'],'Img1','-v7.3')
-
-%I = 1;imshow(mask(I))%to check the matching mask
-
+toc
    
