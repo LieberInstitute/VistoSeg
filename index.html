@@ -135,7 +135,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#image-acquisition"><i class="fa fa-check"></i>Image Acquisition</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software Requirements</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-availability"><i class="fa fa-check"></i>Data Availability</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pipeline-outputs"><i class="fa fa-check"></i>Pipeline Outputs</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html"><i class="fa fa-check"></i><b>1</b> Step 1: Split Visium histology whole slide image into individual capture area images</a></li>
 <li class="chapter" data-level="2" data-path="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><i class="fa fa-check"></i><b>2</b> Step 2: Nuclei segmentation of individual capture areas images</a>
@@ -144,7 +143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2" data-path="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#refinevns"><i class="fa fa-check"></i><b>2.2</b> <span>refineVNS</span></a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="step-3-run-spaceranger.html"><a href="step-3-run-spaceranger.html"><i class="fa fa-check"></i><b>3</b> Step 3: Run spaceranger</a></li>
-<li class="chapter" data-level="4" data-path="step-4-spotspotcheck-for-quality-check-on-nuclei-segmentations-and-counts.html"><a href="step-4-spotspotcheck-for-quality-check-on-nuclei-segmentations-and-counts.html"><i class="fa fa-check"></i><b>4</b> Step 4: spotspotcheck for quality check on nuclei segmentations and counts</a></li>
+<li class="chapter" data-level="4" data-path="step-4-spotspotcheck.html"><a href="step-4-spotspotcheck.html"><i class="fa fa-check"></i><b>4</b> Step 4: spotspotcheck</a></li>
 <li class="chapter" data-level="5" data-path="step-5-atlasaligner.html"><a href="step-5-atlasaligner.html"><i class="fa fa-check"></i><b>5</b> Step 5: AtlasAligner</a></li>
 <li class="chapter" data-level="" data-path="r-session-information.html"><a href="r-session-information.html"><i class="fa fa-check"></i>R session information</a></li>
 </ul>
@@ -213,42 +212,34 @@ The above figure describes the VisiumLIBD pipeline, (A) The data presented here 
 <img src="images/Software_Configuration.png" />
 <code>VisiumLIBD</code> has been tested on Linux, Windows and MacOS.</p>
 <ol style="list-style-type: decimal">
-<li><p><code>MATLAB</code> {-}
-MATLAB version R2019a 64-bit or later is required to run VisiumLIBD pipeline with the <a href="https://www.mathworks.com/products/image.html">Image Processing Toolbox</a> preloaded.</p></li>
-<li><p><code>Memory</code> {-}
-Visium whole slide images are high resolution, and the typical size of these multiplane tif images produced inhouse is ~25GB. The system RAM (we use ~75GB) should be thrice the size of the multiplane tif image to load it into MATLAB and the disc space (we use ~100GB) should be atleast 4 times the size of multiplane tif to store the output.</p></li>
-<li><p><code>Installation</code> {-}
-The pipeline is availble at (<a href="https://github.com/LieberInstitute/VisiumLIBD" class="uri">https://github.com/LieberInstitute/VisiumLIBD</a>) which can be download to your system from the Github website directly or the main repository can be cloned to your system using the following command on terminal/command prompt.</p></li>
+<li><code>MATLAB</code></li>
 </ol>
-<p><code>git clone https://github.com/LieberInstitute/VisiumLIBD.git</code></p>
+<p>MATLAB version R2019a 64-bit or later is required to run VisiumLIBD pipeline with the <a href="https://www.mathworks.com/products/image.html">Image Processing Toolbox</a> preloaded.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><code>Memory</code></li>
+</ol>
+<p>Visium whole slide images are high resolution, and the typical size of these multiplane tif images produced inhouse is ~25GB. The system RAM (we use ~75GB) should be thrice the size of the multiplane tif image to load it into MATLAB and the disc space (we use ~100GB) should be atleast 4 times the size of multiplane tif to store the output.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><code>Installation</code></li>
+</ol>
+<p>The pipeline is availble at (<a href="https://github.com/LieberInstitute/VisiumLIBD" class="uri">https://github.com/LieberInstitute/VisiumLIBD</a>) which can be download to your system from the Github website directly or the main repository can be cloned to your system using the following command on terminal/command prompt.</p>
+<pre><code>`git clone https://github.com/LieberInstitute/VisiumLIBD.git`</code></pre>
 <p>All the code exists in the <a href="https://github.com/LieberInstitute/VisiumLIBD/tree/main/code">code</a> directory inside the main <a href="https://github.com/LieberInstitute/VisiumLIBD">VisiumLIBD</a> directory.
 The user’s working directory on <code>MATLAB</code> should be the path to the <code>code</code> directory in the downloaded repository, to run any functions this pipeline provides.</p>
-<p>Once the repository is downloaded, the user can run either of the following code to change his/her working directory on MATLAB to the <code>code</code> directory.
-1. <code>cd /path_to_the_downloaded_repository/VisiumLIBD/code/</code>
-2. <code>addpath(genpath('/path_to_the_downloaded_repository/VisiumLIBD/code/'))</code></p>
+<p>Once the repository is downloaded, the user can run either of the following code to change his/her working directory on MATLAB to the <code>code</code> directory.</p>
+<ol style="list-style-type: decimal">
+<li><p><code>cd /path_to_the_downloaded_repository/VisiumLIBD/code/</code></p></li>
+<li><p><code>addpath(genpath('/path_to_the_downloaded_repository/VisiumLIBD/code/'))</code></p></li>
+</ol>
 </div>
 <div id="data-availability" class="section level2 unnumbered">
 <h2>Data Availability</h2>
 <p>The data is hosted at <a href="https://github.com/LieberInstitute/spatialLIBD#raw-data">the link to AWS</a>
 I started building the repo based on the sample from new DLPFC data, the functions I recently made for the pipeline, works fine on the new DLPFC data. The pipeline should run fine on the 10X data and the pilot DLPFC data too, but is it troublesome to make the new DLPFC data public? Atleast, one sample from new DLPFC data should be good.</p>
-<p><strong>Other potential datasets</strong>
-1. <a href="https://github.com/LieberInstitute/spatialLIBD#raw-data">LIBD pilot DLPFC</a>,
-2. <a href="https://support.10xgenomics.com/spatial-gene-expression/datasets">10x Genomics spatial data sets</a></p>
-</div>
-<div id="pipeline-outputs" class="section level2 unnumbered">
-<h2>Pipeline Outputs</h2>
+<p><strong>Other potential datasets</strong></p>
 <ol style="list-style-type: decimal">
-<li><p>splitSlide
-should be hosted on AWS as these will be ~2GB</p></li>
-<li><p>VNS (should be hosted by AWS)</p></li>
-<li><p><a href="https://github.com/LieberInstitute/VisiumLIBD/tree/main/pipeline_outputs/refineVNS">refineVNS</a>
-<em><a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/refineVNS/Liebert_Institute_OTS-20-7690_rush_anterior_1_nuclei.mat">Mat file of final nuclei segmentation</a>,
-</em><a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/refineVNS/Liebert_Institute_OTS-20-7690_rush_anterior_1_nuclei.tiff">tif image of final nuclei segmentation</a></p></li>
-<li><p><a href="https://github.com/LieberInstitute/VisiumLIBD/tree/main/pipeline_outputs/spaceranger">Spaceranger</a>
-<em><a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spaceranger/tissue_positions_list.csv">tissue_positions_list.csv</a>,
-</em><a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spaceranger/scalefactors_json.json">scalefactors_json.json</a></p></li>
-<li><p><a href="https://github.com/LieberInstitute/VisiumLIBD/tree/main/pipeline_outputs/spotspotcheck">spotspotcheck</a>
-*<a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a></p></li>
+<li><p><a href="https://github.com/LieberInstitute/spatialLIBD#raw-data">LIBD pilot DLPFC</a></p></li>
+<li><p><a href="https://support.10xgenomics.com/spatial-gene-expression/datasets">10x Genomics spatial data sets</a></p></li>
 </ol>
 
 </div>

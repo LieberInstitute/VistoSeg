@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Step 4: spotspotcheck for quality check on nuclei segmentations and counts | VisiumLIBD: Visium Image Processing Pipeline</title>
-  <meta name="description" content="4 Step 4: spotspotcheck for quality check on nuclei segmentations and counts | VisiumLIBD: Visium Image Processing Pipeline" />
+  <title>4 Step 4: spotspotcheck | VisiumLIBD: Visium Image Processing Pipeline</title>
+  <meta name="description" content="4 Step 4: spotspotcheck | VisiumLIBD: Visium Image Processing Pipeline" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Step 4: spotspotcheck for quality check on nuclei segmentations and counts | VisiumLIBD: Visium Image Processing Pipeline" />
+  <meta property="og:title" content="4 Step 4: spotspotcheck | VisiumLIBD: Visium Image Processing Pipeline" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="LieberInstitute/VisiumLIBD" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Step 4: spotspotcheck for quality check on nuclei segmentations and counts | VisiumLIBD: Visium Image Processing Pipeline" />
+  <meta name="twitter:title" content="4 Step 4: spotspotcheck | VisiumLIBD: Visium Image Processing Pipeline" />
   
   
   
@@ -135,7 +135,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#image-acquisition"><i class="fa fa-check"></i>Image Acquisition</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software Requirements</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-availability"><i class="fa fa-check"></i>Data Availability</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pipeline-outputs"><i class="fa fa-check"></i>Pipeline Outputs</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html"><i class="fa fa-check"></i><b>1</b> Step 1: Split Visium histology whole slide image into individual capture area images</a></li>
 <li class="chapter" data-level="2" data-path="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><i class="fa fa-check"></i><b>2</b> Step 2: Nuclei segmentation of individual capture areas images</a>
@@ -144,7 +143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2" data-path="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#refinevns"><i class="fa fa-check"></i><b>2.2</b> <span>refineVNS</span></a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="step-3-run-spaceranger.html"><a href="step-3-run-spaceranger.html"><i class="fa fa-check"></i><b>3</b> Step 3: Run spaceranger</a></li>
-<li class="chapter" data-level="4" data-path="step-4-spotspotcheck-for-quality-check-on-nuclei-segmentations-and-counts.html"><a href="step-4-spotspotcheck-for-quality-check-on-nuclei-segmentations-and-counts.html"><i class="fa fa-check"></i><b>4</b> Step 4: spotspotcheck for quality check on nuclei segmentations and counts</a></li>
+<li class="chapter" data-level="4" data-path="step-4-spotspotcheck.html"><a href="step-4-spotspotcheck.html"><i class="fa fa-check"></i><b>4</b> Step 4: spotspotcheck</a></li>
 <li class="chapter" data-level="5" data-path="step-5-atlasaligner.html"><a href="step-5-atlasaligner.html"><i class="fa fa-check"></i><b>5</b> Step 5: AtlasAligner</a></li>
 <li class="chapter" data-level="" data-path="r-session-information.html"><a href="r-session-information.html"><i class="fa fa-check"></i>R session information</a></li>
 </ul>
@@ -164,13 +163,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="step-4-spotspotcheck-for-quality-check-on-nuclei-segmentations-and-counts" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Step 4: spotspotcheck for quality check on nuclei segmentations and counts</h1>
-<p>It is a matlab GUI for performing quality check on the nuclei segmentations from Step2. It also gives the nuclei count in each spot and provides an option to save/concatenate the count data to the <code>tissue_positions_list.csv</code> file. We will extract the metrics like spot diameter, distance between spots from the scalefactors_json.json and number of spots from <code>tissue_positions_list.csv</code> to reconstruct the spot grid for spotspotcheck.</p>
-<p>Describe what each column and row are in the <code>tissue_positions_list.csv</code></p>
-<p>link to the video tutorial on the spotspotcheck GUI by Jeo Catallini</p>
-<p>Commands to run on matlab to perform nuclei counting per spot and adding the same as new column to <code>tissue_positions_list.csv</code></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb6-1"><a href="step-4-spotspotcheck-for-quality-check-on-nuclei-segmentations-and-counts.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">code</span> <span class="va">and</span> <span class="va">output</span> <span class="kw">for</span> <span class="va">the</span> <span class="va">command</span> <span class="va">goes</span> <span class="va">here</span></span></code></pre></div>
+<div id="step-4-spotspotcheck" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Step 4: spotspotcheck</h1>
+<p><code>spotspotcheck</code> is a GUI used for
+1. Counting nuclei per Visium spot and saving the same to a csv.
+2. Performing quality check on the nuclei segmentations (from Step2) by allowing the user to zoom in/out and toggle between the nuclei segmentation and visium histology images. The GUI overlays the spot grid on to the visium histology and segmentation images for the user to clearly see the nuclei inside a spot.
+3. It allows the user to search for a spot based on it barcode ID.</p>
+<p>The following steps to be followed to open the GUI.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb7-1"><a href="step-4-spotspotcheck.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="va">code</span> <span class="va">and</span> <span class="va">output</span> <span class="kw">for</span> <span class="va">the</span> <span class="va">command</span> <span class="va">goes</span> <span class="va">here</span></span></code></pre></div>
 
 </div>
             </section>

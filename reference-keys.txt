@@ -3,5 +3,5 @@ step-2-nuclei-segmentation-of-individual-capture-areas-images
 vns---visium-nuclei-segmentation
 refinevns
 step-3-run-spaceranger
-step-4-spotspotcheck-for-quality-check-on-nuclei-segmentations-and-counts
+step-4-spotspotcheck
 step-5-atlasaligner
