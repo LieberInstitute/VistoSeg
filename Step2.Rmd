@@ -21,17 +21,24 @@ VNS(fname,N)
 % should add the output printed on matlab command prompt
 ```
 
-Below are the outputs of [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m) function
-1. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster1.tif](link to AWS)
-2. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster2.tif](link to AWS)
-3. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster3.tif](link to AWS)
-4. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster4.tif](link to AWS)
-5. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster5.tif](link to AWS)
-6. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster.mat](link to AWS)
-7. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_mask.mat](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/VNS/Lieber_Institute_OTS-20-7690_rush_anterior_A1_mask.mat)
-
 The color clusters and the corresponding indexed objects of the sample image are shown below.
-<img src="images/sampleimage.png" title="Sample capture area" /> <img src="images/indexedimage.png" title="Indexed object" /> <img src="images/index_label.png" title="Index labels" /> <img src="images/sampleimage_clust1.png" title="Color cluster 1" /> <img src="images/sampleimage_index1.png" title="Indexed object 1" /> <img src="images/sampleimage_clust2.png" title="Color cluster 2" /> <img src="images/sampleimage_index2.png" title="Indexed object 2" /> <img src="images/sampleimage_clust3.png" title="Color cluster 3" /> <img src="images/sampleimage_index3.png" title="Indexed object 3" /> <img src="images/sampleimage_clust4.png" title="Color cluster 4" /> <img src="images/sampleimage_index4.png" title="Indexed object 4" /> <img src="images/sampleimage_clust5.png" title="Color cluster 5" /> <img src="images/sampleimage_index5.png" title="Indexed object 5" /><br/>
+<img src="images/sampleimage.png" title="Sample capture area" width="225"/> <img src="images/indexedimage.png" title="Indexed object" width="225"/> <img src="images/index_label.png" title="Index labels" width="25"/> <img src="images/sampleimage_clust1.png" title="Color cluster 1" width="225"/> <img src="images/sampleimage_index1.png" title="Indexed object 1" width="225"/> <img src="images/sampleimage_clust2.png" title="Color cluster 2" width="225"/> <img src="images/sampleimage_index2.png" title="Indexed object 2" width="225"/> <img src="images/sampleimage_clust3.png" title="Color cluster 3" width="225"/> <img src="images/sampleimage_index3.png" title="Indexed object 3" width="225"/> <img src="images/sampleimage_clust4.png" title="Color cluster 4" width="225"/> <img src="images/sampleimage_index4.png" title="Indexed object 4" width="225"/> <img src="images/sampleimage_clust5.png" title="Color cluster 5" width="225"/> <img src="images/sampleimage_index5.png" title="Indexed object 5" width="225"/><br/>
+
+Below are the outputs of [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m) function
+
+1. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster1.tif](link to AWS)
+
+2. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster2.tif](link to AWS)
+
+3. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster3.tif](link to AWS)
+
+4. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster4.tif](link to AWS)
+
+5. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster5.tif](link to AWS)
+
+6. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster.mat](link to AWS)
+
+7. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_mask.mat](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/VNS/Lieber_Institute_OTS-20-7690_rush_anterior_A1_mask.mat)
 
 
 ## [refineVNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/refineVNS.m)

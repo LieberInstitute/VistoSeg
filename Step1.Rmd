@@ -18,23 +18,23 @@ The multiplane tif has 7 images
 Starting parallel pool (parpool) using the 'local' profile ...
 
 Imported image 7 of the multiplane tif
-Elapsed time is 0.067836 seconds.
+Elapsed time is 0.066238 seconds.
 Imported image 6 of the multiplane tif
-Elapsed time is 0.030412 seconds.
+Elapsed time is 0.031950 seconds.
 Imported image 5 of the multiplane tif
-Elapsed time is 0.046113 seconds.
+Elapsed time is 0.113162 seconds.
 Imported image 4 of the multiplane tif
-Elapsed time is 0.646907 seconds.
+Elapsed time is 0.652994 seconds.
 Imported image 3 of the multiplane tif
-Elapsed time is 10.682875 seconds.
+Elapsed time is 10.672578 seconds.
 Imported image 2 of the multiplane tif
-Elapsed time is 0.010540 seconds.
+Elapsed time is 0.009990 seconds.
 Imported image 1 of the multiplane tif
-Elapsed time is 165.635605 seconds.
+Elapsed time is 169.230220 seconds.
 Saving the multiplane tif to mat file
-Elapsed time is 1094.729705 seconds.
-Splitting image
-Elapsed time is 18.653927 seconds.
+Elapsed time is 1071.624948 seconds.
+Splitting whole slide into individual capture areas
+Elapsed time is 1672.725408 seconds.
 
 ```
 The 7 images of the multiplane tif are shown below.
@@ -94,12 +94,21 @@ ans =
 The image 'I{1}.image' is split into 4 sub images or capture areas by dividing the x(160858) dimesion into 4 equal parts. Sometimes the center of the image is not the center of the slide, in such case the offset is adjusted manually. 
 
 Below are the output files of `slpitSlide` function
+
 1. [Lieber_Institute_OTS-20-7690_rush_anterior.mat](AWS link) - cell array of multiplane tif stored in mat file.
+
 2. [Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif](AWS link) - tif image of compressed capture area A1.
+
 3. [Lieber_Institute_OTS-20-7690_rush_anterior_A1.mat](AWS link) - RGB matrix of uncompressed capture area A1 stored in mat file.
+
 4. [Lieber_Institute_OTS-20-7690_rush_anterior_B1.tif](AWS link) - tif image of compressed capture area B1.
+
 5. [Lieber_Institute_OTS-20-7690_rush_anterior_B1.mat](AWS link) - RGB matrix of uncompressed capture area B1 stored in mat file.
+
 6. [Lieber_Institute_OTS-20-7690_rush_anterior_C1.tif](AWS link) - tif image of compressed capture area C1.
+
 7. [Lieber_Institute_OTS-20-7690_rush_anterior_C1.mat](AWS link) - RGB matrix of uncompressed capture area C1 stored in mat file.
+
 8. [Lieber_Institute_OTS-20-7690_rush_anterior_D1.tif](AWS link) - tif image of compressed capture area D1.
+
 9. [Lieber_Institute_OTS-20-7690_rush_anterior_D1.mat](AWS link) - RGB matrix of uncompressed capture area D1 stored in mat file.
