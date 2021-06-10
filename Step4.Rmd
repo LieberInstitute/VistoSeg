@@ -1,14 +1,12 @@
-# Step 4: spotspotcheck for quality check on nuclei segmentations and counts
+# Step 4: spotspotcheck 
 
-It is a matlab GUI for performing quality check on the nuclei segmentations from Step2. It also gives the nuclei count in each spot and provides an option to save/concatenate the count data to the `tissue_positions_list.csv` file. We will extract the metrics like spot diameter, distance between spots from the scalefactors_json.json and number of spots from `tissue_positions_list.csv` to reconstruct the spot grid for spotspotcheck. 
+`spotspotcheck` is a GUI used for
+1. Counting nuclei per Visium spot and saving the same to a csv.
+2. Performing quality check on the nuclei segmentations (from Step2) by allowing the user to zoom in/out and toggle between the nuclei segmentation and visium histology images. The GUI overlays the spot grid on to the visium histology and segmentation images for the user to clearly see the nuclei inside a spot.
+3. It allows the user to search for a spot based on it barcode ID.
 
-Describe what each column and row are in the `tissue_positions_list.csv`
+The following steps to be followed to open the GUI.
 
-link to the video tutorial on the spotspotcheck GUI by Jeo Catallini
-
-Commands to run on matlab to perform nuclei counting per spot and adding the same as new column to `tissue_positions_list.csv`
-  
-  
-```matlab
+```MATLAB
 code and output for the command goes here
 ```
