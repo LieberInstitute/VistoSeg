@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="step-2-segment-nuclei-from-each-histology-subsection.html"/>
+<link rel="next" href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -133,20 +133,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="index.html#why-spatial-transcriptomics-or-visium-imaging">Why <code>spatial transcriptomics</code> or <code>visium imaging</code>??</a></li>
 <li><a href="index.html#cite-visiumlibd">Cite <code>VisiumLIBD</code></a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#image-acquisition"><i class="fa fa-check"></i>Image Acquisition</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software Requirements</a>
-<ul>
-<li><a href="index.html#matlab"><code>MATLAB</code></a></li>
-<li><a href="index.html#memory"><code>Memory</code></a></li>
-<li><a href="index.html#installation"><code>Installation</code></a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software Requirements</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-availability"><i class="fa fa-check"></i>Data Availability</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#pipeline-outputs"><i class="fa fa-check"></i>Pipeline Outputs</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html"><i class="fa fa-check"></i><b>1</b> Step 1: Split Visium histology whole slide image into individual capture area images</a></li>
-<li class="chapter" data-level="2" data-path="step-2-segment-nuclei-from-each-histology-subsection.html"><a href="step-2-segment-nuclei-from-each-histology-subsection.html"><i class="fa fa-check"></i><b>2</b> Step 2: Segment nuclei from each histology subsection</a>
+<li class="chapter" data-level="2" data-path="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><i class="fa fa-check"></i><b>2</b> Step 2: Nuclei segmentation of individual capture areas images</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="step-2-segment-nuclei-from-each-histology-subsection.html"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#intensity-thresholding"><i class="fa fa-check"></i><b>2.1</b> Intensity thresholding</a></li>
-<li class="chapter" data-level="2.2" data-path="step-2-segment-nuclei-from-each-histology-subsection.html"><a href="step-2-segment-nuclei-from-each-histology-subsection.html#kmeans-segmentation"><i class="fa fa-check"></i><b>2.2</b> Kmeans segmentation</a></li>
+<li class="chapter" data-level="2.1" data-path="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#vns---visium-nuclei-segmentation"><i class="fa fa-check"></i><b>2.1</b> <span>VNS</span> - Visium Nuclei Segmentation</a></li>
+<li class="chapter" data-level="2.2" data-path="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#refinevns"><i class="fa fa-check"></i><b>2.2</b> <span>refineVNS</span></a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="step-3-run-spaceranger.html"><a href="step-3-run-spaceranger.html"><i class="fa fa-check"></i><b>3</b> Step 3: Run spaceranger</a></li>
 <li class="chapter" data-level="4" data-path="step-4-spotspotcheck-for-quality-check-on-nuclei-segmentations-and-counts.html"><a href="step-4-spotspotcheck-for-quality-check-on-nuclei-segmentations-and-counts.html"><i class="fa fa-check"></i><b>4</b> Step 4: spotspotcheck for quality check on nuclei segmentations and counts</a></li>
@@ -171,20 +166,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Step 1: Split Visium histology whole slide image into individual capture area images</h1>
-<p>The visium histology whole slide image from the imaging system (slide scanner) is a multiplane tif image (~20GB). The sample image <a href="link%20to%20AWS">Liebert_Institute_OTS-20-7690_rush_anterior.tif</a> from the DLPFC dataset is used here to run through the pipeline.</p>
+<p>The visium histology whole slide image from the imaging system (slide scanner) is a multiplane tif image (~20GB). The sample image <a href="link%20to%20AWS">Lieber_Institute_OTS-20-7690_rush_anterior.tif</a> from the DLPFC dataset is used here to run through the pipeline.</p>
 <p>The inputs to the function <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/splitSlide.m">splitSlide.m</a> are
-1. the full path with file name of the raw multiplane tif image</p>
-<p>The function imports the raw multiplane tif image and saves each plane/image as matlab structure and all structures are saved into a single cell array (I) in a ‘.mat file’. The 1st image of the raw multiplane tif is the raw visium histology slide image, the remaining planes/images consists of the metadata.</p>
-<p>The function then splits the 1st image of the multiplane tif into individual capture areas (A1,B1,C1,D1) and saves them as both <code>tif images</code> and <code>mat files</code>. The capture areas are resized to 70% of the original size (eg 100 X 100 Pixel region is resized to 70 X 70 pixel region) when saving to tif images as matlab cannot store images that occupies more than 2^32 - 1 bytes of data.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb2-1"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">fname</span> <span class="op">=</span> <span class="ss">&#39;/path_to_multiplane_tif/Liebert_Institute_OTS-20-7748_rush_posterior.tif&#39;</span><span class="op">;</span></span>
-<span id="cb2-2"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="va">splitSlide</span>(<span class="va">fname</span>)</span>
+1. the full path with file name of the raw multiplane tif image (obtained from slide scanner)</p>
+<p>The function imports the raw multiplane tif image and saves each plane/image as MATLAB structure and all structures are saved into a single cell array (I) in a ‘.mat file’. The 1st image of the raw multiplane tif is the raw visium histology slide image, the remaining planes/images consists of the metadata.</p>
+<p>The function then splits the 1st image of the multiplane tif into individual capture areas (A1,B1,C1,D1) and saves them as both <code>tif images</code> and <code>mat files</code>. The capture areas are resized to 70% of the original size (eg 100 X 100 Pixel region is resized to 70 X 70 pixel region) when saving to tif images as MATLAB cannot store images that occupies more than 2^32 - 1 bytes of data.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb2-1"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">cd</span> <span class="op">/</span><span class="va">path_to_downloaded_repo</span><span class="op">/</span><span class="va">VisiumLIBD</span><span class="op">/</span><span class="va">code</span></span>
+<span id="cb2-2"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">fname</span> <span class="op">=</span> <span class="ss">&#39;/path_to_multiplane_tif/Lieber_Institute_OTS-20-7690_rush_anterior.tif&#39;</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">splitSlide</span>(<span class="va">fname</span>)</span>
 <span id="cb2-4"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-5" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
-<p>The sample multiplane tif file has 7 images shown below.</p>
+<span id="cb2-5"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="va">The</span> <span class="va">multiplane</span> <span class="va">tif</span> <span class="va">has</span> <span class="fl">7</span> <span class="va">images</span></span>
+<span id="cb2-6"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="va">Starting</span> <span class="va">parallel</span> <span class="va">pool</span> (<span class="va">parpool</span>) <span class="va">using</span> <span class="va">the</span> <span class="ss">&#39;local&#39;</span> <span class="va">profile</span> <span class="op">...</span></span>
+<span id="cb2-7"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="va">Imported</span> <span class="va">image</span> <span class="fl">7</span> <span class="va">of</span> <span class="va">the</span> <span class="va">multiplane</span> <span class="va">tif</span></span>
+<span id="cb2-9"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">0.067836</span> <span class="va">seconds</span>.</span>
+<span id="cb2-10"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="va">Imported</span> <span class="va">image</span> <span class="fl">6</span> <span class="va">of</span> <span class="va">the</span> <span class="va">multiplane</span> <span class="va">tif</span></span>
+<span id="cb2-11"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">0.030412</span> <span class="va">seconds</span>.</span>
+<span id="cb2-12"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="va">Imported</span> <span class="va">image</span> <span class="fl">5</span> <span class="va">of</span> <span class="va">the</span> <span class="va">multiplane</span> <span class="va">tif</span></span>
+<span id="cb2-13"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">0.046113</span> <span class="va">seconds</span>.</span>
+<span id="cb2-14"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="va">Imported</span> <span class="va">image</span> <span class="fl">4</span> <span class="va">of</span> <span class="va">the</span> <span class="va">multiplane</span> <span class="va">tif</span></span>
+<span id="cb2-15"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">0.646907</span> <span class="va">seconds</span>.</span>
+<span id="cb2-16"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="va">Imported</span> <span class="va">image</span> <span class="fl">3</span> <span class="va">of</span> <span class="va">the</span> <span class="va">multiplane</span> <span class="va">tif</span></span>
+<span id="cb2-17"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">10.682875</span> <span class="va">seconds</span>.</span>
+<span id="cb2-18"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="va">Imported</span> <span class="va">image</span> <span class="fl">2</span> <span class="va">of</span> <span class="va">the</span> <span class="va">multiplane</span> <span class="va">tif</span></span>
+<span id="cb2-19"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">0.010540</span> <span class="va">seconds</span>.</span>
+<span id="cb2-20"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="va">Imported</span> <span class="va">image</span> <span class="fl">1</span> <span class="va">of</span> <span class="va">the</span> <span class="va">multiplane</span> <span class="va">tif</span></span>
+<span id="cb2-21"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">165.635605</span> <span class="va">seconds</span>.</span>
+<span id="cb2-22"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="va">Saving</span> <span class="va">the</span> <span class="va">multiplane</span> <span class="va">tif</span> <span class="va">to</span> <span class="va">mat</span> <span class="va">file</span></span>
+<span id="cb2-23"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">1094.729705</span> <span class="va">seconds</span>.</span>
+<span id="cb2-24"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="va">Splitting</span> <span class="va">image</span></span>
+<span id="cb2-25"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">18.653927</span> <span class="va">seconds</span>.</span></code></pre></div>
+<p>The 7 images of the multiplane tif are shown below.</p>
 <p><img src="images/img1.png" title="Image 1" /> <img src="images/img2.png" title="Image 2" /> <img src="images/img3.png" title="Image 3" /> <img src="images/img4.png" title="Image 4" /> <img src="images/img5.png" title="Image 5" /> <img src="images/img6.png" title="Image 6" /> <img src="images/img7.png" title="Image 7" /><br/></p>
-<p>Though most of the images look same, the first image in the multiplane tif is the high resolution image of the slide based on the image size (y,x,z) in pixels shown below in matlab.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb3-1"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">load</span>(<span class="ss">&#39;/path_to_multiplane_tif/Liebert_Institute_OTS-20-7748_rush_posterior.mat&#39;</span>)</span>
+<p>Though most of the images look same, the first image in the multiplane tif is the high resolution image of the slide based on the image size (y,x,z) in pixels shown below in MATLAB.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb3-1"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">load</span>(<span class="ss">&#39;/path_to_multiplane_tif/Lieber_Institute_OTS-20-7748_rush_posterior.mat&#39;</span>)</span>
 <span id="cb3-2"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="va">size</span>(<span class="va">I</span><span class="op">,</span><span class="fl">2</span>) <span class="co">%number of images in the multiplane tif</span></span>
 <span id="cb3-3"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="va">size</span>(<span class="va">I</span>{<span class="fl">1</span>}.<span class="va">image</span>)</span>
@@ -228,7 +243,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-42"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="va">ans</span> <span class="op">=</span></span>
 <span id="cb3-43"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-44"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb3-44" aria-hidden="true" tabindex="-1"></a>         <span class="fl">612</span>        <span class="fl">1600</span>           <span class="fl">3</span></span></code></pre></div>
-<p>The image I{1}.image is split into 4 sub images or capture areas by dividing the x(160858) dimesion into 4 equal parts. Sometimes the center of the image is not the center of the slide, in such case the offset is adjusted manually.</p>
+<p>The image ‘I{1}.image’ is split into 4 sub images or capture areas by dividing the x(160858) dimesion into 4 equal parts. Sometimes the center of the image is not the center of the slide, in such case the offset is adjusted manually.</p>
+<p>Below are the output files of <code>slpitSlide</code> function
+1. <a href="AWS%20link">Lieber_Institute_OTS-20-7690_rush_anterior.mat</a> - cell array of multiplane tif stored in mat file.
+2. <a href="AWS%20link">Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif</a> - tif image of compressed capture area A1.
+3. <a href="AWS%20link">Lieber_Institute_OTS-20-7690_rush_anterior_A1.mat</a> - RGB matrix of uncompressed capture area A1 stored in mat file.
+4. <a href="AWS%20link">Lieber_Institute_OTS-20-7690_rush_anterior_B1.tif</a> - tif image of compressed capture area B1.
+5. <a href="AWS%20link">Lieber_Institute_OTS-20-7690_rush_anterior_B1.mat</a> - RGB matrix of uncompressed capture area B1 stored in mat file.
+6. <a href="AWS%20link">Lieber_Institute_OTS-20-7690_rush_anterior_C1.tif</a> - tif image of compressed capture area C1.
+7. <a href="AWS%20link">Lieber_Institute_OTS-20-7690_rush_anterior_C1.mat</a> - RGB matrix of uncompressed capture area C1 stored in mat file.
+8. <a href="AWS%20link">Lieber_Institute_OTS-20-7690_rush_anterior_D1.tif</a> - tif image of compressed capture area D1.
+9. <a href="AWS%20link">Lieber_Institute_OTS-20-7690_rush_anterior_D1.mat</a> - RGB matrix of uncompressed capture area D1 stored in mat file.</p>
 
 </div>
             </section>
@@ -237,7 +262,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="step-2-segment-nuclei-from-each-histology-subsection.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
