@@ -1,6 +1,6 @@
-# Step 4: spotspotcheck 
+# Step 4: GUI for nuclei count in a visium spot
 
-##`spotspotcheck` is a GUI used for
+## spotspotcheck 
 
 1. Obtaining nuclei count per Visium spot and saving it to a csv.
 
@@ -17,14 +17,15 @@ loading.....
 
 1. A window opens up like below. 
 
+<img src="images/start.png" title="Start Window" width="225"/>
 
-If you donot have the [tissue_spots_counts.csv]() generated from the command line function [countNuclei]() already, the option to `Get Cell Counts` on the window should be checked. Then you hit the `start` button which opens up the following window.
+If you donot have the [tissue_spots_counts.csv](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv) generated from the command line function [countNuclei](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/countNuclei.m) already, the option to `Get Cell Counts` on the window should be checked. Then you hit the `start` button which opens up the following window.
 
 2. Select Histology Image: This window asks to select the capture area tif that you want the nuclei counts for or to perform quality check on nuclei segmentations. 
 
 Select the capture area tif and hit the `open` button on window.
 
-3. Select Segmented Mat File: This wondow asks for the final segmented [.mat]() file of the nuclei segmentations.
+3. Select Segmented Mat File: This wondow asks for the final segmented `.mat` file of the nuclei segmentations.
 
 Select the [.mat]() file and hit the `open` button on the window.
 
@@ -59,7 +60,19 @@ Inputs to the function are
 
 4. Filename with full path for the tissue_positions_list csv file.
 
+```MATLAB
 
+img = '/path_to_capture_area_tif/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif';
+mask = '/path_to_capture_area_segmentation/Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat';
+jsonname = '/path_to_scalefactors_json/scalefactors_json.json';
+posname = '/path_to_tissue_positions_list/tissue_positions_list.csv';
+
+countNuclei(img,mask,jsonname,posname)
+```
+
+The  [countNuclei]() function generates a nuclei count file listed below. The file is saved in the same path as the [tissue_positions_list.csv]() that we give to the function. 
+
+1.  [tissue_spot_counts.csv]()
 
 
 

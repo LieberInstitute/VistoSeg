@@ -4,8 +4,9 @@
 %posname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/outputs/NextSeq/DLPFC_Br3942_post_manual_alignment/outs/spatial/tissue_positions_list.csv';
 
 function countNuclei(img,mask,jsonname,posname) 
-cd /dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/spotspotcheck-master/
 
+disp('loading data')
+tic
 im = imread(img);
 load(mask);
 BW = mask_dark_blue;
@@ -14,7 +15,8 @@ BW = mask_dark_blue;
 w = jsondecode(fileread(jsonname));
 R = ceil(w.spot_diameter_fullres/2);
 tbl = readtable(posname) ;
-    
+toc
+ 
 count = [];
     if size(tbl, 2) == 7
         count = table2array(tbl(:, 7));
