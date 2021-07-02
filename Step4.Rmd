@@ -2,55 +2,52 @@
 
 ## spotspotcheck 
 
-1. Obtaining nuclei count per Visium spot and saving it to a csv.
-
-2. Performing quality check on the nuclei segmentations (from Step2) by allowing the user to zoom in/out and toggle between the nuclei segmentation and visium histology images. The GUI overlays the spot grid on to the visium histology and segmentation images for the user to clearly see the nuclei inside a spot.
-
+1. Obtaining nuclei count per Visium spot and saving it to a csv.  
+2. Performing quality check on the nuclei segmentations (from Step2) by allowing the user to zoom in/out and toggle between the nuclei segmentation and visium histology images. The GUI overlays the spot grid on to the visium histology and segmentation images for the user to clearly see the nuclei inside a spot.  
 3. It allows the user to search for a spot based on its barcode ID.
 
-To open the GUI, the [spotspotcheck]() function should be executed in the MATLAB command prompt like below.
+To open the GUI, the [spotspotcheck](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/spotspotcheck.m) function should be executed in the MATLAB command prompt like below.
 
 ```MATLAB
 spotspotcheck
 loading.....
 ```
 
-1. A window opens up like below. 
-
+1. **Start Window** : A start window opens up like below. If you donot have the [tissue_spots_counts.csv](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv) already, generated from the command line function [countNuclei](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/countNuclei.m), the option to `Get Cell Counts` on the window should be checked.
 <center>
 ![](images/start.png) 
 </center>
+Then you hit the `Start` button which opens up the following window.
 
-If you donot have the [tissue_spots_counts.csv](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv) generated from the command line function [countNuclei](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/countNuclei.m) already, the option to `Get Cell Counts` on the window should be checked. Then you hit the `start` button which opens up the following window.
-
-2. Select Histology Image: This window asks to select the capture area tif that you want the nuclei counts for or to perform quality check on nuclei segmentations. 
+2. **Select Histology Image** : This window asks you to select the capture area tif that you want the nuclei counts for or to perform quality check on nuclei segmentations.
 <center>
 ![](images/Select Histology Image.png) 
 </center>
-Select the capture area tif and hit the `open` button on window.
+Select the capture area tif and hit the `Open` button on window, which opens the following window.
 
-3. Select Segmented Mat File: This wondow asks for the final segmented `.mat` file of the nuclei segmentations.
+3. **Select Segmented Mat File** : This wondow asks for the final segmented `.mat` file of the nuclei segmentations.
 <center>
 ![](images/Select segmentation.png) 
 </center>
-Select the [.mat]() file and hit the `open` button on the window.
+Select the [.mat](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/refineVNS/Liebert_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat) file and hit the `Open` button.
 
-4. Select Scale Factors JSON File: Select the [scalefactors_json.json]() file with the visium spot metrics obtained from the [Spaceranger]() software. 
+4. **Select Scale Factors JSON File** : Select the [scalefactors_json.json](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spaceranger/scalefactors_json.json) file with the visium spot metrics obtained from the **Spaceranger** software.
 <center>
 ![](images/select json.png) 
 </center>
 
-5. Select Tissue Positions/Spot Counts File: If the `Get Cell Counts` option is checked in the 1st window then select [tissue_positions_list.csv]() obtained from [Spaceranger](), otherwise select [tissue_spot_counts.csv]() obtained from [countNuclei]() function.
+5. **Select Tissue Positions/Spot Counts File** : If the `Get Cell Counts` option is checked in the Start window then select [tissue_positions_list.csv](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spaceranger/tissue_positions_list.csv) obtained from **Spaceranger**, otherwise select [tissue_spot_counts.csv](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv) obtained from [countNuclei](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/countNuclei.m) function.
 <center>
 ![](images/select spot counts.png) 
 </center>
 
-Finally the `spotspotcheck` GUI opens up, shown below
+
+6. **spotspotcheck** GUI opens up, shown below
 <center>
 ![](images/spotspotcheck.png) 
 </center>
 
-By clicking anywhere on the image inside the GUI, the user can toggle between the Histology and segmented images. 
+By clicking anywhere on the image inside the GUI, the user can toggle between the Histology and segmented image, shown below.
 <center>
 ![](images/spotspotcheck BW.png) 
 </center>
@@ -62,23 +59,20 @@ The zoom in (symbol of magnifying glass with `+`) option is provided in the menu
 
 To toggle between histology/segmented images when zoomed in, the cursor should should return to its normal function by unclicking the zoom in (symbol of magnifying glass with `+`) option.
 
-<img src="images/zoom in 2.png" title="Color cluster 1" width="225"/> <img src="images/zoom in 2 BW.png" title="Indexed object 1" width="225"/> 
+<img src="images/zoom in 2.png" title="Color cluster 1" width="300"/> <img src="images/zoom in 2 BW.png" title="Indexed object 1" width="300"/> 
 
-The dialog box at the bottom of the GUI with the label `Barcode Lookup` provides user to input the barcode ID of the specific visium spot the user want to look at. For example if we want to look at the 1st visium spot on this image, paste the barcode ID of the spot (from [tissue_spot_counts.csv]()) into the white space and hit the `Lookup` button. It opens up the image whereever this spot is located.
+The dialog box at the bottom of the GUI with the label `Barcode Lookup` provides user to input the barcode ID of the specific visium spot the user want to look at. For example if we want to look at the 1st visium spot on this image, paste the barcode ID of the spot (from [tissue_spot_counts.csv](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv)) into the white space and hit the `Lookup` button. It opens up the image where ever this spot is located.
 <center>
 ![](images/Barcode ID.png) 
 </center>
 
 ## CountNuclei
 
-This function can be run on MATLAB command prompt to obtain the [tissue_spot_counts.csv]() file without going throught the GUI.
+This function can be run on MATLAB command prompt to obtain the [tissue_spot_counts.csv](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv) file without going through the GUI.
 
-Inputs to the function are
-
-1. Filename with full path for the mat file of the final nuclei segmentation.
-
-2. Filename with full path for the scalefactors json file.
-
+Inputs to the function are  
+1. Filename with full path for the mat file of the final nuclei segmentation.  
+2. Filename with full path for the scalefactors json file.  
 3. Filename with full path for the tissue_positions_list csv file.
 
 ```MATLAB
@@ -89,9 +83,8 @@ posname = '/path_to_tissue_positions_list/tissue_positions_list.csv';
 countNuclei(mask,jsonname,posname)
 ```
 
-The  [countNuclei]() function generates a nuclei count file listed below. The file is saved in the same path as the [tissue_positions_list.csv]() that we give to the function. 
-
-1.  [tissue_spot_counts.csv]()
+The  [countNuclei](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/countNuclei.m) function generates a nuclei count file listed below. The file is saved in the same path as the [tissue_positions_list.csv](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spaceranger/tissue_positions_list.csv) that we give to the function.  
+1.  [tissue_spot_counts.csv](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv)
 
 
 
