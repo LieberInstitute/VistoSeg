@@ -4,4 +4,5 @@ vns---visium-nuclei-segmentation
 refinevns
 step-3-run-spaceranger
 step-4-spotspotcheck
+countnuclei
 step-5-atlasaligner

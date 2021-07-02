@@ -139,11 +139,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html"><i class="fa fa-check"></i><b>1</b> Step 1: Split Visium histology whole slide image into individual capture area images</a></li>
 <li class="chapter" data-level="2" data-path="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><i class="fa fa-check"></i><b>2</b> Step 2: Nuclei segmentation of individual capture areas images</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#vns---visium-nuclei-segmentation"><i class="fa fa-check"></i><b>2.1</b> <span>VNS</span> - Visium Nuclei Segmentation</a></li>
-<li class="chapter" data-level="2.2" data-path="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#refinevns"><i class="fa fa-check"></i><b>2.2</b> <span>refineVNS</span></a></li>
+<li class="chapter" data-level="2.1" data-path="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#vns---visium-nuclei-segmentation"><i class="fa fa-check"></i><b>2.1</b> VNS - Visium Nuclei Segmentation</a></li>
+<li class="chapter" data-level="2.2" data-path="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#refinevns"><i class="fa fa-check"></i><b>2.2</b> refineVNS</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="step-3-run-spaceranger.html"><a href="step-3-run-spaceranger.html"><i class="fa fa-check"></i><b>3</b> Step 3: Run spaceranger</a></li>
-<li class="chapter" data-level="4" data-path="step-4-spotspotcheck.html"><a href="step-4-spotspotcheck.html"><i class="fa fa-check"></i><b>4</b> Step 4: spotspotcheck</a></li>
+<li class="chapter" data-level="4" data-path="step-4-spotspotcheck.html"><a href="step-4-spotspotcheck.html"><i class="fa fa-check"></i><b>4</b> Step 4: spotspotcheck</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="step-4-spotspotcheck.html"><a href="step-4-spotspotcheck.html#countnuclei"><i class="fa fa-check"></i><b>4.1</b> CountNuclei</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="step-5-atlasaligner.html"><a href="step-5-atlasaligner.html"><i class="fa fa-check"></i><b>5</b> Step 5: AtlasAligner</a></li>
 <li class="chapter" data-level="" data-path="r-session-information.html"><a href="r-session-information.html"><i class="fa fa-check"></i>R session information</a></li>
 </ul>
@@ -167,10 +170,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">2</span> Step 2: Nuclei segmentation of individual capture areas images</h1>
 <p>The functions <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m">VNS</a>(Visium Nuclei Segmentation) and <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/refineVNS.m">refineVNS</a> from the pipeline are used to perform nuclei segmentation.</p>
 <div id="vns---visium-nuclei-segmentation" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m">VNS</a> - Visium Nuclei Segmentation</h2>
-<p>The inputs to the <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m">VNS</a> function are
-1. The tif image of single capture area (output from Step 1: splitSlide function) with full path
-2. number of colors a user visually identifies in the single capture area image</p>
+<h2><span class="header-section-number">2.1</span> VNS - Visium Nuclei Segmentation</h2>
+<p>The inputs to the <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m">VNS</a> function are</p>
+<ol style="list-style-type: decimal">
+<li><p>The tif image of single capture area (output from Step 1: splitSlide function) with full path</p></li>
+<li><p>number of colors a user visually identifies in the single capture area image</p></li>
+</ol>
 <p>The <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m">VNS</a> function imports the capture area image, applies smoothening to it to get rid of any irregularities in the image and increases the contrast to brighten the nuclei for better detection.<br />
 This function is based on <a href="https://www.mathworks.com/help/images/color-based-segmentation-using-k-means-clustering.html#:~:text=K%2Dmeans%20clustering%20requires%20that,*&#39;%20and%20&#39;b*&#39;%20values.">Color-Based Segmentation Using K-Means Clustering</a>. The smoothened and brightened image is converted from RGB color space to <code>CIELAB</code> color space also called <code>L*a*b</code> color space (L - Luminosity layer measures lightness from black to white, a - chromaticity-layer measures color along red-green axis, b - chromaticity-layer measures color along blue-yellow axis). The CIELAB color space quantifies the visual differences caused by the different colors in the image. The <code>a*b</code> color space is extracted from the <code>L*a*b</code> converted image and is given to the K-means clustering along with the number of colors the user visually identifies in the image.</p>
 <p>The <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m">VNS</a> function partitions the image into n (number provided by user, 5 for the sample used here) color clusters and saves them as individual objects with a index/label. The color clusters (cell array in matfile), the indexed objects (cell array in matfile) of the color clusters, images of the color clusters (tif) are all saved in the same location as the capture area tif image.</p>
@@ -200,13 +205,15 @@ This function is based on <a href="https://www.mathworks.com/help/images/color-b
 </ol>
 </div>
 <div id="refinevns" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/refineVNS.m">refineVNS</a></h2>
+<h2><span class="header-section-number">2.2</span> refineVNS</h2>
 <p>This function is used to refine the segmentations for accurate detection of nuclei.</p>
-<p>The inputs to the function are
-1. The tif image of a single capture area with full path
-2. The index of the color cluster of the nuclei (obtained from VNS function)</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb6-1"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">fname</span> <span class="op">=</span> <span class="ss">&#39;/path_to_capture_area_tif/Lieber_Institute_OTS-20-7748_rush_posterior_A1.tif&#39;</span><span class="op">;</span></span>
-<span id="cb6-2"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="va">M</span> <span class="op">=</span> <span class="fl">3</span><span class="op">;</span> <span class="co">%nidex label 3 was assigned to nuclei for this sample image (shown above)</span></span>
+<p>The inputs to the function are</p>
+<ol style="list-style-type: decimal">
+<li><p>The tif image of a single capture area with full path</p></li>
+<li><p>The index of the color cluster of the nuclei (obtained from VNS function)</p></li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb6-1"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">fname</span> <span class="op">=</span> <span class="ss">&#39;/path_to_capture_area_tif/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif&#39;</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="va">M</span> <span class="op">=</span> <span class="fl">3</span><span class="op">;</span> <span class="co">%index label 3 was assigned to nuclei for this sample image (shown above)</span></span>
 <span id="cb6-3"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="va">refineVNS</span>(<span class="va">fname</span><span class="op">,</span><span class="va">N</span>)</span></code></pre></div>
 <p>The nuclei in these images are dark blue objects, the function get rids of the noisy light blue pixels around the nuclei by thresholding the brightness layer (the L object in the L<em>a</em>b image) of the image. The function provdies a binary mask of the refined nuclei saved in mat file and a tif image of the segmented and refined nuclei.</p>
@@ -216,8 +223,8 @@ This function is based on <a href="https://www.mathworks.com/help/images/color-b
 <p><img src="images/sampleimage_nuclei_zoomin.png" title="Color cluster 3" width="225"/> <img src="images/sampleimage_refinenuclei_zoomin.png" title="Indexed object 3" width="225"/></p>
 <p>Below are the outputs of the <a href="">refineVNS</a> function</p>
 <ol style="list-style-type: decimal">
-<li><a href="">Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.tif</a></li>
-<li><a href="">Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat</a></li>
+<li><p><a href="">Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.tif</a></p></li>
+<li><p><a href="">Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat</a></p></li>
 </ol>
 
 </div>
