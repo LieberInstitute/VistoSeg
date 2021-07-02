@@ -174,11 +174,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="overview" class="section level1 unnumbered">
 <h1>Overview</h1>
-<p><strong>Visium imaging</strong> is a part of whole <strong>spatial transcriptomics</strong> workflow, a barcoding-based transcriptome-wide technology released by <a href="https://www.10xgenomics.com">10X genomics</a>.
-
+<strong>Visium imaging</strong> is a part of whole <strong>spatial transcriptomics</strong> workflow, a barcoding-based transcriptome-wide technology released by <a href="https://www.10xgenomics.com">10X genomics</a>.
+<center>
 <img src="images/visium_imaging.png" />
-
-<img src="images/visium_spot.png" /></p>
+</center>
+<center>
+<img src="images/visium_spot.png" />
+</center>
 <div id="why-spatial-transcriptomics-or-visium-imaging" class="section level2 unnumbered">
 <h2>Why <em>spatial transcriptomics</em> or <em>visium imaging</em>??</h2>
 <p>Methods like RNAseq can profile single cells transcriptome-wide and enable researchers to identify cell type compositions but can necessarily destroy the spatial information. Multiplexing methods on other hand can provide spatial information but has significant limitations on the number of genes that can be processed and has issues with microscopy and related computational challenges. <strong>Spatial transcriptomics</strong> provides solutions to these limitations allowing us to quantify gene expression with high spatial resolution. The key to this system is the <strong>visium imaging</strong> and <a href="https://www.10xgenomics.com/products/spatial-gene-expression">visium gene expression slide</a>, where the tissue sections from subjects goes onto the <strong>capture areas (A1,B1,C1,D1)</strong> on the slide. The whole slide is imaged at once and produces a huge output image file with all capture areas. The whole slide image has to be split into individual capture area images (necessarily JPEG or tif) and processed accordingly for the downstream analysis.</p>
@@ -202,8 +204,8 @@ The above figure describes the VisiumLIBD pipeline, (A) The data presented here 
     eprint = {https://www.overleaf.com/read/fmvrpsyxgsbz},
     journal = {bioRxiv}
 }</code></pre>
-<p>This is a project by the <strong>Imaging Development Team</strong> from <strong>Keri Martinowich’s Lab</strong> at the <a href="https://www.libd.org/">Lieber Institute for Brain Development</a>.</p>
-<p><img src="http://lcolladotor.github.io/img/LIBD_logo.jpg" width="250px"></p>
+<p>This is a project by the <strong>Imaging Development Team</strong> from <strong>Keri Martinowich’s Lab</strong> at the <a href="https://www.libd.org/">Lieber Institute for Brain Development</a>.
+<img src="http://lcolladotor.github.io/img/LIBD_logo.jpg" width="250px"></p>
 </div>
 <div id="image-acquisition" class="section level2 unnumbered">
 <h2>Image Acquisition</h2>
@@ -211,10 +213,11 @@ The above figure describes the VisiumLIBD pipeline, (A) The data presented here 
 </div>
 <div id="software-requirements" class="section level2 unnumbered">
 <h2>Software Requirements</h2>
-<p>The pipeline was developed under the following software configuration.
-
+The pipeline was developed under the following software configuration.
+<center>
 <img src="images/Software_Configuration.png" />
-<code>VisiumLIBD</code> has been tested on Linux, Windows and MacOS.</p>
+</center>
+<p><code>VisiumLIBD</code> has been tested on Linux, Windows and MacOS.</p>
 <ol style="list-style-type: decimal">
 <li><p><code>MATLAB</code><br />
 MATLAB version R2019a 64-bit or later is required to run VisiumLIBD pipeline with the <a href="https://www.mathworks.com/products/image.html">Image Processing Toolbox</a> preloaded.</p></li>
@@ -222,18 +225,17 @@ MATLAB version R2019a 64-bit or later is required to run VisiumLIBD pipeline wit
 Visium whole slide images are high resolution, and the typical size of these multiplane tif images produced inhouse is ~25GB. The system RAM (we use ~75GB) should be thrice the size of the multiplane tif image to load it into MATLAB and the disc space (we use ~100GB) should be atleast 4 times the size of multiplane tif to store the output.</p></li>
 <li><p><code>Installation</code><br />
 The pipeline is availble at (<a href="https://github.com/LieberInstitute/VisiumLIBD" class="uri">https://github.com/LieberInstitute/VisiumLIBD</a>) which can be download to your system from the Github website directly or the main repository can be cloned to your system using the following command on terminal/command prompt.<br />
-<code>git clone https://github.com/LieberInstitute/VisiumLIBD.git</code><br />
-All the code exists in the <a href="https://github.com/LieberInstitute/VisiumLIBD/tree/main/code">code</a> directory inside the main <a href="https://github.com/LieberInstitute/VisiumLIBD">VisiumLIBD</a> directory.
-The user’s working directory on <strong>MATLAB</strong> should be the path to the <a href="https://github.com/LieberInstitute/VisiumLIBD/tree/main/code">code</a> directory in the downloaded repository, to run any functions this pipeline provides.<br />
-Once the repository is downloaded, the user can run either of the following code to change his/her working directory on MATLAB to the <a href="https://github.com/LieberInstitute/VisiumLIBD/tree/main/code">code</a> directory.<br />
-<code>cd /path_to_the_downloaded_repository/VisiumLIBD/code/</code>
-<code>addpath(genpath('/path_to_the_downloaded_repository/VisiumLIBD/code/'))</code></p></li>
+<code>git clone https://github.com/LieberInstitute/VisiumLIBD.git</code></p></li>
 </ol>
+<p>All the code exists in the <a href="https://github.com/LieberInstitute/VisiumLIBD/tree/main/code">code</a> directory inside the main <a href="https://github.com/LieberInstitute/VisiumLIBD">VisiumLIBD</a> directory.
+The user’s working directory on MATLAB should be the path to the <a href="https://github.com/LieberInstitute/VisiumLIBD/tree/main/code">code</a> directory in the downloaded repository, to run any functions this pipeline provides. Once the repository is downloaded, the user can run either of the following code to change his/her working directory on MATLAB to the <a href="https://github.com/LieberInstitute/VisiumLIBD/tree/main/code">code</a> directory.<br />
+<code>cd /path_to_the_downloaded_repository/VisiumLIBD/code/</code>
+<code>addpath(genpath('/path_to_the_downloaded_repository/VisiumLIBD/code/'))</code></p>
 </div>
 <div id="data-availability" class="section level2 unnumbered">
 <h2>Data Availability</h2>
-<p>All the raw data and few of the pipeline outputs are hosted at the following link (<a href="https://github.com/LieberInstitute/spatialLIBD#raw-data" class="uri">https://github.com/LieberInstitute/spatialLIBD#raw-data</a>).<br />
-<strong>Other potential datasets</strong><br />
+<p>All the raw data and few of the pipeline outputs are hosted at the following link (<a href="https://github.com/LieberInstitute/spatialLIBD#raw-data" class="uri">https://github.com/LieberInstitute/spatialLIBD#raw-data</a>).</p>
+<p><strong>Other potential datasets</strong><br />
 1. <a href="https://github.com/LieberInstitute/spatialLIBD#raw-data">LIBD pilot DLPFC</a><br />
 2. <a href="https://support.10xgenomics.com/spatial-gene-expression/datasets">10x Genomics spatial data sets</a></p>
 

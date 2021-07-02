@@ -207,18 +207,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This function can be run on MATLAB command prompt to obtain the <a href="">tissue_spot_counts.csv</a> file without going throught the GUI.</p>
 <p>Inputs to the function are</p>
 <ol style="list-style-type: decimal">
-<li><p>Filename with full path for the capture are tif file.</p></li>
 <li><p>Filename with full path for the mat file of the final nuclei segmentation.</p></li>
 <li><p>Filename with full path for the scalefactors json file.</p></li>
 <li><p>Filename with full path for the tissue_positions_list csv file.</p></li>
 </ol>
-<div class="sourceCode" id="cb7"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb7-1"><a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-2"><a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="va">img</span> <span class="op">=</span> <span class="ss">&#39;/path_to_capture_area_tif/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif&#39;</span><span class="op">;</span></span>
-<span id="cb7-3"><a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="va">mask</span> <span class="op">=</span> <span class="ss">&#39;/path_to_capture_area_segmentation/Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat&#39;</span><span class="op">;</span></span>
-<span id="cb7-4"><a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="va">jsonname</span> <span class="op">=</span> <span class="ss">&#39;/path_to_scalefactors_json/scalefactors_json.json&#39;</span><span class="op">;</span></span>
-<span id="cb7-5"><a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="va">posname</span> <span class="op">=</span> <span class="ss">&#39;/path_to_tissue_positions_list/tissue_positions_list.csv&#39;</span><span class="op">;</span></span>
-<span id="cb7-6"><a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="va">countNuclei</span>(<span class="va">img</span><span class="op">,</span><span class="va">mask</span><span class="op">,</span><span class="va">jsonname</span><span class="op">,</span><span class="va">posname</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb7-1"><a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="va">mask</span> <span class="op">=</span> <span class="ss">&#39;/path_to_capture_area_segmentation/Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat&#39;</span><span class="op">;</span></span>
+<span id="cb7-2"><a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="va">jsonname</span> <span class="op">=</span> <span class="ss">&#39;/path_to_scalefactors_json/scalefactors_json.json&#39;</span><span class="op">;</span></span>
+<span id="cb7-3"><a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="va">posname</span> <span class="op">=</span> <span class="ss">&#39;/path_to_tissue_positions_list/tissue_positions_list.csv&#39;</span><span class="op">;</span></span>
+<span id="cb7-4"><a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="va">countNuclei</span>(<span class="va">img</span><span class="op">,</span><span class="va">mask</span><span class="op">,</span><span class="va">jsonname</span><span class="op">,</span><span class="va">posname</span>)</span></code></pre></div>
 <p>The <a href="">countNuclei</a> function generates a nuclei count file listed below. The file is saved in the same path as the <a href="">tissue_positions_list.csv</a> that we give to the function.</p>
 <ol style="list-style-type: decimal">
 <li><a href="">tissue_spot_counts.csv</a></li>
