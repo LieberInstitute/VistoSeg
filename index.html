@@ -130,7 +130,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
-<li><a href="index.html#why-spatial-transcriptomics-or-visium-imaging">Why <code>spatial transcriptomics</code> or <code>visium imaging</code>??</a></li>
+<li><a href="index.html#why-spatial-transcriptomics-or-visium-imaging">Why <em>spatial transcriptomics</em> or <em>visium imaging</em>??</a></li>
 <li><a href="index.html#cite-visiumlibd">Cite <code>VisiumLIBD</code></a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#image-acquisition"><i class="fa fa-check"></i>Image Acquisition</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software Requirements</a></li>
@@ -143,9 +143,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2" data-path="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#refinevns"><i class="fa fa-check"></i><b>2.2</b> refineVNS</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="step-3-run-spaceranger.html"><a href="step-3-run-spaceranger.html"><i class="fa fa-check"></i><b>3</b> Step 3: Run spaceranger</a></li>
-<li class="chapter" data-level="4" data-path="step-4-spotspotcheck.html"><a href="step-4-spotspotcheck.html"><i class="fa fa-check"></i><b>4</b> Step 4: spotspotcheck</a>
+<li class="chapter" data-level="4" data-path="step-4-gui-for-nuclei-count-in-a-visium-spot.html"><a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html"><i class="fa fa-check"></i><b>4</b> Step 4: GUI for nuclei count in a visium spot</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="step-4-spotspotcheck.html"><a href="step-4-spotspotcheck.html#countnuclei"><i class="fa fa-check"></i><b>4.1</b> CountNuclei</a></li>
+<li class="chapter" data-level="4.1" data-path="step-4-gui-for-nuclei-count-in-a-visium-spot.html"><a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html#spotspotcheck"><i class="fa fa-check"></i><b>4.1</b> spotspotcheck</a></li>
+<li class="chapter" data-level="4.2" data-path="step-4-gui-for-nuclei-count-in-a-visium-spot.html"><a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html#countnuclei"><i class="fa fa-check"></i><b>4.2</b> CountNuclei</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="step-5-atlasaligner.html"><a href="step-5-atlasaligner.html"><i class="fa fa-check"></i><b>5</b> Step 5: AtlasAligner</a></li>
 <li class="chapter" data-level="" data-path="r-session-information.html"><a href="r-session-information.html"><i class="fa fa-check"></i>R session information</a></li>
@@ -173,18 +174,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="overview" class="section level1 unnumbered">
 <h1>Overview</h1>
-<p><code>Visium imaging</code> is a part of whole <code>spatial transcriptomics</code> workflow, a barcoding-based transcriptome-wide technology released by <a href="https://www.10xgenomics.com">10X genomics</a>.
+<p><strong>Visium imaging</strong> is a part of whole <strong>spatial transcriptomics</strong> workflow, a barcoding-based transcriptome-wide technology released by <a href="https://www.10xgenomics.com">10X genomics</a>.
 
 <img src="images/visium_imaging.png" />
 
 <img src="images/visium_spot.png" /></p>
 <div id="why-spatial-transcriptomics-or-visium-imaging" class="section level2 unnumbered">
-<h2>Why <code>spatial transcriptomics</code> or <code>visium imaging</code>??</h2>
-<p>Methods like RNAseq can profile single cells transcriptome-wide and enable researchers to identify cell type compositions but can necessarily destroy the spatial information. Multiplexing methods on other hand can provide spatial information but has significant limitations on the number of genes that can be processed and has issues with microscopy and related computational challenges. <code>spatial transcriptomics</code> provides solutions to these limitations allowing us to quantify gene expression with high spatial resolution. The key to this system is the <code>visium imaging</code> and <a href="https://www.10xgenomics.com/products/spatial-gene-expression">visium gene expression slide</a>, where the tissue sections from subjects goes onto the capture areas(A1,B1,C1,D1) on the slide. The whole slide is imaged at once and produces a huge output image file with all capture areas. The whole slide image has to be split into individual capture area images (necessarily JPEG or tiff) and processed accordingly for the downstream analysis.</p>
+<h2>Why <em>spatial transcriptomics</em> or <em>visium imaging</em>??</h2>
+<p>Methods like RNAseq can profile single cells transcriptome-wide and enable researchers to identify cell type compositions but can necessarily destroy the spatial information. Multiplexing methods on other hand can provide spatial information but has significant limitations on the number of genes that can be processed and has issues with microscopy and related computational challenges. <strong>Spatial transcriptomics</strong> provides solutions to these limitations allowing us to quantify gene expression with high spatial resolution. The key to this system is the <strong>visium imaging</strong> and <a href="https://www.10xgenomics.com/products/spatial-gene-expression">visium gene expression slide</a>, where the tissue sections from subjects goes onto the <strong>capture areas (A1,B1,C1,D1)</strong> on the slide. The whole slide is imaged at once and produces a huge output image file with all capture areas. The whole slide image has to be split into individual capture area images (necessarily JPEG or tif) and processed accordingly for the downstream analysis.</p>
 <p>This website describes the steps required to split, visualize and process the visium images from spatial transcriptomics projects generated by the <a href="https://www.10xgenomics.com/spatial-transcriptomics">10x Genomics Visium</a> commercial platform.
 
 <img src="images/VisiumLIBD.png" />
-The above figure describes the VisiumLIBD pipeline, (A) The data presented here is from a portion of DLPFC (taken from posterior, mid and anterior sections of brain per sample) that spans six neuronal layers plus white matter. (B) Shows the original ‘Visium gene expression slide’ with 4 capture areas and the slide scanner used to image the slide. (C) Shows the huge tiff file produced by the slide scanner which is then split into the respective capture areas using the function <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/split.m">splitSlide</a> described in <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/Step1.Rmd">Step 1</a> (D) Shows the individual tiff images of capture areas produced by ‘splitVisium’ and its corresponding nuclei segmentations produced by the functions <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m">VNS</a> (Visium Nuclei Segmentation) and <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/refineVNS.m">refineVNS</a> explained in <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/Step2.Rmd">Step 2</a> (E) The tiff images from ‘D’ serve as input to the <a href="https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/using/count">Spaceranger</a> module (explained in <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/Step3.Rmd">Step 3</a>) which generates <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spaceranger/tissue_positions_list.csv">tissue_positions_list.csv</a> file and <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spaceranger/scalefactors_json.json">scalefactors_json.json</a> file that contain ‘Visium spot metrics’ (F) The function <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/countNuclei.m">countNuclei</a> explained in <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/Step4.Rmd">Step 4</a>, gives the nuclei count per visium spot info that is stored in <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a> file (G) Finally, the pipeline provides a GUI called <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/spotspotcheck.m">spotspotcheck</a> that allows the user to perform visual inspection of the nuclei segmentations by allowing the user to toggle between the visium and binary images, and also by providing zoom in/out options to clearly see the nuclei inside a visium spot.</p>
+The above figure describes the VisiumLIBD pipeline, (A) The data presented here is from a portion of DLPFC (taken from posterior, mid and anterior sections of brain per sample) that spans six neuronal layers plus white matter. (B) Shows the original <em>‘Visium gene expression slide’</em> with 4 capture areas and the slide scanner used to image the slide. (C) Shows the huge tif file produced by the slide scanner which is then split into the respective capture areas using the function <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/split.m">splitSlide</a> described in <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/Step1.Rmd">Step 1</a> (D) Shows the individual tif images of capture areas produced by <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/split.m">splitSlide</a> and its corresponding nuclei segmentations produced by the functions <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m">VNS</a> (Visium Nuclei Segmentation) and <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/refineVNS.m">refineVNS</a> explained in <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/Step2.Rmd">Step 2</a> (E) The tif images from ‘(D)’ serve as input to the <a href="https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/using/count">Spaceranger</a> module (explained in <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/Step3.Rmd">Step 3</a>) which generates <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spaceranger/tissue_positions_list.csv">tissue_positions_list.csv</a> file and <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spaceranger/scalefactors_json.json">scalefactors_json.json</a> file that contain <em>‘Visium spot metrics’</em> (F) The function <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/countNuclei.m">countNuclei</a> explained in <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/Step4.Rmd">Step 4</a>, gives the nuclei count per visium spot info that is stored in <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a> file (G) Finally, the pipeline provides a GUI called <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/spotspotcheck.m">spotspotcheck</a> that allows the user to perform visual inspection of the nuclei segmentations by allowing the user to toggle between the visium and binary images, and also by providing zoom in/out options to clearly see the nuclei inside a visium spot.</p>
 </div>
 <div id="cite-visiumlibd" class="section level2 unnumbered">
 <h2>Cite <code>VisiumLIBD</code></h2>
@@ -206,7 +207,7 @@ The above figure describes the VisiumLIBD pipeline, (A) The data presented here 
 </div>
 <div id="image-acquisition" class="section level2 unnumbered">
 <h2>Image Acquisition</h2>
-<p>The 10X <a href="https://support.10xgenomics.com/spatial-gene-expression/imaging/doc/technical-note-visium-spatial-gene-expression-imaging-guidelines">Visium Spatial Gene Expression Imaging Guidelines</a> are followed for acquiring the images. Images are acquired at 40x magnification using a Leica CS2 slide scanner and saved as <code>.SVS files.</code> These <code>.SVS files</code> are then exported as <code>TIFF files</code> for downstream analysis. The entire Visium slide (4 capture areas with fiducial frames), is scanned in a single file (~20GB).</p>
+<p>The 10X <a href="https://support.10xgenomics.com/spatial-gene-expression/imaging/doc/technical-note-visium-spatial-gene-expression-imaging-guidelines">Visium Spatial Gene Expression Imaging Guidelines</a> are followed for acquiring the images. Images are acquired at 40x magnification using a Leica CS2 slide scanner and saved as <em>‘.SVS files.’</em> These <em>‘.SVS files’</em> are then exported as <em>‘TIF files’</em> for downstream analysis. The entire Visium slide (4 capture areas with fiducial frames), is scanned in a single file (~20GB).</p>
 </div>
 <div id="software-requirements" class="section level2 unnumbered">
 <h2>Software Requirements</h2>
@@ -215,35 +216,26 @@ The above figure describes the VisiumLIBD pipeline, (A) The data presented here 
 <img src="images/Software_Configuration.png" />
 <code>VisiumLIBD</code> has been tested on Linux, Windows and MacOS.</p>
 <ol style="list-style-type: decimal">
-<li><code>MATLAB</code></li>
-</ol>
-<p>MATLAB version R2019a 64-bit or later is required to run VisiumLIBD pipeline with the <a href="https://www.mathworks.com/products/image.html">Image Processing Toolbox</a> preloaded.</p>
-<ol start="2" style="list-style-type: decimal">
-<li><code>Memory</code></li>
-</ol>
-<p>Visium whole slide images are high resolution, and the typical size of these multiplane tif images produced inhouse is ~25GB. The system RAM (we use ~75GB) should be thrice the size of the multiplane tif image to load it into MATLAB and the disc space (we use ~100GB) should be atleast 4 times the size of multiplane tif to store the output.</p>
-<ol start="3" style="list-style-type: decimal">
-<li><code>Installation</code></li>
-</ol>
-<p>The pipeline is availble at (<a href="https://github.com/LieberInstitute/VisiumLIBD" class="uri">https://github.com/LieberInstitute/VisiumLIBD</a>) which can be download to your system from the Github website directly or the main repository can be cloned to your system using the following command on terminal/command prompt.</p>
-<pre><code>`git clone https://github.com/LieberInstitute/VisiumLIBD.git`</code></pre>
-<p>All the code exists in the <a href="https://github.com/LieberInstitute/VisiumLIBD/tree/main/code">code</a> directory inside the main <a href="https://github.com/LieberInstitute/VisiumLIBD">VisiumLIBD</a> directory.
-The user’s working directory on <code>MATLAB</code> should be the path to the <code>code</code> directory in the downloaded repository, to run any functions this pipeline provides.</p>
-<p>Once the repository is downloaded, the user can run either of the following code to change his/her working directory on MATLAB to the <code>code</code> directory.</p>
-<ol style="list-style-type: decimal">
+<li><p><code>MATLAB</code>
+MATLAB version R2019a 64-bit or later is required to run VisiumLIBD pipeline with the <a href="https://www.mathworks.com/products/image.html">Image Processing Toolbox</a> preloaded.</p></li>
+<li><p><code>Memory</code>
+Visium whole slide images are high resolution, and the typical size of these multiplane tif images produced inhouse is ~25GB. The system RAM (we use ~75GB) should be thrice the size of the multiplane tif image to load it into MATLAB and the disc space (we use ~100GB) should be atleast 4 times the size of multiplane tif to store the output.</p></li>
+<li><p><code>Installation</code>
+The pipeline is availble at (<a href="https://github.com/LieberInstitute/VisiumLIBD" class="uri">https://github.com/LieberInstitute/VisiumLIBD</a>) which can be download to your system from the Github website directly or the main repository can be cloned to your system using the following command on terminal/command prompt.
+<code>git clone https://github.com/LieberInstitute/VisiumLIBD.git</code>
+All the code exists in the <a href="https://github.com/LieberInstitute/VisiumLIBD/tree/main/code">code</a> directory inside the main <a href="https://github.com/LieberInstitute/VisiumLIBD">VisiumLIBD</a> directory.
+The user’s working directory on <code>MATLAB</code> should be the path to the <code>code</code> directory in the downloaded repository, to run any functions this pipeline provides.
+Once the repository is downloaded, the user can run either of the following code to change his/her working directory on MATLAB to the <code>code</code> directory.</p></li>
 <li><p><code>cd /path_to_the_downloaded_repository/VisiumLIBD/code/</code></p></li>
 <li><p><code>addpath(genpath('/path_to_the_downloaded_repository/VisiumLIBD/code/'))</code></p></li>
 </ol>
 </div>
 <div id="data-availability" class="section level2 unnumbered">
 <h2>Data Availability</h2>
-<p>The data is hosted at <a href="https://github.com/LieberInstitute/spatialLIBD#raw-data">the link to AWS</a>
-I started building the repo based on the sample from new DLPFC data, the functions I recently made for the pipeline, works fine on the new DLPFC data. The pipeline should run fine on the 10X data and the pilot DLPFC data too, but is it troublesome to make the new DLPFC data public? Atleast, one sample from new DLPFC data should be good.</p>
-<p><strong>Other potential datasets</strong></p>
-<ol style="list-style-type: decimal">
-<li><p><a href="https://github.com/LieberInstitute/spatialLIBD#raw-data">LIBD pilot DLPFC</a></p></li>
-<li><p><a href="https://support.10xgenomics.com/spatial-gene-expression/datasets">10x Genomics spatial data sets</a></p></li>
-</ol>
+<p>All the raw data and few of the pipeline outputs are hosted at the following link (<a href="https://github.com/LieberInstitute/spatialLIBD#raw-data" class="uri">https://github.com/LieberInstitute/spatialLIBD#raw-data</a>).
+<strong>Other potential datasets</strong>
+1. <a href="https://github.com/LieberInstitute/spatialLIBD#raw-data">LIBD pilot DLPFC</a>
+2. <a href="https://support.10xgenomics.com/spatial-gene-expression/datasets">10x Genomics spatial data sets</a></p>
 
 </div>
 </div>
