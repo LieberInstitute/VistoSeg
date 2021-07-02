@@ -52,17 +52,13 @@ This function can be run on MATLAB command prompt to obtain the [tissue_spot_cou
 
 Inputs to the function are
 
-1. Filename with full path for the capture are tif file.
+1. Filename with full path for the mat file of the final nuclei segmentation.
 
-2. Filename with full path for the mat file of the final nuclei segmentation.
+2. Filename with full path for the scalefactors json file.
 
-3. Filename with full path for the scalefactors json file.
-
-4. Filename with full path for the tissue_positions_list csv file.
+3. Filename with full path for the tissue_positions_list csv file.
 
 ```MATLAB
-
-img = '/path_to_capture_area_tif/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif';
 mask = '/path_to_capture_area_segmentation/Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat';
 jsonname = '/path_to_scalefactors_json/scalefactors_json.json';
 posname = '/path_to_tissue_positions_list/tissue_positions_list.csv';

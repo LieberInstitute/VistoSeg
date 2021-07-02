@@ -12,10 +12,12 @@ output:
 
 # Overview {-}
 **Visium imaging** is a part of whole **spatial transcriptomics** workflow, a barcoding-based transcriptome-wide technology released by [10X genomics](https://www.10xgenomics.com).
-\centering
-![](images/visium_imaging.png)
-\centering
+<center>
+![](images/visium_imaging.png) 
+</center>
+<center>
 ![](images/visium_spot.png)
+</center>
 
 ## Why *spatial transcriptomics* or *visium imaging*?? {-}
 Methods like RNAseq can profile single cells transcriptome-wide and enable researchers to identify cell type compositions but can necessarily destroy the spatial information. Multiplexing methods on other hand can provide spatial information but has significant limitations on the number of genes that can be processed and has issues with microscopy and related computational challenges. **Spatial transcriptomics** provides solutions to these limitations allowing us to quantify gene expression with high spatial resolution. The key to this system is the **visium imaging** and [visium gene expression slide](https://www.10xgenomics.com/products/spatial-gene-expression), where the tissue sections from subjects goes onto the **capture areas (A1,B1,C1,D1)** on the slide. The whole slide is imaged at once and produces a huge output image file with all capture areas. The whole slide image has to be split into individual capture area images (necessarily JPEG or tif) and processed accordingly for the downstream analysis.
@@ -42,7 +44,6 @@ We hope that [VisiumLIBD](http://research.libd.org/VisiumLIBD/) will be useful f
 }
 ```
 This is a project by the **Imaging Development Team** from **Keri Martinowich's Lab** at the [Lieber Institute for Brain Development](https://www.libd.org/).
-
 <img src="http://lcolladotor.github.io/img/LIBD_logo.jpg" width="250px">
 
 ## Image Acquisition {-}
@@ -50,8 +51,10 @@ The 10X [Visium Spatial Gene Expression Imaging Guidelines](https://support.10xg
 
 ## Software Requirements {-}
 The pipeline was developed under the following software configuration.
-\centering
+<center>
 ![](images/Software_Configuration.png)
+</center>
+
 `VisiumLIBD` has been tested on Linux, Windows and MacOS.
 
 1. `MATLAB`  
@@ -62,15 +65,16 @@ Visium whole slide images are high resolution, and the typical size of these mul
 
 3. `Installation`  
 The pipeline is availble at (https://github.com/LieberInstitute/VisiumLIBD) which can be download to your system from the Github website directly or the main repository can be cloned to your system using the following command on terminal/command prompt.  
-    `git clone https://github.com/LieberInstitute/VisiumLIBD.git`  
+              `git clone https://github.com/LieberInstitute/VisiumLIBD.git`
+    
 All the code exists in the [code](https://github.com/LieberInstitute/VisiumLIBD/tree/main/code) directory inside the main [VisiumLIBD](https://github.com/LieberInstitute/VisiumLIBD) directory. 
-The user's working directory on **MATLAB** should be the path to the [code](https://github.com/LieberInstitute/VisiumLIBD/tree/main/code) directory in the downloaded repository, to run any functions this pipeline provides.   
-Once the repository is downloaded, the user can run either of the following code to change his/her working directory on MATLAB to the [code](https://github.com/LieberInstitute/VisiumLIBD/tree/main/code) directory.  
-       `cd /path_to_the_downloaded_repository/VisiumLIBD/code/` 
-       `addpath(genpath('/path_to_the_downloaded_repository/VisiumLIBD/code/'))`
+The user's working directory on MATLAB should be the path to the [code](https://github.com/LieberInstitute/VisiumLIBD/tree/main/code) directory in the downloaded repository, to run any functions this pipeline provides. Once the repository is downloaded, the user can run either of the following code to change his/her working directory on MATLAB to the [code](https://github.com/LieberInstitute/VisiumLIBD/tree/main/code) directory.  
+              `cd /path_to_the_downloaded_repository/VisiumLIBD/code/` 
+              `addpath(genpath('/path_to_the_downloaded_repository/VisiumLIBD/code/'))`
 
 ## Data Availability {-}
-All the raw data and few of the pipeline outputs are hosted at the following link (https://github.com/LieberInstitute/spatialLIBD#raw-data).  
+All the raw data and few of the pipeline outputs are hosted at the following link (https://github.com/LieberInstitute/spatialLIBD#raw-data).
+
 **Other potential datasets**  
 1. [LIBD pilot DLPFC](https://github.com/LieberInstitute/spatialLIBD#raw-data)   
 2. [10x Genomics spatial data sets](https://support.10xgenomics.com/spatial-gene-expression/datasets) 
