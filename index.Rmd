@@ -66,12 +66,12 @@ The pipeline is availble at (https://github.com/LieberInstitute/VisiumLIBD) whic
 All the code exists in the [code](https://github.com/LieberInstitute/VisiumLIBD/tree/main/code) directory inside the main [VisiumLIBD](https://github.com/LieberInstitute/VisiumLIBD) directory. 
 The user's working directory on **MATLAB** should be the path to the [code](https://github.com/LieberInstitute/VisiumLIBD/tree/main/code) directory in the downloaded repository, to run any functions this pipeline provides.   
 Once the repository is downloaded, the user can run either of the following code to change his/her working directory on MATLAB to the [code](https://github.com/LieberInstitute/VisiumLIBD/tree/main/code) directory.  
-1. `cd /path_to_the_downloaded_repository/VisiumLIBD/code/`  
-2. `addpath(genpath('/path_to_the_downloaded_repository/VisiumLIBD/code/'))`  
+       `cd /path_to_the_downloaded_repository/VisiumLIBD/code/` 
+       `addpath(genpath('/path_to_the_downloaded_repository/VisiumLIBD/code/'))`
 
 ## Data Availability {-}
 All the raw data and few of the pipeline outputs are hosted at the following link (https://github.com/LieberInstitute/spatialLIBD#raw-data).  
-**Other potential datasets**
+**Other potential datasets**  
 1. [LIBD pilot DLPFC](https://github.com/LieberInstitute/spatialLIBD#raw-data)   
 2. [10x Genomics spatial data sets](https://support.10xgenomics.com/spatial-gene-expression/datasets) 
 
