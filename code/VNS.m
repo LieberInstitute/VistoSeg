@@ -1,9 +1,8 @@
-function VNS(fname)
+function VNS(fname,N)
 %fname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/Images/Lieber_Institute_OTS-20-7748_rush_posterior_A1.tif
-
+%N = 5;
 tic
 disp('Importing capture area')
-N = 4;
 Img1 = imread(fname); %import image
 toc 
 

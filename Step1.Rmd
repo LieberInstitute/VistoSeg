@@ -3,6 +3,7 @@
 The visium histology whole slide image from the imaging system (slide scanner) is a multiplane tif image (~20GB). The sample image [Lieber_Institute_OTS-20-7690_rush_anterior.tif](link to AWS) from the DLPFC dataset is used here to run through the pipeline. 
 
 The inputs to the function [splitSlide.m](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/splitSlide.m) are 
+
 1. the full path with file name of the raw multiplane tif image (obtained from slide scanner)
 
 The function imports the raw multiplane tif image and saves each plane/image as MATLAB structure and all structures are saved into a single cell array (I) in a '.mat file'. The 1st image of the raw multiplane tif is the raw visium histology slide image, the remaining planes/images consists of the metadata. 
@@ -10,7 +11,6 @@ The function imports the raw multiplane tif image and saves each plane/image as 
 The function then splits the 1st image of the multiplane tif into individual capture areas (A1,B1,C1,D1) and saves them as both `tif images` and `mat files`. The capture areas are resized to 70% of the original size (eg 100 X 100 Pixel region is resized to 70 X 70 pixel region) when saving to tif images as MATLAB cannot store images that occupies more than 2^32 - 1 bytes of data.
 
 ```MATLAB
->> cd /path_to_downloaded_repo/VisiumLIBD/code
 >> fname = '/path_to_multiplane_tif/Lieber_Institute_OTS-20-7690_rush_anterior.tif';
 >> splitSlide(fname)
 

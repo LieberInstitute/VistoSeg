@@ -2,9 +2,11 @@
 
 The functions [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m)(Visium Nuclei Segmentation) and [refineVNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/refineVNS.m) from the pipeline are used to perform nuclei segmentation. 
 
-## [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m) - Visium Nuclei Segmentation
+## VNS - Visium Nuclei Segmentation
 The inputs to the [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m) function  are
+
 1. The tif image of single capture area (output from Step 1: splitSlide function) with full path
+
 2. number of colors a user visually identifies in the single capture area image
 
 The [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m) function imports the capture area image, applies smoothening to it to get rid of any irregularities in the image and increases the contrast to brighten the nuclei for better detection.  
@@ -53,17 +55,19 @@ Below are the outputs of [VNS](https://github.com/LieberInstitute/VisiumLIBD/blo
 7. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_mask.mat](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/VNS/Lieber_Institute_OTS-20-7690_rush_anterior_A1_mask.mat)
 
 
-## [refineVNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/refineVNS.m)
+## refineVNS
 
 This function is used to refine the segmentations for accurate detection of nuclei.
 
 The inputs to the function are
+
 1. The tif image of a single capture area with full path
+
 2. The index of the color cluster of the nuclei (obtained from VNS function)
 
 ```MATLAB
-fname = '/path_to_capture_area_tif/Lieber_Institute_OTS-20-7748_rush_posterior_A1.tif';
-M = 3; %nidex label 3 was assigned to nuclei for this sample image (shown above)
+fname = '/path_to_capture_area_tif/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif';
+M = 3; %index label 3 was assigned to nuclei for this sample image (shown above)
 
 refineVNS(fname,N)
 ```
@@ -80,4 +84,5 @@ A zoomed in version, basically the 1st 500 pixels in x ang y of the above sectio
 Below are the outputs of the [refineVNS]() function
 
 1.  [Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.tif]()
+
 2.  [Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat]()
