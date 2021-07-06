@@ -1,6 +1,6 @@
-# Step 4: GUI for nuclei count in a visium spot
+# Step 4: GUI to count nuclei in a visium spot
 
-## spotspotcheck 
+## spotspotcheck: The GUI is used for
 
 1. Obtaining nuclei count per Visium spot and saving it to a csv.  
 2. Performing quality check on the nuclei segmentations (from Step2) by allowing the user to zoom in/out and toggle between the nuclei segmentation and visium histology images. The GUI overlays the spot grid on to the visium histology and segmentation images for the user to clearly see the nuclei inside a spot.  
@@ -31,7 +31,7 @@ Select the capture area tif and hit the `Open` button on window, which opens the
 </center>
 Select the [.mat](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/refineVNS/Liebert_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat) file and hit the `Open` button.
 
-4. **Select Scale Factors JSON File** : Select the [scalefactors_json.json](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spaceranger/scalefactors_json.json) file with the visium spot metrics obtained from the **Spaceranger** software.
+4. **Select Scale Factors JSON File** : Select the [scalefactors_json.json](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spaceranger/scalefactors_json.json) file with the visium spot metrics obtained from the [Space Ranger](https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/what-is-space-ranger) software.
 <center>
 ![](images/select json.png) 
 </center>
@@ -59,7 +59,7 @@ The zoom in (symbol of magnifying glass with `+`) option is provided in the menu
 
 To toggle between histology/segmented images when zoomed in, the cursor should should return to its normal function by unclicking the zoom in (symbol of magnifying glass with `+`) option.
 
-<img src="images/zoom in 2.png" title="Color cluster 1" width="300"/> <img src="images/zoom in 2 BW.png" title="Indexed object 1" width="300"/> 
+<img src="images/zoom in 2.png" title="Color cluster 1" width="400"/> <img src="images/zoom in 2 BW.png" title="Indexed object 1" width="400"/> 
 
 The dialog box at the bottom of the GUI with the label `Barcode Lookup` provides user to input the barcode ID of the specific visium spot the user want to look at. For example if we want to look at the 1st visium spot on this image, paste the barcode ID of the spot (from [tissue_spot_counts.csv](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv)) into the white space and hit the `Lookup` button. It opens up the image where ever this spot is located.
 <center>

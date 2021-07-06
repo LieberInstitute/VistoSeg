@@ -1,5 +1,7 @@
-# Step 3: Run spaceranger
+# Step 3: Space Ranger
 
+## What is Space Ranger?
+Space Ranger is a set of analysis pipelines that process Visium Spatial Gene Expression data with brightfield and fluorescence microscope images. Space Ranger allows users to map the whole transcriptome in formalin fixed paraffin embedded (FFPE) and fresh-frozen tissues to discover novel insights into normal development, disease pathology, and clinical translational research.
 The following links and the flowchart provide useful information for running `spaceranger` on histology images. 
 
 Blog post on running [`spaceranger` on JHPCE](http://research.libd.org/rstatsclub/2020/10/20/using-space-ranger-at-jhpce/#.YBpZO2QzYq0),
