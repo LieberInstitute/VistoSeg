@@ -2,8 +2,9 @@ step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-ima
 step-2-nuclei-segmentation-of-individual-capture-areas-images
 vns---visium-nuclei-segmentation
 refinevns
-step-3-run-spaceranger
-step-4-gui-for-nuclei-count-in-a-visium-spot
-spotspotcheck
+step-3-space-ranger
+what-is-space-ranger
+step-4-gui-to-count-nuclei-in-a-visium-spot
+spotspotcheck-the-gui-is-used-for
 countnuclei
 step-5-atlasaligner

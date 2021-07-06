@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Step 3: Run spaceranger | VisiumLIBD: Visium Image Processing Pipeline</title>
-  <meta name="description" content="3 Step 3: Run spaceranger | VisiumLIBD: Visium Image Processing Pipeline" />
+  <title>3 Step 3: Space Ranger | VisiumLIBD: Visium Image Processing Pipeline</title>
+  <meta name="description" content="3 Step 3: Space Ranger | VisiumLIBD: Visium Image Processing Pipeline" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Step 3: Run spaceranger | VisiumLIBD: Visium Image Processing Pipeline" />
+  <meta property="og:title" content="3 Step 3: Space Ranger | VisiumLIBD: Visium Image Processing Pipeline" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="LieberInstitute/VisiumLIBD" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Step 3: Run spaceranger | VisiumLIBD: Visium Image Processing Pipeline" />
+  <meta name="twitter:title" content="3 Step 3: Space Ranger | VisiumLIBD: Visium Image Processing Pipeline" />
   
   
   
@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"/>
-<link rel="next" href="step-4-gui-for-nuclei-count-in-a-visium-spot.html"/>
+<link rel="next" href="step-4-gui-to-count-nuclei-in-a-visium-spot.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -142,11 +142,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#vns---visium-nuclei-segmentation"><i class="fa fa-check"></i><b>2.1</b> VNS - Visium Nuclei Segmentation</a></li>
 <li class="chapter" data-level="2.2" data-path="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#refinevns"><i class="fa fa-check"></i><b>2.2</b> refineVNS</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="step-3-run-spaceranger.html"><a href="step-3-run-spaceranger.html"><i class="fa fa-check"></i><b>3</b> Step 3: Run spaceranger</a></li>
-<li class="chapter" data-level="4" data-path="step-4-gui-for-nuclei-count-in-a-visium-spot.html"><a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html"><i class="fa fa-check"></i><b>4</b> Step 4: GUI for nuclei count in a visium spot</a>
+<li class="chapter" data-level="3" data-path="step-3-space-ranger.html"><a href="step-3-space-ranger.html"><i class="fa fa-check"></i><b>3</b> Step 3: Space Ranger</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="step-4-gui-for-nuclei-count-in-a-visium-spot.html"><a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html#spotspotcheck"><i class="fa fa-check"></i><b>4.1</b> spotspotcheck</a></li>
-<li class="chapter" data-level="4.2" data-path="step-4-gui-for-nuclei-count-in-a-visium-spot.html"><a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html#countnuclei"><i class="fa fa-check"></i><b>4.2</b> CountNuclei</a></li>
+<li class="chapter" data-level="3.1" data-path="step-3-space-ranger.html"><a href="step-3-space-ranger.html#what-is-space-ranger"><i class="fa fa-check"></i><b>3.1</b> What is Space Ranger?</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><i class="fa fa-check"></i><b>4</b> Step 4: GUI to count nuclei in a visium spot</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#spotspotcheck-the-gui-is-used-for"><i class="fa fa-check"></i><b>4.1</b> spotspotcheck: The GUI is used for</a></li>
+<li class="chapter" data-level="4.2" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#countnuclei"><i class="fa fa-check"></i><b>4.2</b> CountNuclei</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="step-5-atlasaligner.html"><a href="step-5-atlasaligner.html"><i class="fa fa-check"></i><b>5</b> Step 5: AtlasAligner</a></li>
 <li class="chapter" data-level="" data-path="r-session-information.html"><a href="r-session-information.html"><i class="fa fa-check"></i>R session information</a></li>
@@ -167,14 +170,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="step-3-run-spaceranger" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Step 3: Run spaceranger</h1>
-<p>The following links and the flowchart provide useful information for running <code>spaceranger</code> on histology images.</p>
+<div id="step-3-space-ranger" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Step 3: Space Ranger</h1>
+<div id="what-is-space-ranger" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> What is Space Ranger?</h2>
+<p>Space Ranger is a set of analysis pipelines that process Visium Spatial Gene Expression data with brightfield and fluorescence microscope images. Space Ranger allows users to map the whole transcriptome in formalin fixed paraffin embedded (FFPE) and fresh-frozen tissues to discover novel insights into normal development, disease pathology, and clinical translational research.
+The following links and the flowchart provide useful information for running <code>spaceranger</code> on histology images.</p>
 <p>Blog post on running <a href="http://research.libd.org/rstatsclub/2020/10/20/using-space-ranger-at-jhpce/#.YBpZO2QzYq0"><code>spaceranger</code> on JHPCE</a>,
 link to the github repo for running <code>spaceranger</code>, video tutorial etc.</p>
 <p>flow chart for running <code>spaceranger</code></p>
 <p>The output files <code>scalefactors_json.json</code> and <code>tissue_positions_list.csv</code> from the <code>spaceranger</code> saved in the spatial folder, are required for the following image processing steps.</p>
 
+</div>
 </div>
             </section>
 
@@ -182,7 +189,7 @@ link to the github repo for running <code>spaceranger</code>, video tutorial etc
         </div>
       </div>
 <a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="step-4-gui-for-nuclei-count-in-a-visium-spot.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
