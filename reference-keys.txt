@@ -5,6 +5,6 @@ refinevns
 step-3-space-ranger
 what-is-space-ranger
 step-4-gui-to-count-nuclei-in-a-visium-spot
-spotspotcheck-the-gui-is-used-for
+spotspotcheck
 countnuclei
 step-5-atlasaligner

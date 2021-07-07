@@ -148,8 +148,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><i class="fa fa-check"></i><b>4</b> Step 4: GUI to count nuclei in a visium spot</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#spotspotcheck-the-gui-is-used-for"><i class="fa fa-check"></i><b>4.1</b> spotspotcheck: The GUI is used for</a></li>
-<li class="chapter" data-level="4.2" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#countnuclei"><i class="fa fa-check"></i><b>4.2</b> CountNuclei</a></li>
+<li class="chapter" data-level="4.1" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#spotspotcheck"><i class="fa fa-check"></i><b>4.1</b> spotspotcheck</a></li>
+<li class="chapter" data-level="4.2" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#countnuclei"><i class="fa fa-check"></i><b>4.2</b> countNuclei</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="step-5-atlasaligner.html"><a href="step-5-atlasaligner.html"><i class="fa fa-check"></i><b>5</b> Step 5: AtlasAligner</a></li>
 <li class="chapter" data-level="" data-path="r-session-information.html"><a href="r-session-information.html"><i class="fa fa-check"></i>R session information</a></li>
@@ -177,12 +177,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.1</span> VNS - Visium Nuclei Segmentation</h2>
 <p>The inputs to the <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m">VNS</a> function are</p>
 <ol style="list-style-type: decimal">
-<li><p>The tif image of single capture area (output from Step 1: splitSlide function) with full path</p></li>
+<li><p>The tif image of single capture area (output from <a href="http://research.libd.org/VisiumLIBD/step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html">Step 1</a>: splitSlide function) with full path</p></li>
 <li><p>number of colors a user visually identifies in the single capture area image</p></li>
 </ol>
 <p>The <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m">VNS</a> function imports the capture area image, applies smoothening to it to get rid of any irregularities in the image and increases the contrast to brighten the nuclei for better detection.<br />
-This function is based on <a href="https://www.mathworks.com/help/images/color-based-segmentation-using-k-means-clustering.html#:~:text=K%2Dmeans%20clustering%20requires%20that,*&#39;%20and%20&#39;b*&#39;%20values.">Color-Based Segmentation Using K-Means Clustering</a>. The smoothened and brightened image is converted from RGB color space to <code>CIELAB</code> color space also called <code>L*a*b</code> color space (L - Luminosity layer measures lightness from black to white, a - chromaticity-layer measures color along red-green axis, b - chromaticity-layer measures color along blue-yellow axis). The CIELAB color space quantifies the visual differences caused by the different colors in the image. The <code>a*b</code> color space is extracted from the <code>L*a*b</code> converted image and is given to the K-means clustering along with the number of colors the user visually identifies in the image.</p>
-<p>The <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m">VNS</a> function partitions the image into n (number provided by user, 5 for the sample used here) color clusters and saves them as individual objects with a index/label. The color clusters (cell array in matfile), the indexed objects (cell array in matfile) of the color clusters, images of the color clusters (tif) are all saved in the same location as the capture area tif image.</p>
+This function is based on <a href="https://www.mathworks.com/help/images/color-based-segmentation-using-k-means-clustering.html#:~:text=K%2Dmeans%20clustering%20requires%20that,*&#39;%20and%20&#39;b*&#39;%20values.">Color-Based Segmentation Using K-Means Clustering</a>. The smoothened and brightened image is converted from <em>RGB</em> (Red, Green, Blue) color space to <em>CIELAB</em> color space also called <em>L*a*b</em> color space (L - Luminosity layer measures lightness from black to white, a - chromaticity-layer measures color along red-green axis, b - chromaticity-layer measures color along blue-yellow axis). The CIELAB color space quantifies the visual differences caused by the different colors in the image. The <code>a*b</code> color space is extracted from the <code>L*a*b</code> converted image and is given to the K-means clustering along with the number of colors the user visually identifies in the image.</p>
+<p>The <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m">VNS</a> function partitions the image into <code>n</code> (number provided by user, 5 for the sample used here) color clusters and saves them as individual objects with a index/label. The color clusters (cell array in matfile), the indexed objects (cell array in matfile) of the color clusters, images of the color clusters (tif) are all saved in the same location as the capture area tif image.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb4-1"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">fname</span> <span class="op">=</span> <span class="ss">&#39;/path_to_capture_area_tif/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif&#39;</span><span class="op">;</span></span>
 <span id="cb4-2"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">N</span> <span class="op">=</span> <span class="fl">5</span><span class="op">;</span> <span class="co">% 5 (white,pink,dark pink,cream,blue) colors seem good for the images produced in-house</span></span>
 <span id="cb4-3"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -214,21 +214,21 @@ This function is based on <a href="https://www.mathworks.com/help/images/color-b
 <p>The inputs to the function are</p>
 <ol style="list-style-type: decimal">
 <li><p>The tif image of a single capture area with full path</p></li>
-<li><p>The index of the color cluster of the nuclei (obtained from VNS function)</p></li>
+<li><p>The index of the color cluster of the nuclei (obtained from <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m">VNS</a> function)</p></li>
 </ol>
 <div class="sourceCode" id="cb5"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb5-1"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="va">fname</span> <span class="op">=</span> <span class="ss">&#39;/path_to_capture_area_tif/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif&#39;</span><span class="op">;</span></span>
 <span id="cb5-2"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="va">M</span> <span class="op">=</span> <span class="fl">3</span><span class="op">;</span> <span class="co">%index label 3 was assigned to nuclei for this sample image (shown above)</span></span>
 <span id="cb5-3"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="va">refineVNS</span>(<span class="va">fname</span><span class="op">,</span><span class="va">N</span>)</span></code></pre></div>
+<span id="cb5-4"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="va">refineVNS</span>(<span class="va">fname</span><span class="op">,</span><span class="va">M</span>)</span></code></pre></div>
 <p>The nuclei in these images are dark blue objects, the function get rids of the noisy light blue pixels around the nuclei by thresholding the brightness layer (the L object in the L<em>a</em>b image) of the image. The function provdies a binary mask of the refined nuclei saved in mat file and a tif image of the segmented and refined nuclei.</p>
 <p>The color cluster of the above section, before and after refining is shown below.</p>
 <p><img src="images/sampleimage_clust3.png" title="Color cluster 3" width="225"/> <img src="images/sampleimage_refinenuclei.png" title="Indexed object 3" width="225"/></p>
 <p>A zoomed in version, basically the 1st 500 pixels in x ang y of the above section is shown here for better visualization.</p>
 <p><img src="images/sampleimage_nuclei_zoomin.png" title="Color cluster 3" width="225"/> <img src="images/sampleimage_refinenuclei_zoomin.png" title="Indexed object 3" width="225"/></p>
-<p>Below are the outputs of the <a href="">refineVNS</a> function</p>
+<p>Below are the outputs of the <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/refineVNS.m">refineVNS</a> function</p>
 <ol style="list-style-type: decimal">
-<li><p><a href="">Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.tif</a></p></li>
-<li><p><a href="">Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat</a></p></li>
+<li><p><a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.tif">Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.tif</a></p></li>
+<li><p><a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat">Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat</a></p></li>
 </ol>
 
 </div>
