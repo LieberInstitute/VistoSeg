@@ -15,7 +15,6 @@ The output files [scalefactors_json.json]() and [tissue_positions_list.csv](http
 The individual split images from [Step 1](http://research.libd.org/VisiumLIBD/step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html) go through the 10X [Loupe](https://support.10xgenomics.com/spatial-gene-expression/software/visualization/latest/alignment) browser for manual alignment of the fiducial frame and tissue detection. The output from Loupe Browser along with the split images, their fastqs, slide number, capture etc all go into `spaceranger` which finally provides the visium spot metrics. This entire process is shown in a brief flowchart below.
 
 <center>
-![] images/spaceranger.png
+![](images/spaceranger.png) 
 </center>
-
 
