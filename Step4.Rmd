@@ -1,10 +1,11 @@
 # Step 4: GUI to count nuclei in a visium spot
 
-## spotspotcheck: The GUI is used for
+## spotspotcheck
 
+The GUI is used for
 1. Obtaining nuclei count per Visium spot and saving it to a csv.  
-2. Performing quality check on the nuclei segmentations (from Step2) by allowing the user to zoom in/out and toggle between the nuclei segmentation and visium histology images. The GUI overlays the spot grid on to the visium histology and segmentation images for the user to clearly see the nuclei inside a spot.  
-3. It allows the user to search for a spot based on its barcode ID.
+2. Performing quality check on the nuclei segmentations (from [Step2](http://research.libd.org/VisiumLIBD/step-2-nuclei-segmentation-of-individual-capture-areas-images.html)) by allowing the user to zoom in/out and toggle between the nuclei segmentation and visium histology images. The GUI overlays the spot grid on to the visium histology and segmentation images for the user to clearly see the nuclei inside a spot.  
+3. It allows the user to search for a spot with its associated barcode ID.
 
 To open the GUI, the [spotspotcheck](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/spotspotcheck.m) function should be executed in the MATLAB command prompt like below.
 
@@ -59,20 +60,20 @@ The zoom in (symbol of magnifying glass with `+`) option is provided in the menu
 
 To toggle between histology/segmented images when zoomed in, the cursor should should return to its normal function by unclicking the zoom in (symbol of magnifying glass with `+`) option.
 
-<img src="images/zoom in 2.png" title="Color cluster 1" width="400"/> <img src="images/zoom in 2 BW.png" title="Indexed object 1" width="400"/> 
+<img src="images/zoom in 2.png" title="Color cluster 1" width="350"/> <img src="images/zoom in 2 BW.png" title="Indexed object 1" width="350"/> 
 
 The dialog box at the bottom of the GUI with the label `Barcode Lookup` provides user to input the barcode ID of the specific visium spot the user want to look at. For example if we want to look at the 1st visium spot on this image, paste the barcode ID of the spot (from [tissue_spot_counts.csv](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv)) into the white space and hit the `Lookup` button. It opens up the image where ever this spot is located.
 <center>
 ![](images/Barcode ID.png) 
 </center>
 
-## CountNuclei
+## countNuclei
 
 This function can be run on MATLAB command prompt to obtain the [tissue_spot_counts.csv](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv) file without going through the GUI.
 
 Inputs to the function are  
 1. Filename with full path for the mat file of the final nuclei segmentation.  
-2. Filename with full path for the scalefactors json file.  
+2. Filename with full path for the scalefactors_json json file.  
 3. Filename with full path for the tissue_positions_list csv file.
 
 ```MATLAB
