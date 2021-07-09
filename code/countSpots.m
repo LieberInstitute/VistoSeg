@@ -12,8 +12,9 @@ function count = countSpots(BW, R, tbl, pospath)
     
 count = [];
 
-disp('counting nuclei')
+
     nSpots = size(tbl, 1);
+    %disp('counting nuclei')
     disp([num2str(nSpots),' spots detected'])
     crow = round(table2array(tbl(:, 5)));
     ccol = round(table2array(tbl(:, 6)));
