@@ -41,8 +41,8 @@ count = [];
     end
     tbl = [tbl array2table(count)];
     tbl.Properties.VariableNames = {'barcode','tissue','row','col','imagerow','imagecol','count'};
-    if ~exist(path, 'dir')
-        mkdir(path);
+    if ~exist(posPath, 'dir')
+        mkdir(posPath);
     end
     
     disp('writing table')
