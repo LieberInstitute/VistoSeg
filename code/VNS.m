@@ -10,6 +10,7 @@ tic
 disp('Performing smoothening and contrast adjustment')
 Img1_smooth = imgaussfilt(Img1,4); %smooth image
 he = imadjust(Img1_smooth, [.2 .3 0; .6 .7 1],[]); %adjust contrast in image
+clear Img1_smooth Img1
 toc 
 
 
