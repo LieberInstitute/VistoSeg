@@ -44,8 +44,10 @@ function start(~, ~, countCheck)
         clear ip
     end
     im = imread(fullfile(imgPath, imgFile));
-    load(fullfile(maskPath, maskFile));
-    BW = mask_dark_blue;
+    temp = load(fullfile(maskPath, maskFile));
+    O = fieldnames(temp);
+    BW = temp.(O{1});
+    %BW = mask_dark_blue;
     jsonname = fullfile(jsonPath, jsonFile);
     w = jsondecode(fileread(jsonname));
     R = ceil(w.spot_diameter_fullres/2);
