@@ -2,7 +2,7 @@
 %jsonname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/outputs/NextSeq/DLPFC_Br3942_post_manual_alignment/outs/spatial/scalefactors_json.json';
 %posname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/outputs/NextSeq/DLPFC_Br3942_post_manual_alignment/outs/spatial/tissue_positions_list.csv';
 
-function count = countSpots(BW, R, tbl, pospath)
+function count = countSpots(BW, R, tbl, posPath)
 %load(mask);
 %BW = mask_dark_blue;
 
@@ -46,6 +46,6 @@ count = [];
     end
     
     disp('writing table')
-    writetable(tbl, fullfile(path, 'tissue_spot_counts.csv'), 'Delimiter', ',');
+    writetable(tbl, fullfile(posPath, 'tissue_spot_counts.csv'), 'Delimiter', ',');
 
 end
