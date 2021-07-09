@@ -2,13 +2,13 @@
 %jsonname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/outputs/NextSeq/DLPFC_Br3942_post_manual_alignment/outs/spatial/scalefactors_json.json';
 %posname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/outputs/NextSeq/DLPFC_Br3942_post_manual_alignment/outs/spatial/tissue_positions_list.csv';
 
-function count = countSpots(mask, jsonname, posname, path)
-load(mask);
-BW = mask_dark_blue;
+function count = countSpots(BW, R, tbl, pospath)
+%load(mask);
+%BW = mask_dark_blue;
 
-w = jsondecode(fileread(jsonname));
-R = ceil(w.spot_diameter_fullres/2);
-tbl = readtable(posname) ;
+%w = jsondecode(fileread(jsonname));
+%R = ceil(w.spot_diameter_fullres/2);
+%tbl = readtable(posname) ;
     
 count = [];
 
