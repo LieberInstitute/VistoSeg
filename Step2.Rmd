@@ -16,7 +16,7 @@ The [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m) fu
 
 ```MATLAB
 fname = '/path_to_capture_area_tif/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif';
-N = 5; % 5 (white,pink,dark pink,cream,blue) colors seem good for the images produced in-house
+N = 5; % with some trial and error 5 (white,pink,dark pink,cream,blue) colors seem a good prediction for the images produced in-house
 
 VNS(fname,N)
 

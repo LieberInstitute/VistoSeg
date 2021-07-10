@@ -23,7 +23,7 @@ count = [];
         count = table2array(tbl(:, 7));
     else
         tic
-        disp('counting nuclei')
+        %disp('counting nuclei')
         count = countSpots(BW, R, tbl, posPath);
         toc
     end
