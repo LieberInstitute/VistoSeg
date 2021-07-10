@@ -40,17 +40,17 @@ The 5 color clusters and the corresponding indexed objects (with labels 1,2,3,4,
 
 Below are the outputs of [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m) function
 
-1. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster1.tif](link to AWS)
+1. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster1.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster1.tif)
 
-2. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster2.tif](link to AWS)
+2. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster2.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster2.tif)
 
-3. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster3.tif](link to AWS)
+3. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster3.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster3.tif)
 
-4. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster4.tif](link to AWS)
+4. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster4.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster4.tif)
 
-5. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster5.tif](link to AWS)
+5. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster5.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster5.tif)
 
-6. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster.mat](link to AWS)
+6. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster.mat](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster.mat)
 
 7. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_mask.mat](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/VNS/Lieber_Institute_OTS-20-7690_rush_anterior_A1_mask.mat)
 

@@ -75,7 +75,7 @@ The user's working directory on MATLAB should be the path to the [code](https://
               `addpath(genpath('/path_to_the_downloaded_repository/VisiumLIBD/code/'))`
 
 ## Data Availability {-}
-All the raw data and few of the pipeline outputs are hosted at the following link (https://github.com/LieberInstitute/spatialLIBD#raw-data).
+The raw Visium Tiff file is available at the following link (https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior.tif).
 
 **Other potential datasets**  
 1. [LIBD pilot DLPFC](https://github.com/LieberInstitute/spatialLIBD#raw-data)   

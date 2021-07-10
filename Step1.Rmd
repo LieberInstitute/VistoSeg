@@ -95,20 +95,20 @@ The image 'I{1}.image' is split into 4 sub images or capture areas by dividing t
 
 Below are the output files of `slpitSlide` function
 
-1. [Lieber_Institute_OTS-20-7690_rush_anterior.mat](AWS link) - cell array of multiplane tif stored in mat file.
+1. [Lieber_Institute_OTS-20-7690_rush_anterior.mat](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior.mat) - cell array of multiplane tif stored in mat file.
 
-2. [Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif](AWS link) - tif image of compressed capture area A1.
+2. [Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif) - tif image of compressed capture area A1.
 
-3. [Lieber_Institute_OTS-20-7690_rush_anterior_A1.mat](AWS link) - RGB matrix of uncompressed capture area A1 stored in mat file.
+3. [Lieber_Institute_OTS-20-7690_rush_anterior_A1.mat](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1.mat) - RGB matrix of uncompressed capture area A1 stored in mat file.
 
-4. [Lieber_Institute_OTS-20-7690_rush_anterior_B1.tif](AWS link) - tif image of compressed capture area B1.
+4. [Lieber_Institute_OTS-20-7690_rush_anterior_B1.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_B1.tif) - tif image of compressed capture area B1.
 
-5. [Lieber_Institute_OTS-20-7690_rush_anterior_B1.mat](AWS link) - RGB matrix of uncompressed capture area B1 stored in mat file.
+5. [Lieber_Institute_OTS-20-7690_rush_anterior_B1.mat](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_B1.mat) - RGB matrix of uncompressed capture area B1 stored in mat file.
 
-6. [Lieber_Institute_OTS-20-7690_rush_anterior_C1.tif](AWS link) - tif image of compressed capture area C1.
+6. [Lieber_Institute_OTS-20-7690_rush_anterior_C1.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_C1.tif) - tif image of compressed capture area C1.
 
-7. [Lieber_Institute_OTS-20-7690_rush_anterior_C1.mat](AWS link) - RGB matrix of uncompressed capture area C1 stored in mat file.
+7. [Lieber_Institute_OTS-20-7690_rush_anterior_C1.mat](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_C1.mat) - RGB matrix of uncompressed capture area C1 stored in mat file.
 
-8. [Lieber_Institute_OTS-20-7690_rush_anterior_D1.tif](AWS link) - tif image of compressed capture area D1.
+8. [Lieber_Institute_OTS-20-7690_rush_anterior_D1.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_D1.tif) - tif image of compressed capture area D1.
 
-9. [Lieber_Institute_OTS-20-7690_rush_anterior_D1.mat](AWS link) - RGB matrix of uncompressed capture area D1 stored in mat file.
+9. [Lieber_Institute_OTS-20-7690_rush_anterior_D1.mat](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_D1.mat) - RGB matrix of uncompressed capture area D1 stored in mat file.
