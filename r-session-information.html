@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="step-5-atlasaligner.html"/>
+<link rel="prev" href="step-5-test-data-and-future-directions.html"/>
 
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -151,7 +151,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#spotspotcheck"><i class="fa fa-check"></i><b>4.1</b> spotspotcheck</a></li>
 <li class="chapter" data-level="4.2" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#countnuclei"><i class="fa fa-check"></i><b>4.2</b> countNuclei</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="step-5-atlasaligner.html"><a href="step-5-atlasaligner.html"><i class="fa fa-check"></i><b>5</b> Step 5: AtlasAligner</a></li>
+<li class="chapter" data-level="5" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html"><i class="fa fa-check"></i><b>5</b> Step 5: Test data and Future directions</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#test-data"><i class="fa fa-check"></i><b>5.1</b> TEST DATA</a></li>
+<li class="chapter" data-level="5.2" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#future-directions"><i class="fa fa-check"></i><b>5.2</b> FUTURE DIRECTIONS</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="r-session-information.html"><a href="r-session-information.html"><i class="fa fa-check"></i>R session information</a></li>
 </ul>
 
@@ -173,11 +177,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="r-session-information" class="section level1 unnumbered">
 <h1>R session information</h1>
 <p>Details on the R version used for making this book. The source code is available at <a href="https://github.com/LieberInstitute/VisiumLIBD"><code>LieberInstitute/VisiumLIBD</code></a>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r-session-information.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Load the package at the top of your script</span></span>
-<span id="cb8-2"><a href="r-session-information.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;sessioninfo&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r-session-information.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Reproducibility information</span></span>
-<span id="cb9-2"><a href="r-session-information.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">width =</span> <span class="dv">120</span>)</span>
-<span id="cb9-3"><a href="r-session-information.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">session_info</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="r-session-information.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Load the package at the top of your script</span></span>
+<span id="cb10-2"><a href="r-session-information.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;sessioninfo&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r-session-information.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Reproducibility information</span></span>
+<span id="cb11-2"><a href="r-session-information.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">width =</span> <span class="dv">120</span>)</span>
+<span id="cb11-3"><a href="r-session-information.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">session_info</span>()</span></code></pre></div>
 <pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  setting  value                       
 ##  version  R version 4.0.3 (2020-10-10)
@@ -188,7 +192,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  collate  en_US.UTF-8                 
 ##  ctype    en_US.UTF-8                 
 ##  tz       Etc/UTC                     
-##  date     2021-07-10                  
+##  date     2021-07-12                  
 ## 
 ## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  package     * version date       lib source        
@@ -214,10 +218,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] /__w/_temp/Library
 ## [2] /usr/local/lib/R/site-library
 ## [3] /usr/local/lib/R/library</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r-session-information.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">proc.time</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r-session-information.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">proc.time</span>()</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.594   0.144   0.634</code></pre>
-<p>This book was last updated at 2021-07-10 23:42:50.</p>
+##   0.644   0.111   0.646</code></pre>
+<p>This book was last updated at 2021-07-12 20:10:02.</p>
 
 </div>
             </section>
@@ -225,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="step-5-atlasaligner.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="step-5-test-data-and-future-directions.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

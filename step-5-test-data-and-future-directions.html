@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Step 5: AtlasAligner | VisiumLIBD: Visium Image Processing Pipeline</title>
-  <meta name="description" content="5 Step 5: AtlasAligner | VisiumLIBD: Visium Image Processing Pipeline" />
+  <title>5 Step 5: Test data and Future directions | VisiumLIBD: Visium Image Processing Pipeline</title>
+  <meta name="description" content="5 Step 5: Test data and Future directions | VisiumLIBD: Visium Image Processing Pipeline" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Step 5: AtlasAligner | VisiumLIBD: Visium Image Processing Pipeline" />
+  <meta property="og:title" content="5 Step 5: Test data and Future directions | VisiumLIBD: Visium Image Processing Pipeline" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="LieberInstitute/VisiumLIBD" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Step 5: AtlasAligner | VisiumLIBD: Visium Image Processing Pipeline" />
+  <meta name="twitter:title" content="5 Step 5: Test data and Future directions | VisiumLIBD: Visium Image Processing Pipeline" />
   
   
   
@@ -151,7 +151,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#spotspotcheck"><i class="fa fa-check"></i><b>4.1</b> spotspotcheck</a></li>
 <li class="chapter" data-level="4.2" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#countnuclei"><i class="fa fa-check"></i><b>4.2</b> countNuclei</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="step-5-atlasaligner.html"><a href="step-5-atlasaligner.html"><i class="fa fa-check"></i><b>5</b> Step 5: AtlasAligner</a></li>
+<li class="chapter" data-level="5" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html"><i class="fa fa-check"></i><b>5</b> Step 5: Test data and Future directions</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#test-data"><i class="fa fa-check"></i><b>5.1</b> TEST DATA</a></li>
+<li class="chapter" data-level="5.2" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#future-directions"><i class="fa fa-check"></i><b>5.2</b> FUTURE DIRECTIONS</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="r-session-information.html"><a href="r-session-information.html"><i class="fa fa-check"></i>R session information</a></li>
 </ul>
 
@@ -170,10 +174,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="step-5-atlasaligner" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Step 5: AtlasAligner</h1>
-<p>Future work</p>
+<div id="step-5-test-data-and-future-directions" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Step 5: Test data and Future directions</h1>
+<div id="test-data" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> TEST DATA</h2>
+<p>The pipeline with default settings (smoothening and color clusters of k-means in VNS function) used for in house data has been applied on the [public datasets] (<a href="https://support.10xgenomics.com/spatial-gene-expression/datasets" class="uri">https://support.10xgenomics.com/spatial-gene-expression/datasets</a>) 10x provided. We chose 2 images one from <a href="https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Breast_Cancer_Block_A_Section_1">breast tissue</a> with high density of cells and the other from <a href="https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Human_Heart">human heart tissue</a> with low density of cells, to demonstrate the utility of the pipeline on images obtained from different tissues. Decent segmentation results were obtained with the default settings given the low the image resolution. Accurate results can be obtained with little parametric tuning. A zoom in versions from <code>spotspotcheck</code> are shown below for better visualization.</p>
+<ol style="list-style-type: decimal">
+<li>Heart Tissue</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb8-1"><a href="step-5-test-data-and-future-directions.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="va">code</span> <span class="op">=</span> <span class="ss">&#39;/path to the code/VisiumLIBD/code&#39;</span><span class="op">;</span></span>
+<span id="cb8-2"><a href="step-5-test-data-and-future-directions.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="va">addpath</span>(<span class="va">genpath</span>(<span class="va">code</span>))</span>
+<span id="cb8-3"><a href="step-5-test-data-and-future-directions.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="va">fname</span> <span class="op">=</span> <span class="ss">&#39;/path to the file/V1_Human_Heart_image.tif&#39;</span><span class="op">;</span></span>
+<span id="cb8-4"><a href="step-5-test-data-and-future-directions.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="va">N</span> <span class="op">=</span> <span class="fl">5</span><span class="op">;</span></span>
+<span id="cb8-5"><a href="step-5-test-data-and-future-directions.html#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="step-5-test-data-and-future-directions.html#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="va">VNS</span>(<span class="va">fname</span><span class="op">,</span><span class="va">N</span>)</span>
+<span id="cb8-7"><a href="step-5-test-data-and-future-directions.html#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="va">Importing</span> <span class="va">capture</span> <span class="va">area</span></span>
+<span id="cb8-8"><a href="step-5-test-data-and-future-directions.html#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">12.898534</span> <span class="va">seconds</span>.</span>
+<span id="cb8-9"><a href="step-5-test-data-and-future-directions.html#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="va">Performing</span> <span class="va">smoothening</span> <span class="va">and</span> <span class="va">contrast</span> <span class="va">adjustment</span></span>
+<span id="cb8-10"><a href="step-5-test-data-and-future-directions.html#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">15.198035</span> <span class="va">seconds</span>.</span>
+<span id="cb8-11"><a href="step-5-test-data-and-future-directions.html#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="va">Performing</span> <span class="va">rgb</span> <span class="va">to</span> <span class="va">Lab</span> <span class="va">color</span> <span class="va">space</span> <span class="va">conversion</span></span>
+<span id="cb8-12"><a href="step-5-test-data-and-future-directions.html#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">17.632075</span> <span class="va">seconds</span>.</span>
+<span id="cb8-13"><a href="step-5-test-data-and-future-directions.html#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="va">Applying</span> <span class="va">Kmeans</span></span>
+<span id="cb8-14"><a href="step-5-test-data-and-future-directions.html#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">277.069572</span> <span class="va">seconds</span>.</span>
+<span id="cb8-15"><a href="step-5-test-data-and-future-directions.html#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="va">saving</span> <span class="va">outputs</span></span>
+<span id="cb8-16"><a href="step-5-test-data-and-future-directions.html#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="va">Starting</span> <span class="va">parallel</span> <span class="va">pool</span> (<span class="va">parpool</span>) <span class="va">using</span> <span class="va">the</span> <span class="ss">&#39;local&#39;</span> <span class="va">profile</span> <span class="op">...</span></span>
+<span id="cb8-17"><a href="step-5-test-data-and-future-directions.html#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="va">Connected</span> <span class="va">to</span> <span class="va">the</span> <span class="va">parallel</span> <span class="va">pool</span> (<span class="va">number</span> <span class="va">of</span> <span class="va">workers</span><span class="op">:</span> <span class="fl">2</span>).</span>
+<span id="cb8-18"><a href="step-5-test-data-and-future-directions.html#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">161.220875</span> <span class="va">seconds</span>.</span></code></pre></div>
+<p><img src="images/human_heart_HE.png" title="Image 1" width="350"/> <img src="images/human_heart_BW.png" title="Image 2" width="350"/>
+1.Output from spotspotcheck <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts_heart.csv">tissue_spot_counts.csv</a>
+2.Final nuclei segmentations: <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/refineVNS/V1_Human_Heart_image_nuclei.tif">nuclei.tif</a>, <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/refineVNS/V1_Human_Heart_image_nuclei.mat">nuclei.mat</a></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Breast Tissue</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode matlab"><code class="sourceCode matlab"></code></pre></div>
+<p><img src="images/Breast_HE.png" title="Image 1" width="350"/> <img src="images/Breast_HE.png" title="Image 2" width="350"/></p>
+</div>
+<div id="future-directions" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> FUTURE DIRECTIONS</h2>
+<ol style="list-style-type: decimal">
+<li>To integrate Atlas Aligner for brain region identification</li>
+<li>To integrate <a href="https://www.nature.com/articles/srep18437">VAMPIRE</a> for cell morphology detection</li>
+</ol>
 
+</div>
 </div>
             </section>
 

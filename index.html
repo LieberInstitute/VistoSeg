@@ -151,7 +151,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#spotspotcheck"><i class="fa fa-check"></i><b>4.1</b> spotspotcheck</a></li>
 <li class="chapter" data-level="4.2" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#countnuclei"><i class="fa fa-check"></i><b>4.2</b> countNuclei</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="step-5-atlasaligner.html"><a href="step-5-atlasaligner.html"><i class="fa fa-check"></i><b>5</b> Step 5: AtlasAligner</a></li>
+<li class="chapter" data-level="5" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html"><i class="fa fa-check"></i><b>5</b> Step 5: Test data and Future directions</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#test-data"><i class="fa fa-check"></i><b>5.1</b> TEST DATA</a></li>
+<li class="chapter" data-level="5.2" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#future-directions"><i class="fa fa-check"></i><b>5.2</b> FUTURE DIRECTIONS</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="r-session-information.html"><a href="r-session-information.html"><i class="fa fa-check"></i>R session information</a></li>
 </ul>
 
@@ -228,7 +232,7 @@ The pipeline was developed under the following software configuration.
 <li><p><code>MATLAB</code><br />
 MATLAB version R2019a 64-bit or later is required to run VisiumLIBD pipeline with the <a href="https://www.mathworks.com/products/image.html">Image Processing Toolbox</a> preloaded.</p></li>
 <li><p><code>Memory</code><br />
-Visium whole slide images are high resolution, and the typical size of these multiplane tif images produced inhouse is ~25GB. The system RAM (we use ~75GB) should be thrice the size of the multiplane tif image to load it into MATLAB and the disc space (we use ~100GB) should be atleast 4 times the size of multiplane tif to store the output.</p></li>
+Visium whole slide images are high resolution, and the typical size of these multiplane tif images produced inhouse is ~25GB. The system RAM (we use ~75GB) should be thrice the size of the multiplane tif image to load it into MATLAB and split them into individual capture areas. Rest of the processing, on individual capture tifs can be performed on system with as little as 16GB of RAM.</p></li>
 <li><p><code>Installation</code><br />
 The pipeline is availble at (<a href="https://github.com/LieberInstitute/VisiumLIBD" class="uri">https://github.com/LieberInstitute/VisiumLIBD</a>) which can be download to your system from the Github website directly or the main repository can be cloned to your system using the following command on terminal/command prompt.<br />
 <code>git clone https://github.com/LieberInstitute/VisiumLIBD.git</code></p></li>

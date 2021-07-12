@@ -7,4 +7,6 @@ what-is-space-ranger
 step-4-gui-to-count-nuclei-in-a-visium-spot
 spotspotcheck
 countnuclei
-step-5-atlasaligner
+step-5-test-data-and-future-directions
+test-data
+future-directions
