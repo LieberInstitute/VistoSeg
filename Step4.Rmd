@@ -81,7 +81,18 @@ mask = '/path_to_capture_area_segmentation/Lieber_Institute_OTS-20-7690_rush_ant
 jsonname = '/path_to_scalefactors_json/scalefactors_json.json';
 posname = '/path_to_tissue_positions_list/tissue_positions_list.csv';
 
-countNuclei(mask,jsonname,posname)
+countNuclei(mask,jsonname,posname)                                           loading data                
+Elapsed time is 4.216505 seconds.
+84385 cells detected
+4992 spots detected
+counting nuclei per spot
+100 spots finished in time 77.1357s
+200 spots finished in time 140.8369s
+300 spots finished in time 204.5829s
+400 spots finished in time 267.4467s
+.
+.
+.
 ```
 
 The  [countNuclei](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/countNuclei.m) function generates a nuclei count file listed below. The file is saved in the same path as the [tissue_positions_list.csv](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spaceranger/tissue_positions_list.csv) that we give to the function.  

@@ -19,8 +19,18 @@ fname = '/path_to_capture_area_tif/Lieber_Institute_OTS-20-7690_rush_anterior_A1
 N = 5; % with some trial and error 5 (white,pink,dark pink,cream,blue) colors seem a good prediction for the images produced in-house
 
 VNS(fname,N)
+Importing capture area
+Elapsed time is 15.122372 seconds.
+Performing smoothening and contrast adjustment
+Elapsed time is 38.787139 seconds.
+Performing rgb to Lab color space conversion
+Elapsed time is 65.705037 seconds.
+Applying Kmeans
+Elapsed time is 494.626476 seconds.
+saving outputs
+Starting parallel pool (parallel) using the 'local' profile . . .
+Elapsed time is 469.198175 seconds.
 
-% should add the output printed on matlab command prompt
 ```
 Below is the sample capture area and its associated indexed object and the labels given to these objects.
 
@@ -69,7 +79,13 @@ The inputs to the function are
 fname = '/path_to_capture_area_tif/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif';
 M = 3; %index label 3 was assigned to nuclei for this sample image (shown above)
 
-refineVNS(fname,M)
+refineVNS(fname, M)
+loading data
+Elapsed time is 20.240616 seconds.
+refining segmentations
+Elapsed time is 118.457338 seconds.
+saving final segmentations
+Elapsed time is 6.196110 seconds.
 ```
 The nuclei in these images are dark blue objects, the function get rids of the noisy light blue pixels around the nuclei by thresholding the brightness layer (the L object in the L*a*b image) of the image. The function provdies a binary mask of the refined nuclei saved in mat file and a tif image of the segmented and refined nuclei.
 

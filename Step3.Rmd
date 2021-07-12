@@ -1,6 +1,6 @@
 # Step 3: Space Ranger
 
-## What is Space Ranger?
+## What is Space Ranger? {-}
 Space Ranger is a set of analysis pipelines that process Visium Spatial Gene Expression data with brightfield and fluorescence microscope images. 
 
 The following links and the flowchart provide useful information about `spaceranger` and how to run it on histology images. 
