@@ -144,7 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="step-3-space-ranger.html"><a href="step-3-space-ranger.html"><i class="fa fa-check"></i><b>3</b> Step 3: Space Ranger</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="step-3-space-ranger.html"><a href="step-3-space-ranger.html#what-is-space-ranger"><i class="fa fa-check"></i><b>3.1</b> What is Space Ranger?</a></li>
+<li class="chapter" data-level="" data-path="step-3-space-ranger.html"><a href="step-3-space-ranger.html#what-is-space-ranger"><i class="fa fa-check"></i>What is Space Ranger?</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><i class="fa fa-check"></i><b>4</b> Step 4: GUI to count nuclei in a visium spot</a>
 <ul>
@@ -153,8 +153,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html"><i class="fa fa-check"></i><b>5</b> Step 5: Test data and Future directions</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#test-data"><i class="fa fa-check"></i><b>5.1</b> TEST DATA</a></li>
-<li class="chapter" data-level="5.2" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#future-directions"><i class="fa fa-check"></i><b>5.2</b> FUTURE DIRECTIONS</a></li>
+<li class="chapter" data-level="5.1" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#public-datasets"><i class="fa fa-check"></i><b>5.1</b> Public datasets</a></li>
+<li class="chapter" data-level="5.2" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#future-directions"><i class="fa fa-check"></i><b>5.2</b> Future directions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="r-session-information.html"><a href="r-session-information.html"><i class="fa fa-check"></i>R session information</a></li>
 </ul>
@@ -240,7 +240,18 @@ The dialog box at the bottom of the GUI with the label <code>Barcode Lookup</cod
 <span id="cb7-2"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="va">jsonname</span> <span class="op">=</span> <span class="ss">&#39;/path_to_scalefactors_json/scalefactors_json.json&#39;</span><span class="op">;</span></span>
 <span id="cb7-3"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="va">posname</span> <span class="op">=</span> <span class="ss">&#39;/path_to_tissue_positions_list/tissue_positions_list.csv&#39;</span><span class="op">;</span></span>
 <span id="cb7-4"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="va">countNuclei</span>(<span class="va">mask</span><span class="op">,</span><span class="va">jsonname</span><span class="op">,</span><span class="va">posname</span>)</span></code></pre></div>
+<span id="cb7-5"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="va">countNuclei</span>(<span class="va">mask</span><span class="op">,</span><span class="va">jsonname</span><span class="op">,</span><span class="va">posname</span>)                                           <span class="va">loading</span> <span class="va">data</span>                </span>
+<span id="cb7-6"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">4.216505</span> <span class="va">seconds</span>.</span>
+<span id="cb7-7"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fl">84385</span> <span class="va">cells</span> <span class="va">detected</span></span>
+<span id="cb7-8"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fl">4992</span> <span class="va">spots</span> <span class="va">detected</span></span>
+<span id="cb7-9"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="va">counting</span> <span class="va">nuclei</span> <span class="va">per</span> <span class="va">spot</span></span>
+<span id="cb7-10"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fl">100</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">77.1357</span><span class="va">s</span></span>
+<span id="cb7-11"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fl">200</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">140.8369</span><span class="va">s</span></span>
+<span id="cb7-12"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fl">300</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">204.5829</span><span class="va">s</span></span>
+<span id="cb7-13"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="fl">400</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">267.4467</span><span class="va">s</span></span>
+<span id="cb7-14"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-14" aria-hidden="true" tabindex="-1"></a>.</span>
+<span id="cb7-15"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-15" aria-hidden="true" tabindex="-1"></a>.</span>
+<span id="cb7-16"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-16" aria-hidden="true" tabindex="-1"></a>.</span></code></pre></div>
 <p>The <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/countNuclei.m">countNuclei</a> function generates a nuclei count file listed below. The file is saved in the same path as the <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spaceranger/tissue_positions_list.csv">tissue_positions_list.csv</a> that we give to the function.<br />
 1. <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a></p>
 
