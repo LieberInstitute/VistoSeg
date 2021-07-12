@@ -63,7 +63,7 @@ The pipeline was developed under the following software configuration.
 MATLAB version R2019a 64-bit or later is required to run VisiumLIBD pipeline with the [Image Processing Toolbox](https://www.mathworks.com/products/image.html) preloaded.
  
 2. `Memory`  
-Visium whole slide images are high resolution, and the typical size of these multiplane tif images produced inhouse is ~25GB. The system RAM (we use ~75GB) should be thrice the size of the multiplane tif image to load it into MATLAB and the disc space (we use ~100GB) should be atleast 4 times the size of multiplane tif to store the output.
+Visium whole slide images are high resolution, and the typical size of these multiplane tif images produced inhouse is ~25GB. The system RAM (we use ~75GB) should be thrice the size of the multiplane tif image to load it into MATLAB and split them into individual capture areas. Rest of the processing, on individual capture tifs can be performed on system with as little as 16GB of RAM.
 
 3. `Installation`  
 The pipeline is availble at (https://github.com/LieberInstitute/VisiumLIBD) which can be download to your system from the Github website directly or the main repository can be cloned to your system using the following command on terminal/command prompt.  
