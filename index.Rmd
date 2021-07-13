@@ -4,11 +4,7 @@ author:
   - name: Madhavi Tippani
     affiliation:
     - &libd Lieber Institute for Brain Development, Johns Hopkins Medical Campus
-  - name: Leonardo Collado-Torres
-    affiliation:
-    - *libd
-    - &ccb Center for Computational Biology, Johns Hopkins University
-    email: lcolladotor@gmail.com
+email: madhavi.tippani@libd.org
 site: bookdown::bookdown_site
 documentclass: book
 output:
