@@ -1,13 +1,19 @@
 ---
 title: "VisiumLIBD: Visium Image Processing Pipeline"
-author: 
+author:
   - name: Madhavi Tippani
-  - affliation: Lieber Institute for Brain Development, Johns Hopkins Medical Campus
+    affiliation:
+    - &libd Lieber Institute for Brain Development, Johns Hopkins Medical Campus
+  - name: Leonardo Collado-Torres
+    affiliation:
+    - *libd
+    - &ccb Center for Computational Biology, Johns Hopkins University
+    email: lcolladotor@gmail.com
 site: bookdown::bookdown_site
-github-repo: "LieberInstitute/VisiumLIBD"
 documentclass: book
 output:
-  bookdown::gitbook
+  bookdown::gitbook: default
+  #bookdown::pdf_book: default
 ---
 
 # Overview {-}
