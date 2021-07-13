@@ -4,7 +4,7 @@ author:
   - name: Madhavi Tippani
     affiliation:
     - &libd Lieber Institute for Brain Development, Johns Hopkins Medical Campus
-email: madhavi.tippani@libd.org
+    email: madhavi.tippani@libd.org
 site: bookdown::bookdown_site
 documentclass: book
 output:
