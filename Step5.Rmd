@@ -25,8 +25,14 @@ Starting parallel pool (parpool) using the 'local' profile ...
 Connected to the parallel pool (number of workers: 2).
 Elapsed time is 161.220875 seconds.
 
-M = 
-refineVNS(fname,M)
+M=1;
+refineVNS(fname,1)
+loading data
+Elapsed time is 3.157618 seconds.
+refining segmentations
+Elapsed time is 36.612378 seconds.
+saving final segmentations
+Elapsed time is 1.899226 seconds.
 
 spotspotcheck
 loading.....
