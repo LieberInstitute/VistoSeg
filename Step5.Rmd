@@ -49,7 +49,7 @@ counting nuclei per spot
 
 Zoomed in versions from `spotspotcheck` are shown below for better visualization.
 <img src="images/human_heart_HE.png" title="Image 1" width="350"/> <img src="images/human_heart_BW.png" title="Image 2" width="350"/> 
-  1.Output from spotspotcheck [tissue_spot_counts.csv](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts_heart.csv) 
+  1.Output from spotspotcheck [tissue_spot_counts.csv](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts_heart.csv)  
   2.Final nuclei segmentations: [nuclei.mat](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/refineVNS/V1_Human_Heart_image_nuclei.mat)
 
 B. Breast Tissue
@@ -100,9 +100,9 @@ counting nuclei per spot
 .
 ```
 Below images are the raw Histology tif file of breast tissue and the extracted/segmented nuclei. 
-<img src="images/Breast_nuclei.png" title="Image 1" width="350"/> <img src="images/tissue_hires_image.png" title="Image 2" width="350"/> 
+<img src="images/tissue_hires_image.png" title="Image 1" width="350"/> <img src="images/Breast_nuclei.png" title="Image 2" width="350"/> 
 
-  1.Output from spotspotcheck [tissue_spot_counts.csv](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts_breast.csv)
+  1.Output from spotspotcheck [tissue_spot_counts.csv](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts_breast.csv)  
   2.Final nuclei segmentations: [nuclei.mat](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/refineVNS/V1_Human_Heart_image_nuclei.mat)
 
 ## Future directions
