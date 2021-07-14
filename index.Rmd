@@ -1,5 +1,5 @@
 ---
-title: "VistoSeg: Visium Image Processing Pipeline"
+title: "VistoSeg: Visium Histology Image Segmentation and Processing Pipeline"
 author:
   - name: Madhavi Tippani
     affiliation:
