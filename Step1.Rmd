@@ -2,7 +2,7 @@
 
 The visium histology whole slide image from the imaging system (slide scanner) is a multiplane tif image (~20GB). The sample image [Lieber_Institute_OTS-20-7690_rush_anterior.tif](link to AWS) from the DLPFC dataset is used here to run through the pipeline. 
 
-The inputs to the function [splitSlide.m](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/splitSlide.m) are 
+The inputs to the function [splitSlide.m](https://github.com/LieberInstitute/VistoSeg/blob/main/code/splitSlide.m) are 
 
 1. the full path with file name of the raw multiplane tif image (obtained from slide scanner)
 

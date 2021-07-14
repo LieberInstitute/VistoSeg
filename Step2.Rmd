@@ -1,18 +1,18 @@
 # Step 2: Nuclei segmentation of individual capture areas images
 
-The functions [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m)(Visium Nuclei Segmentation) and [refineVNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/refineVNS.m) from the pipeline are used to perform nuclei segmentation. 
+The functions [VNS](https://github.com/LieberInstitute/VistoSeg/blob/main/code/VNS.m)(Visium Nuclei Segmentation) and [refineVNS](https://github.com/LieberInstitute/VistoSeg/blob/main/code/refineVNS.m) from the pipeline are used to perform nuclei segmentation. 
 
 ## VNS - Visium Nuclei Segmentation
-The inputs to the [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m) function  are
+The inputs to the [VNS](https://github.com/LieberInstitute/VistoSeg/blob/main/code/VNS.m) function  are
 
-1. The tif image of single capture area (output from [Step 1](http://research.libd.org/VisiumLIBD/step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html): splitSlide function) with full path
+1. The tif image of single capture area (output from [Step 1](http://research.libd.org/VistoSeg/step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html): splitSlide function) with full path
 
 2. number of colors a user visually identifies in the single capture area image
 
-The [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m) function imports the capture area image, applies smoothening to it to get rid of any irregularities in the image and increases the contrast to brighten the nuclei for better detection.  
+The [VNS](https://github.com/LieberInstitute/VistoSeg/blob/main/code/VNS.m) function imports the capture area image, applies smoothening to it to get rid of any irregularities in the image and increases the contrast to brighten the nuclei for better detection.  
 This function is based on [Color-Based Segmentation Using K-Means Clustering](https://www.mathworks.com/help/images/color-based-segmentation-using-k-means-clustering.html#:~:text=K%2Dmeans%20clustering%20requires%20that,*'%20and%20'b*'%20values.). The smoothened and brightened image is converted from *RGB* (Red, Green, Blue) color space to *CIELAB* color space also called *L\*a\*b* color space (L - Luminosity layer measures lightness from black to white, a - chromaticity-layer measures color along red-green axis, b - chromaticity-layer measures color along blue-yellow axis). The CIELAB color space quantifies the visual differences caused by the different colors in the image. The `a*b` color space is extracted from the `L*a*b` converted image and is given to the K-means clustering along with the number of colors the user visually identifies in the image. 
 
-The [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m) function partitions the image into `n` (number provided by user, 5 for the sample used here) color clusters and saves them as individual objects with a index/label. The color clusters (cell array in matfile), the indexed objects (cell array in matfile) of the color clusters, images of the color clusters (tif) are all saved in the same location as the capture area tif image.
+The [VNS](https://github.com/LieberInstitute/VistoSeg/blob/main/code/VNS.m) function partitions the image into `n` (number provided by user, 5 for the sample used here) color clusters and saves them as individual objects with a index/label. The color clusters (cell array in matfile), the indexed objects (cell array in matfile) of the color clusters, images of the color clusters (tif) are all saved in the same location as the capture area tif image.
 
 ```MATLAB
 fname = '/path_to_capture_area_tif/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif';
@@ -48,7 +48,7 @@ The 5 color clusters and the corresponding indexed objects (with labels 1,2,3,4,
 
 <img src="images/sampleimage_clust5.png" title="Color cluster 5" width="225"/> <img src="images/sampleimage_index5.png" title="Indexed object 5" width="225"/><br/>
 
-Below are the outputs of [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m) function
+Below are the outputs of [VNS](https://github.com/LieberInstitute/VistoSeg/blob/main/code/VNS.m) function
 
 1. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster1.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster1.tif)
 
@@ -62,7 +62,7 @@ Below are the outputs of [VNS](https://github.com/LieberInstitute/VisiumLIBD/blo
 
 6. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster.mat](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1_cluster.mat)
 
-7. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_mask.mat](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/VNS/Lieber_Institute_OTS-20-7690_rush_anterior_A1_mask.mat)
+7. [Lieber_Institute_OTS-20-7690_rush_anterior_A1_mask.mat](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/VNS/Lieber_Institute_OTS-20-7690_rush_anterior_A1_mask.mat)
 
 
 ## refineVNS
@@ -73,7 +73,7 @@ The inputs to the function are
 
 1. The tif image of a single capture area with full path
 
-2. The index of the color cluster of the nuclei (obtained from [VNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/VNS.m) function)
+2. The index of the color cluster of the nuclei (obtained from [VNS](https://github.com/LieberInstitute/VistoSeg/blob/main/code/VNS.m) function)
 
 ```MATLAB
 fname = '/path_to_capture_area_tif/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif';
@@ -97,8 +97,8 @@ A zoomed in version, basically the 1st 500 pixels in x ang y of the above sectio
 
 <img src="images/sampleimage_nuclei_zoomin.png" title="Color cluster 3" width="225"/> <img src="images/sampleimage_refinenuclei_zoomin.png" title="Indexed object 3" width="225"/>
 
-Below are the outputs of the [refineVNS](https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/refineVNS.m) function
+Below are the outputs of the [refineVNS](https://github.com/LieberInstitute/VistoSeg/blob/main/code/refineVNS.m) function
 
-1.  [Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.tif](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.tif)
+1.  [Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.tif](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.tif)
 
-2.  [Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat](https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat)
+2.  [Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat)
