@@ -4,19 +4,19 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Step 4: GUI to count nuclei in a visium spot | VisiumLIBD: Visium Image Processing Pipeline</title>
-  <meta name="description" content="4 Step 4: GUI to count nuclei in a visium spot | VisiumLIBD: Visium Image Processing Pipeline" />
+  <title>4 Step 4: GUI to count nuclei in a visium spot | VistoSeg: Visium Image Processing Pipeline</title>
+  <meta name="description" content="4 Step 4: GUI to count nuclei in a visium spot | VistoSeg: Visium Image Processing Pipeline" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Step 4: GUI to count nuclei in a visium spot | VisiumLIBD: Visium Image Processing Pipeline" />
+  <meta property="og:title" content="4 Step 4: GUI to count nuclei in a visium spot | VistoSeg: Visium Image Processing Pipeline" />
   <meta property="og:type" content="book" />
   
   
   
-  
+  <meta name="github-repo" content="LieberInstitute/VistoSeg" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Step 4: GUI to count nuclei in a visium spot | VisiumLIBD: Visium Image Processing Pipeline" />
+  <meta name="twitter:title" content="4 Step 4: GUI to count nuclei in a visium spot | VistoSeg: Visium Image Processing Pipeline" />
   
   
   
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li><a href="index.html#why-spatial-transcriptomics-or-visium-imaging">Why <em>spatial transcriptomics</em> or <em>visium imaging</em>??</a></li>
-<li><a href="index.html#cite-visiumlibd">Cite <code>VisiumLIBD</code></a></li>
+<li><a href="index.html#cite-vistoseg">Cite <code>VistoSeg</code></a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#image-acquisition"><i class="fa fa-check"></i>Image Acquisition</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software Requirements</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-availability"><i class="fa fa-check"></i>Data Availability</a></li>
@@ -166,7 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">VisiumLIBD: Visium Image Processing Pipeline</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">VistoSeg: Visium Image Processing Pipeline</a>
           </h1>
         </div>
 
@@ -180,13 +180,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.1</span> spotspotcheck</h2>
 <p>The GUI is used for
 1. Obtaining nuclei count per Visium spot and saving it to a csv.<br />
-2. Performing quality check on the nuclei segmentations (from <a href="http://research.libd.org/VisiumLIBD/step-2-nuclei-segmentation-of-individual-capture-areas-images.html">Step2</a>) by allowing the user to zoom in/out and toggle between the nuclei segmentation and visium histology images. The GUI overlays the spot grid on to the visium histology and segmentation images for the user to clearly see the nuclei inside a spot.<br />
+2. Performing quality check on the nuclei segmentations (from <a href="http://research.libd.org/VistoSeg/step-2-nuclei-segmentation-of-individual-capture-areas-images.html">Step2</a>) by allowing the user to zoom in/out and toggle between the nuclei segmentation and visium histology images. The GUI overlays the spot grid on to the visium histology and segmentation images for the user to clearly see the nuclei inside a spot.<br />
 3. It allows the user to search for a spot with its associated barcode ID.</p>
-<p>To open the GUI, the <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/spotspotcheck.m">spotspotcheck</a> function should be executed in the MATLAB command prompt like below.</p>
+<p>To open the GUI, the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/spotspotcheck.m">spotspotcheck</a> function should be executed in the MATLAB command prompt like below.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb6-1"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">spotspotcheck</span></span>
 <span id="cb6-2"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="va">loading</span><span class="op">...</span>..</span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li><p><strong>Start Window</strong> : A start window opens up like below. If you donot have the <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spots_counts.csv</a> already, generated from the command line function <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/countNuclei.m">countNuclei</a>, the option to <code>Get Cell Counts</code> on the window should be checked.</p>
+<li><p><strong>Start Window</strong> : A start window opens up like below. If you donot have the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spots_counts.csv</a> already, generated from the command line function <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/countNuclei.m">countNuclei</a>, the option to <code>Get Cell Counts</code> on the window should be checked.</p>
 <center>
 <p><img src="images/start.png" /></p>
 </center>
@@ -200,12 +200,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <center>
 <p><img src="images/Select%20segmentation.png" /></p>
 </center>
-<p>Select the <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/refineVNS/Liebert_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat">.mat</a> file and hit the <code>Open</code> button.</p></li>
-<li><p><strong>Select Scale Factors JSON File</strong> : Select the <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spaceranger/scalefactors_json.json">scalefactors_json.json</a> file with the visium spot metrics obtained from the <a href="https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/what-is-space-ranger">Space Ranger</a> software.</p>
+<p>Select the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/refineVNS/Liebert_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat">.mat</a> file and hit the <code>Open</code> button.</p></li>
+<li><p><strong>Select Scale Factors JSON File</strong> : Select the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/scalefactors_json.json">scalefactors_json.json</a> file with the visium spot metrics obtained from the <a href="https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/what-is-space-ranger">Space Ranger</a> software.</p>
 <center>
 <p><img src="images/select%20json.png" /></p>
 </center></li>
-<li><p><strong>Select Tissue Positions/Spot Counts File</strong> : If the <code>Get Cell Counts</code> option is checked in the Start window then select <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spaceranger/tissue_positions_list.csv">tissue_positions_list.csv</a> obtained from <strong>Spaceranger</strong>, otherwise select <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a> obtained from <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/countNuclei.m">countNuclei</a> function.</p>
+<li><p><strong>Select Tissue Positions/Spot Counts File</strong> : If the <code>Get Cell Counts</code> option is checked in the Start window then select <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/tissue_positions_list.csv">tissue_positions_list.csv</a> obtained from <strong>Spaceranger</strong>, otherwise select <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a> obtained from <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/countNuclei.m">countNuclei</a> function.</p>
 <center>
 <p><img src="images/select%20spot%20counts.png" /></p>
 </center></li>
@@ -224,14 +224,14 @@ The zoom in (symbol of magnifying glass with <code>+</code>) option is provided 
 </center>
 <p>To toggle between histology/segmented images when zoomed in, the cursor should should return to its normal function by unclicking the zoom in (symbol of magnifying glass with <code>+</code>) option.</p>
 <p><img src="images/zoom%20in%202.png" title="Color cluster 1" width="350"/> <img src="images/zoom%20in%202%20BW.png" title="Indexed object 1" width="350"/></p>
-The dialog box at the bottom of the GUI with the label <code>Barcode Lookup</code> provides user to input the barcode ID of the specific visium spot the user want to look at. For example if we want to look at the 1st visium spot on this image, paste the barcode ID of the spot (from <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a>) into the white space and hit the <code>Lookup</code> button. It opens up the image where ever this spot is located.
+The dialog box at the bottom of the GUI with the label <code>Barcode Lookup</code> provides user to input the barcode ID of the specific visium spot the user want to look at. For example if we want to look at the 1st visium spot on this image, paste the barcode ID of the spot (from <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a>) into the white space and hit the <code>Lookup</code> button. It opens up the image where ever this spot is located.
 <center>
 <img src="images/Barcode%20ID.png" />
 </center>
 </div>
 <div id="countnuclei" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> countNuclei</h2>
-<p>This function can be run on MATLAB command prompt to obtain the <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a> file without going through the GUI.</p>
+<p>This function can be run on MATLAB command prompt to obtain the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a> file without going through the GUI.</p>
 <p>Inputs to the function are<br />
 1. Filename with full path for the mat file of the final nuclei segmentation.<br />
 2. Filename with full path for the scalefactors_json json file.<br />
@@ -240,20 +240,26 @@ The dialog box at the bottom of the GUI with the label <code>Barcode Lookup</cod
 <span id="cb7-2"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="va">jsonname</span> <span class="op">=</span> <span class="ss">&#39;/path_to_scalefactors_json/scalefactors_json.json&#39;</span><span class="op">;</span></span>
 <span id="cb7-3"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="va">posname</span> <span class="op">=</span> <span class="ss">&#39;/path_to_tissue_positions_list/tissue_positions_list.csv&#39;</span><span class="op">;</span></span>
 <span id="cb7-4"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="va">countNuclei</span>(<span class="va">mask</span><span class="op">,</span><span class="va">jsonname</span><span class="op">,</span><span class="va">posname</span>)                                           <span class="va">loading</span> <span class="va">data</span>                </span>
-<span id="cb7-6"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">4.216505</span> <span class="va">seconds</span>.</span>
-<span id="cb7-7"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fl">84385</span> <span class="va">cells</span> <span class="va">detected</span></span>
-<span id="cb7-8"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fl">4992</span> <span class="va">spots</span> <span class="va">detected</span></span>
-<span id="cb7-9"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="va">counting</span> <span class="va">nuclei</span> <span class="va">per</span> <span class="va">spot</span></span>
-<span id="cb7-10"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fl">100</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">77.1357</span><span class="va">s</span></span>
-<span id="cb7-11"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fl">200</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">140.8369</span><span class="va">s</span></span>
-<span id="cb7-12"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fl">300</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">204.5829</span><span class="va">s</span></span>
-<span id="cb7-13"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="fl">400</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">267.4467</span><span class="va">s</span></span>
-<span id="cb7-14"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-14" aria-hidden="true" tabindex="-1"></a>.</span>
-<span id="cb7-15"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-15" aria-hidden="true" tabindex="-1"></a>.</span>
-<span id="cb7-16"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-16" aria-hidden="true" tabindex="-1"></a>.</span></code></pre></div>
-<p>The <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/code/countNuclei.m">countNuclei</a> function generates a nuclei count file listed below. The file is saved in the same path as the <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spaceranger/tissue_positions_list.csv">tissue_positions_list.csv</a> that we give to the function.<br />
-1. <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a></p>
+<span id="cb7-5"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="va">countNuclei</span>(<span class="va">mask</span><span class="op">,</span><span class="va">jsonname</span><span class="op">,</span><span class="va">posname</span>)  </span>
+<span id="cb7-6"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="va">loading</span> <span class="va">data</span></span>
+<span id="cb7-7"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">4.216505</span> <span class="va">seconds</span>.</span>
+<span id="cb7-8"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fl">84385</span> <span class="va">cells</span> <span class="va">detected</span></span>
+<span id="cb7-9"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fl">4992</span> <span class="va">spots</span> <span class="va">detected</span></span>
+<span id="cb7-10"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="va">counting</span> <span class="va">nuclei</span> <span class="va">per</span> <span class="va">spot</span></span>
+<span id="cb7-11"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fl">100</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">77.1357</span><span class="va">s</span></span>
+<span id="cb7-12"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fl">200</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">140.8369</span><span class="va">s</span></span>
+<span id="cb7-13"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="fl">300</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">204.5829</span><span class="va">s</span></span>
+<span id="cb7-14"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fl">400</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">267.4467</span><span class="va">s</span></span>
+<span id="cb7-15"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fl">500</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">335.6774</span><span class="va">s</span></span>
+<span id="cb7-16"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="fl">600</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">403.0874</span><span class="va">s</span></span>
+<span id="cb7-17"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="fl">700</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">467.4493</span><span class="va">s</span></span>
+<span id="cb7-18"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="fl">800</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">534.8536</span><span class="va">s</span></span>
+<span id="cb7-19"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fl">900</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">602.1899</span><span class="va">s</span></span>
+<span id="cb7-20"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-20" aria-hidden="true" tabindex="-1"></a>.</span>
+<span id="cb7-21"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-21" aria-hidden="true" tabindex="-1"></a>.</span>
+<span id="cb7-22"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb7-22" aria-hidden="true" tabindex="-1"></a>.</span></code></pre></div>
+<p>The <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/countNuclei.m">countNuclei</a> function generates a nuclei count file listed below. The file is saved in the same path as the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/tissue_positions_list.csv">tissue_positions_list.csv</a> that we give to the function.<br />
+1. <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a></p>
 
 </div>
 </div>

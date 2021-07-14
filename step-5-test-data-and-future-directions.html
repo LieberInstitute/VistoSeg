@@ -4,19 +4,19 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Step 5: Test data and Future directions | VisiumLIBD: Visium Image Processing Pipeline</title>
-  <meta name="description" content="5 Step 5: Test data and Future directions | VisiumLIBD: Visium Image Processing Pipeline" />
+  <title>5 Step 5: Test data and Future directions | VistoSeg: Visium Image Processing Pipeline</title>
+  <meta name="description" content="5 Step 5: Test data and Future directions | VistoSeg: Visium Image Processing Pipeline" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Step 5: Test data and Future directions | VisiumLIBD: Visium Image Processing Pipeline" />
+  <meta property="og:title" content="5 Step 5: Test data and Future directions | VistoSeg: Visium Image Processing Pipeline" />
   <meta property="og:type" content="book" />
   
   
   
-  
+  <meta name="github-repo" content="LieberInstitute/VistoSeg" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Step 5: Test data and Future directions | VisiumLIBD: Visium Image Processing Pipeline" />
+  <meta name="twitter:title" content="5 Step 5: Test data and Future directions | VistoSeg: Visium Image Processing Pipeline" />
   
   
   
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li><a href="index.html#why-spatial-transcriptomics-or-visium-imaging">Why <em>spatial transcriptomics</em> or <em>visium imaging</em>??</a></li>
-<li><a href="index.html#cite-visiumlibd">Cite <code>VisiumLIBD</code></a></li>
+<li><a href="index.html#cite-vistoseg">Cite <code>VistoSeg</code></a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#image-acquisition"><i class="fa fa-check"></i>Image Acquisition</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software Requirements</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-availability"><i class="fa fa-check"></i>Data Availability</a></li>
@@ -166,7 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">VisiumLIBD: Visium Image Processing Pipeline</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">VistoSeg: Visium Image Processing Pipeline</a>
           </h1>
         </div>
 
@@ -178,9 +178,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">5</span> Step 5: Test data and Future directions</h1>
 <div id="public-datasets" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Public datasets</h2>
-<p>The pipeline with default settings (smoothening and color clusters of k-means in VNS function) used for in house data has been applied on the <a href="https://support.10xgenomics.com/spatial-gene-expression/datasets">public datasets</a> provided by 10x Genomics. We chose 2 images one from <a href="https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Breast_Cancer_Block_A_Section_1">breast tissue</a> with high density of cells and the other from <a href="https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Human_Heart">human heart tissue</a> with low density of cells, to demonstrate the utility of the pipeline on images obtained from different tissues. Decent segmentation results were obtained with the default settings given the low the image resolution. Accurate results can be obtained with little parametric tuning. A zoom in versions from <code>spotspotcheck</code> are shown below for better visualization.</p>
+<p>The pipeline with default settings (smoothening and color clusters of k-means in VNS function) used for in house data has been applied on the <a href="https://support.10xgenomics.com/spatial-gene-expression/datasets">public datasets</a> provided by 10x Genomics. To demonstrate the utility of the pipeline on different datasets we chose images obtained from different tissues, <a href="https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Breast_Cancer_Block_A_Section_1">breast tissue</a> with high density of cells and <a href="https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Human_Heart">human heart tissue</a> with low density of cells. Decent segmentation results were obtained with the default settings on the human heart tissue image given the low image resolution. With the number of color clusters changed from 5 (defalut) to 3 for breast tissue, the highly clustered cells were detected.</p>
 <p>A. Heart Tissue</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb8-1"><a href="step-5-test-data-and-future-directions.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="va">code</span> <span class="op">=</span> <span class="ss">&#39;/path to the code/VisiumLIBD/code&#39;</span><span class="op">;</span></span>
+<div class="sourceCode" id="cb8"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb8-1"><a href="step-5-test-data-and-future-directions.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="va">code</span> <span class="op">=</span> <span class="ss">&#39;/path to the code/VistoSeg/code&#39;</span><span class="op">;</span></span>
 <span id="cb8-2"><a href="step-5-test-data-and-future-directions.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="va">addpath</span>(<span class="va">genpath</span>(<span class="va">code</span>))</span>
 <span id="cb8-3"><a href="step-5-test-data-and-future-directions.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="va">fname</span> <span class="op">=</span> <span class="ss">&#39;/path to the file/V1_Human_Heart_image.tif&#39;</span><span class="op">;</span></span>
 <span id="cb8-4"><a href="step-5-test-data-and-future-directions.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="va">N</span> <span class="op">=</span> <span class="fl">5</span><span class="op">;</span></span>
@@ -199,41 +199,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-17"><a href="step-5-test-data-and-future-directions.html#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="va">Connected</span> <span class="va">to</span> <span class="va">the</span> <span class="va">parallel</span> <span class="va">pool</span> (<span class="va">number</span> <span class="va">of</span> <span class="va">workers</span><span class="op">:</span> <span class="fl">2</span>).</span>
 <span id="cb8-18"><a href="step-5-test-data-and-future-directions.html#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">161.220875</span> <span class="va">seconds</span>.</span>
 <span id="cb8-19"><a href="step-5-test-data-and-future-directions.html#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-20"><a href="step-5-test-data-and-future-directions.html#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="va">spotspotcheck</span></span>
-<span id="cb8-21"><a href="step-5-test-data-and-future-directions.html#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="va">loading</span><span class="op">...</span>..</span>
-<span id="cb8-22"><a href="step-5-test-data-and-future-directions.html#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="fl">93741</span> <span class="va">cells</span> <span class="va">detected</span></span>
-<span id="cb8-23"><a href="step-5-test-data-and-future-directions.html#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="fl">4992</span> <span class="va">spots</span> <span class="va">detected</span></span>
-<span id="cb8-24"><a href="step-5-test-data-and-future-directions.html#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="va">counting</span> <span class="va">nuclei</span> <span class="va">per</span> <span class="va">spot</span></span>
-<span id="cb8-25"><a href="step-5-test-data-and-future-directions.html#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="fl">100</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">32.3861</span><span class="va">s</span></span>
-<span id="cb8-26"><a href="step-5-test-data-and-future-directions.html#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="fl">200</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">61.5043</span><span class="va">s</span></span>
-<span id="cb8-27"><a href="step-5-test-data-and-future-directions.html#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="fl">300</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">98.5936</span><span class="va">s</span></span>
-<span id="cb8-28"><a href="step-5-test-data-and-future-directions.html#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="fl">400</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">141.2028</span><span class="va">s</span></span>
-<span id="cb8-29"><a href="step-5-test-data-and-future-directions.html#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="fl">500</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">182.9503</span><span class="va">s</span></span>
-<span id="cb8-30"><a href="step-5-test-data-and-future-directions.html#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="fl">600</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">222.0649</span><span class="va">s</span></span>
-<span id="cb8-31"><a href="step-5-test-data-and-future-directions.html#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="fl">700</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">263.1166</span><span class="va">s</span></span>
-<span id="cb8-32"><a href="step-5-test-data-and-future-directions.html#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="fl">800</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">303.7525</span><span class="va">s</span></span>
-<span id="cb8-33"><a href="step-5-test-data-and-future-directions.html#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="fl">900</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">343.7924</span><span class="va">s</span></span>
-<span id="cb8-34"><a href="step-5-test-data-and-future-directions.html#cb8-34" aria-hidden="true" tabindex="-1"></a>.</span>
-<span id="cb8-35"><a href="step-5-test-data-and-future-directions.html#cb8-35" aria-hidden="true" tabindex="-1"></a>.</span>
-<span id="cb8-36"><a href="step-5-test-data-and-future-directions.html#cb8-36" aria-hidden="true" tabindex="-1"></a>.</span></code></pre></div>
-<p><img src="images/human_heart_HE.png" title="Image 1" width="350"/> <img src="images/human_heart_BW.png" title="Image 2" width="350"/>
-1.Output from spotspotcheck <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts_heart.csv">tissue_spot_counts.csv</a>
-2.Final nuclei segmentations: <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/refineVNS/V1_Human_Heart_image_nuclei.tif">nuclei.tif</a>, <a href="https://github.com/LieberInstitute/VisiumLIBD/blob/main/pipeline_outputs/refineVNS/V1_Human_Heart_image_nuclei.mat">nuclei.mat</a></p>
+<span id="cb8-20"><a href="step-5-test-data-and-future-directions.html#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="va">M</span> <span class="op">=</span> </span>
+<span id="cb8-21"><a href="step-5-test-data-and-future-directions.html#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="va">refineVNS</span>(<span class="va">fname</span><span class="op">,</span><span class="va">M</span>)</span>
+<span id="cb8-22"><a href="step-5-test-data-and-future-directions.html#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="step-5-test-data-and-future-directions.html#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="va">spotspotcheck</span></span>
+<span id="cb8-24"><a href="step-5-test-data-and-future-directions.html#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="va">loading</span><span class="op">...</span>..</span>
+<span id="cb8-25"><a href="step-5-test-data-and-future-directions.html#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="fl">93741</span> <span class="va">cells</span> <span class="va">detected</span></span>
+<span id="cb8-26"><a href="step-5-test-data-and-future-directions.html#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="fl">4992</span> <span class="va">spots</span> <span class="va">detected</span></span>
+<span id="cb8-27"><a href="step-5-test-data-and-future-directions.html#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="va">counting</span> <span class="va">nuclei</span> <span class="va">per</span> <span class="va">spot</span></span>
+<span id="cb8-28"><a href="step-5-test-data-and-future-directions.html#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="fl">100</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">32.3861</span><span class="va">s</span></span>
+<span id="cb8-29"><a href="step-5-test-data-and-future-directions.html#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="fl">200</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">61.5043</span><span class="va">s</span></span>
+<span id="cb8-30"><a href="step-5-test-data-and-future-directions.html#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="fl">300</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">98.5936</span><span class="va">s</span></span>
+<span id="cb8-31"><a href="step-5-test-data-and-future-directions.html#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="fl">400</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">141.2028</span><span class="va">s</span></span>
+<span id="cb8-32"><a href="step-5-test-data-and-future-directions.html#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="fl">500</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">182.9503</span><span class="va">s</span></span>
+<span id="cb8-33"><a href="step-5-test-data-and-future-directions.html#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="fl">600</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">222.0649</span><span class="va">s</span></span>
+<span id="cb8-34"><a href="step-5-test-data-and-future-directions.html#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="fl">700</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">263.1166</span><span class="va">s</span></span>
+<span id="cb8-35"><a href="step-5-test-data-and-future-directions.html#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="fl">800</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">303.7525</span><span class="va">s</span></span>
+<span id="cb8-36"><a href="step-5-test-data-and-future-directions.html#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="fl">900</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">343.7924</span><span class="va">s</span></span>
+<span id="cb8-37"><a href="step-5-test-data-and-future-directions.html#cb8-37" aria-hidden="true" tabindex="-1"></a>.</span>
+<span id="cb8-38"><a href="step-5-test-data-and-future-directions.html#cb8-38" aria-hidden="true" tabindex="-1"></a>.</span>
+<span id="cb8-39"><a href="step-5-test-data-and-future-directions.html#cb8-39" aria-hidden="true" tabindex="-1"></a>.</span></code></pre></div>
+<p>Zoomed in versions from <code>spotspotcheck</code> are shown below for better visualization.
+<img src="images/human_heart_HE.png" title="Image 1" width="350"/> <img src="images/human_heart_BW.png" title="Image 2" width="350"/>
+1.Output from spotspotcheck <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts_heart.csv">tissue_spot_counts.csv</a>
+2.Final nuclei segmentations: <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/refineVNS/V1_Human_Heart_image_nuclei.mat">nuclei.mat</a></p>
 <p>B. Breast Tissue</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb9-1"><a href="step-5-test-data-and-future-directions.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="va">code</span> <span class="op">=</span> <span class="ss">&#39;/path to the code/VisiumLIBD/code&#39;</span><span class="op">;</span></span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb9-1"><a href="step-5-test-data-and-future-directions.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="va">code</span> <span class="op">=</span> <span class="ss">&#39;/path to the code/VistoSeg/code&#39;</span><span class="op">;</span></span>
 <span id="cb9-2"><a href="step-5-test-data-and-future-directions.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="va">addpath</span>(<span class="va">genpath</span>(<span class="va">code</span>))</span>
 <span id="cb9-3"><a href="step-5-test-data-and-future-directions.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="va">fname</span> <span class="op">=</span> <span class="ss">&#39;/path to the file/V1_Human_Heart_image.tif&#39;</span><span class="op">;</span></span>
-<span id="cb9-4"><a href="step-5-test-data-and-future-directions.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="va">N</span> <span class="op">=</span> <span class="fl">5</span><span class="op">;</span></span>
+<span id="cb9-4"><a href="step-5-test-data-and-future-directions.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="va">N</span> <span class="op">=</span> <span class="fl">3</span><span class="op">;</span></span>
 <span id="cb9-5"><a href="step-5-test-data-and-future-directions.html#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-6"><a href="step-5-test-data-and-future-directions.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="va">VNS</span>(<span class="va">fname</span><span class="op">,</span><span class="va">N</span>)</span>
 <span id="cb9-7"><a href="step-5-test-data-and-future-directions.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="va">Importing</span> <span class="va">capture</span> <span class="va">area</span></span>
-<span id="cb9-8"><a href="step-5-test-data-and-future-directions.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">53.908634</span> <span class="va">seconds</span>.</span>
+<span id="cb9-8"><a href="step-5-test-data-and-future-directions.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">42.738974</span> <span class="va">seconds</span>.</span>
 <span id="cb9-9"><a href="step-5-test-data-and-future-directions.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="va">Performing</span> <span class="va">smoothening</span> <span class="va">and</span> <span class="va">contrast</span> <span class="va">adjustment</span></span>
-<span id="cb9-10"><a href="step-5-test-data-and-future-directions.html#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">150.770066</span> <span class="va">seconds</span>.</span>
+<span id="cb9-10"><a href="step-5-test-data-and-future-directions.html#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">180.821916</span> <span class="va">seconds</span>.</span>
 <span id="cb9-11"><a href="step-5-test-data-and-future-directions.html#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="va">Performing</span> <span class="va">rgb</span> <span class="va">to</span> <span class="va">Lab</span> <span class="va">color</span> <span class="va">space</span> <span class="va">conversion</span></span>
-<span id="cb9-12"><a href="step-5-test-data-and-future-directions.html#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">68.303547</span> <span class="va">seconds</span>.</span>
-<span id="cb9-13"><a href="step-5-test-data-and-future-directions.html#cb9-13" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
-<p><img src="images/Breast_HE.png" title="Image 1" width="350"/> <img src="images/Breast_HE.png" title="Image 2" width="350"/></p>
+<span id="cb9-12"><a href="step-5-test-data-and-future-directions.html#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">77.897834</span> <span class="va">seconds</span>.</span>
+<span id="cb9-13"><a href="step-5-test-data-and-future-directions.html#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="va">Applying</span> <span class="va">Kmeans</span></span>
+<span id="cb9-14"><a href="step-5-test-data-and-future-directions.html#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">1909.580117</span> <span class="va">seconds</span>.</span>
+<span id="cb9-15"><a href="step-5-test-data-and-future-directions.html#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="va">saving</span> <span class="va">outputs</span></span>
+<span id="cb9-16"><a href="step-5-test-data-and-future-directions.html#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="va">Starting</span> <span class="va">parallel</span> <span class="va">pool</span> (<span class="va">parpool</span>) <span class="va">using</span> <span class="va">the</span> <span class="ss">&#39;local&#39;</span> <span class="va">profile</span> <span class="op">...</span></span>
+<span id="cb9-17"><a href="step-5-test-data-and-future-directions.html#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="va">Connected</span> <span class="va">to</span> <span class="va">the</span> <span class="va">parallel</span> <span class="va">pool</span> (<span class="va">number</span> <span class="va">of</span> <span class="va">workers</span><span class="op">:</span> <span class="fl">2</span>).</span>
+<span id="cb9-18"><a href="step-5-test-data-and-future-directions.html#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">352.156689</span> <span class="va">seconds</span>.</span>
+<span id="cb9-19"><a href="step-5-test-data-and-future-directions.html#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="step-5-test-data-and-future-directions.html#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="va">M</span> <span class="op">=</span> <span class="fl">1</span></span>
+<span id="cb9-21"><a href="step-5-test-data-and-future-directions.html#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="va">refineVNS</span>(<span class="va">fname</span><span class="op">,</span><span class="va">M</span>)</span>
+<span id="cb9-22"><a href="step-5-test-data-and-future-directions.html#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="va">loading</span> <span class="va">data</span></span>
+<span id="cb9-23"><a href="step-5-test-data-and-future-directions.html#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">10.504537</span> <span class="va">seconds</span>.</span>
+<span id="cb9-24"><a href="step-5-test-data-and-future-directions.html#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="va">refining</span> <span class="va">segmentations</span></span>
+<span id="cb9-25"><a href="step-5-test-data-and-future-directions.html#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">229.784656</span> <span class="va">seconds</span>.</span>
+<span id="cb9-26"><a href="step-5-test-data-and-future-directions.html#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="va">saving</span> <span class="va">final</span> <span class="va">segmentations</span></span>
+<span id="cb9-27"><a href="step-5-test-data-and-future-directions.html#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">18.292739</span> <span class="va">seconds</span>.</span>
+<span id="cb9-28"><a href="step-5-test-data-and-future-directions.html#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="step-5-test-data-and-future-directions.html#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="va">mask</span> <span class="op">=</span> <span class="ss">&#39;/path to the file/V1_Breast_Cancer_Block_A_Section_1_image_nuclei.mat&#39;</span><span class="op">;</span></span>
+<span id="cb9-30"><a href="step-5-test-data-and-future-directions.html#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="va">jsonname</span> <span class="op">=</span> <span class="ss">&#39;/path to the file/scalefactors_json.json&#39;</span><span class="op">;</span></span>
+<span id="cb9-31"><a href="step-5-test-data-and-future-directions.html#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="va">posname</span> <span class="op">=</span> <span class="ss">&#39;/path to the file/tissue_positions_list.csv&#39;</span><span class="op">;</span></span>
+<span id="cb9-32"><a href="step-5-test-data-and-future-directions.html#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-33"><a href="step-5-test-data-and-future-directions.html#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="va">countNuclei</span>(<span class="va">mask</span><span class="op">,</span> <span class="va">jsonname</span><span class="op">,</span> <span class="va">posname</span>)</span>
+<span id="cb9-34"><a href="step-5-test-data-and-future-directions.html#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="va">loading</span> <span class="va">data</span></span>
+<span id="cb9-35"><a href="step-5-test-data-and-future-directions.html#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="va">Elapsed</span> <span class="va">time</span> <span class="va">is</span> <span class="fl">10.565088</span> <span class="va">seconds</span>.</span>
+<span id="cb9-36"><a href="step-5-test-data-and-future-directions.html#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="fl">576311</span> <span class="va">cells</span> <span class="va">detected</span></span>
+<span id="cb9-37"><a href="step-5-test-data-and-future-directions.html#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="fl">4992</span> <span class="va">spots</span> <span class="va">detected</span></span>
+<span id="cb9-38"><a href="step-5-test-data-and-future-directions.html#cb9-38" aria-hidden="true" tabindex="-1"></a><span class="va">counting</span> <span class="va">nuclei</span> <span class="va">per</span> <span class="va">spot</span></span>
+<span id="cb9-39"><a href="step-5-test-data-and-future-directions.html#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="fl">100</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">602.9623</span><span class="va">s</span></span>
+<span id="cb9-40"><a href="step-5-test-data-and-future-directions.html#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="fl">200</span> <span class="va">spots</span> <span class="va">finished</span> <span class="va">in</span> <span class="va">time</span> <span class="fl">1305.658</span><span class="va">s</span></span>
+<span id="cb9-41"><a href="step-5-test-data-and-future-directions.html#cb9-41" aria-hidden="true" tabindex="-1"></a>.</span>
+<span id="cb9-42"><a href="step-5-test-data-and-future-directions.html#cb9-42" aria-hidden="true" tabindex="-1"></a>.</span>
+<span id="cb9-43"><a href="step-5-test-data-and-future-directions.html#cb9-43" aria-hidden="true" tabindex="-1"></a>.</span></code></pre></div>
+<p>Below images are the raw Histology tif file of breast tissue and the extracted/segmented nuclei.
+<img src="images/Breast_nuclei.png" title="Image 1" width="350"/> <img src="images/tissue_hires_image.png" title="Image 2" width="350"/></p>
+<p>1.Output from spotspotcheck <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts_breast.csv">tissue_spot_counts.csv</a>
+2.Final nuclei segmentations: <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/refineVNS/V1_Human_Heart_image_nuclei.mat">nuclei.mat</a></p>
 </div>
 <div id="future-directions" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Future directions</h2>
