@@ -1,20 +1,12 @@
 ---
-<<<<<<< HEAD
 title: "VistoSeg: Visium Image Processing Pipeline"
-author: 
-=======
-title: "VisiumLIBD: Visium Image Processing Pipeline"
 author:
->>>>>>> 1c784cc59220b4941985b1347554acfbcb83188d
   - name: Madhavi Tippani
     affiliation:
     - &libd Lieber Institute for Brain Development, Johns Hopkins Medical Campus
     email: madhavi.tippani@libd.org
 site: bookdown::bookdown_site
-<<<<<<< HEAD
 github-repo: "LieberInstitute/VistoSeg"
-=======
->>>>>>> 1c784cc59220b4941985b1347554acfbcb83188d
 documentclass: book
 output:
   bookdown::gitbook: default
