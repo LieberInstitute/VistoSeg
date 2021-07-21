@@ -26,7 +26,7 @@ Connected to the parallel pool (number of workers: 2).
 Elapsed time is 161.220875 seconds.
 
 M=1;
-refineVNS(fname,1)
+refineVNS(fname,M)
 loading data
 Elapsed time is 3.157618 seconds.
 refining segmentations
@@ -113,5 +113,5 @@ Below images are the raw Histology tif file of breast tissue and the extracted/s
 
 ## Future directions
 
-1. To integrate Atlas Aligner for brain region identification
-2. To integrate [VAMPIRE](https://www.nature.com/articles/srep18437) for cell morphology detection
+1. Integrate Atlas Aligner for brain region identification
+2. Integrate [VAMPIRE](https://www.nature.com/articles/srep18437) for cell morphology detection
