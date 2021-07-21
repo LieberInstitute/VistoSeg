@@ -1,12 +1,12 @@
 # Step 1: Split Visium histology whole slide image into individual capture area images
 
-The visium histology whole slide image from the imaging system (slide scanner) is a multiplane tif image (~20GB). The sample image [Lieber_Institute_OTS-20-7690_rush_anterior.tif](link to AWS) from the DLPFC dataset is used here to run through the pipeline. 
+The Visium histology whole slide image from the imaging system (slide scanner) is a multiplane tif image (~20GB). The sample image [Lieber_Institute_OTS-20-7690_rush_anterior.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior.tif)) from the DLPFC dataset is used here to run through the pipeline. 
 
-The inputs to the function [splitSlide.m](https://github.com/LieberInstitute/VistoSeg/blob/main/code/splitSlide.m) are 
+The inputs to the function [splitSlide.m](https://github.com/LieberInstitute/VistoSeg/blob/main/code/splitSlide.m) are:
 
 1. the full path with file name of the raw multiplane tif image (obtained from slide scanner)
 
-The function imports the raw multiplane tif image and saves each plane/image as MATLAB structure and all structures are saved into a single cell array (I) in a '.mat file'. The 1st image of the raw multiplane tif is the raw visium histology slide image, the remaining planes/images consists of the metadata. 
+The function imports the raw multiplane tif image and saves each plane/image as MATLAB structure and all structures are saved into a single cell array (I) in a '.mat file'. The 1st image of the raw multiplane tif is the raw Visium histology slide image, the remaining planes/images consists of the metadata. 
 
 The function then splits the 1st image of the multiplane tif into individual capture areas (A1,B1,C1,D1) and saves them as both `tif images` and `mat files`. The capture areas are resized to 70% of the original size (eg 100 X 100 Pixel region is resized to 70 X 70 pixel region) when saving to tif images as MATLAB cannot store images that occupies more than 2^32 - 1 bytes of data.
 
@@ -95,20 +95,12 @@ The image 'I{1}.image' is split into 4 sub images or capture areas by dividing t
 
 Below are the output files of `slpitSlide` function
 
-1. [Lieber_Institute_OTS-20-7690_rush_anterior.mat](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior.mat) - cell array of multiplane tif stored in mat file.
-
-2. [Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif) - tif image of compressed capture area A1.
-
-3. [Lieber_Institute_OTS-20-7690_rush_anterior_A1.mat](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1.mat) - RGB matrix of uncompressed capture area A1 stored in mat file.
-
-4. [Lieber_Institute_OTS-20-7690_rush_anterior_B1.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_B1.tif) - tif image of compressed capture area B1.
-
-5. [Lieber_Institute_OTS-20-7690_rush_anterior_B1.mat](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_B1.mat) - RGB matrix of uncompressed capture area B1 stored in mat file.
-
-6. [Lieber_Institute_OTS-20-7690_rush_anterior_C1.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_C1.tif) - tif image of compressed capture area C1.
-
-7. [Lieber_Institute_OTS-20-7690_rush_anterior_C1.mat](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_C1.mat) - RGB matrix of uncompressed capture area C1 stored in mat file.
-
-8. [Lieber_Institute_OTS-20-7690_rush_anterior_D1.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_D1.tif) - tif image of compressed capture area D1.
-
+1. [Lieber_Institute_OTS-20-7690_rush_anterior.mat](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior.mat) - cell array of multiplane tif stored in mat file.  
+2. [Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif) - tif image of compressed capture area A1.  
+3. [Lieber_Institute_OTS-20-7690_rush_anterior_A1.mat](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1.mat) - RGB matrix of uncompressed capture area A1 stored in mat file.  
+4. [Lieber_Institute_OTS-20-7690_rush_anterior_B1.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_B1.tif) - tif image of compressed capture area B1.  
+5. [Lieber_Institute_OTS-20-7690_rush_anterior_B1.mat](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_B1.mat) - RGB matrix of uncompressed capture area B1 stored in mat file.  
+6. [Lieber_Institute_OTS-20-7690_rush_anterior_C1.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_C1.tif) - tif image of compressed capture area C1.  
+7. [Lieber_Institute_OTS-20-7690_rush_anterior_C1.mat](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_C1.mat) - RGB matrix of uncompressed capture area C1 stored in mat file.  
+8. [Lieber_Institute_OTS-20-7690_rush_anterior_D1.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_D1.tif) - tif image of compressed capture area D1.  
 9. [Lieber_Institute_OTS-20-7690_rush_anterior_D1.mat](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_D1.mat) - RGB matrix of uncompressed capture area D1 stored in mat file.

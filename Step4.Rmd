@@ -1,10 +1,10 @@
-# Step 4: GUI to count nuclei in a visium spot
+# Step 4: GUI to count nuclei in a Visium spot
 
 ## spotspotcheck
 
 The GUI is used for
 1. Obtaining nuclei count per Visium spot and saving it to a csv.  
-2. Performing quality check on the nuclei segmentations (from [Step2](http://research.libd.org/VistoSeg/step-2-nuclei-segmentation-of-individual-capture-areas-images.html)) by allowing the user to zoom in/out and toggle between the nuclei segmentation and visium histology images. The GUI overlays the spot grid on to the visium histology and segmentation images for the user to clearly see the nuclei inside a spot.  
+2. Performing quality check on the nuclei segmentations (from [Step2](http://research.libd.org/VistoSeg/step-2-nuclei-segmentation-of-individual-capture-areas-images.html)) by allowing the user to zoom in/out and toggle between the nuclei segmentation and Visium histology images. The GUI overlays the spot grid on to the Visium histology and segmentation images for the user to clearly see the nuclei inside a spot.  
 3. It allows the user to search for a spot with its associated barcode ID.
 
 To open the GUI, the [spotspotcheck](https://github.com/LieberInstitute/VistoSeg/blob/main/code/spotspotcheck.m) function should be executed in the MATLAB command prompt like below.
@@ -18,9 +18,9 @@ loading.....
 <center>
 ![](images/start.png) 
 </center>
-Then you hit the `Start` button which opens up the following window.
+Then you hit the `Start` button, which opens up the following window.
 
-2. **Select Histology Image** : This window asks you to select the capture area tif that you want the nuclei counts for or to perform quality check on nuclei segmentations.
+2. **Select Histology Image** : This window asks you to select the capture area tif that you want the nuclei counts for, or to perform quality check on nuclei segmentations.
 <center>
 ![](images/Select Histology Image.png) 
 </center>
@@ -32,7 +32,7 @@ Select the capture area tif and hit the `Open` button on window, which opens the
 </center>
 Select the [.mat](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/refineVNS/Liebert_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat) file and hit the `Open` button.
 
-4. **Select Scale Factors JSON File** : Select the [scalefactors_json.json](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/scalefactors_json.json) file with the visium spot metrics obtained from the [Space Ranger](https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/what-is-space-ranger) software.
+4. **Select Scale Factors JSON File** : Select the [scalefactors_json.json](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/scalefactors_json.json) file with the Visium spot metrics obtained from the [Space Ranger](https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/what-is-space-ranger) software.
 <center>
 ![](images/select json.png) 
 </center>
@@ -48,7 +48,7 @@ Select the [.mat](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline
 ![](images/spotspotcheck.png) 
 </center>
 
-By clicking anywhere on the image inside the GUI, the user can toggle between the Histology and segmented image, shown below.
+By clicking anywhere on the image inside the GUI, the user can toggle between the histology and segmented image, shown below.
 <center>
 ![](images/spotspotcheck BW.png) 
 </center>
@@ -58,18 +58,18 @@ The zoom in (symbol of magnifying glass with `+`) option is provided in the menu
 ![](images/zoom in 1.png) 
 </center>
 
-To toggle between histology/segmented images when zoomed in, the cursor should should return to its normal function by unclicking the zoom in (symbol of magnifying glass with `+`) option.
+To toggle between histology/segmented images when zoomed in, the cursor should return to its normal function by un-clicking the zoom in (symbol of magnifying glass with `+`) option.
 
 <img src="images/zoom in 2.png" title="Color cluster 1" width="350"/> <img src="images/zoom in 2 BW.png" title="Indexed object 1" width="350"/> 
 
-The dialog box at the bottom of the GUI with the label `Barcode Lookup` provides user to input the barcode ID of the specific visium spot the user want to look at. For example if we want to look at the 1st visium spot on this image, paste the barcode ID of the spot (from [tissue_spot_counts.csv](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv)) into the white space and hit the `Lookup` button. It opens up the image where ever this spot is located.
+The dialog box at the bottom of the GUI with the label `Barcode Lookup` provides user to input the barcode ID of the specific Visium spot the user want to look at. For example, if we want to look at the 1st Visium spot on this image, paste the barcode ID of the spot (from [tissue_spot_counts.csv](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv)) into the white space and hit the `Lookup` button. It opens up the image where ever this spot is located.
 <center>
 ![](images/Barcode ID.png) 
 </center>
 
 ## countNuclei
 
-This function can be run on MATLAB command prompt to obtain the [tissue_spot_counts.csv](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv) file without going through the GUI.
+This function can be run on MATLAB command prompt to obtain the [tissue_spot_counts.csv](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv) file without going through the `spotspotcheck` GUI.
 
 Inputs to the function are  
 1. Filename with full path for the mat file of the final nuclei segmentation.  
