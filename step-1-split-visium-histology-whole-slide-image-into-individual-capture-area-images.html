@@ -130,7 +130,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
-<li><a href="index.html#why-spatial-transcriptomics-or-visium-imaging">Why <em>spatial transcriptomics</em> or <em>visium imaging</em>??</a></li>
+<li><a href="index.html#why-spatial-transcriptomics-or-visium-imaging">Why <em>spatial transcriptomics</em> or <em>Visium imaging</em>??</a></li>
 <li><a href="index.html#cite-vistoseg">Cite <code>VistoSeg</code></a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#image-acquisition"><i class="fa fa-check"></i>Image Acquisition</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software Requirements</a></li>
@@ -146,7 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="step-3-space-ranger.html"><a href="step-3-space-ranger.html#what-is-space-ranger"><i class="fa fa-check"></i>What is Space Ranger?</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><i class="fa fa-check"></i><b>4</b> Step 4: GUI to count nuclei in a visium spot</a>
+<li class="chapter" data-level="4" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><i class="fa fa-check"></i><b>4</b> Step 4: GUI to count nuclei in a Visium spot</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#spotspotcheck"><i class="fa fa-check"></i><b>4.1</b> spotspotcheck</a></li>
 <li class="chapter" data-level="4.2" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#countnuclei"><i class="fa fa-check"></i><b>4.2</b> countNuclei</a></li>
@@ -176,12 +176,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Step 1: Split Visium histology whole slide image into individual capture area images</h1>
-<p>The visium histology whole slide image from the imaging system (slide scanner) is a multiplane tif image (~20GB). The sample image <a href="link%20to%20AWS">Lieber_Institute_OTS-20-7690_rush_anterior.tif</a> from the DLPFC dataset is used here to run through the pipeline.</p>
-<p>The inputs to the function <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/splitSlide.m">splitSlide.m</a> are</p>
+<p>The Visium histology whole slide image from the imaging system (slide scanner) is a multiplane tif image (~20GB). The sample image <a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior.tif">Lieber_Institute_OTS-20-7690_rush_anterior.tif</a>) from the DLPFC dataset is used here to run through the pipeline.</p>
+<p>The inputs to the function <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/splitSlide.m">splitSlide.m</a> are:</p>
 <ol style="list-style-type: decimal">
 <li>the full path with file name of the raw multiplane tif image (obtained from slide scanner)</li>
 </ol>
-<p>The function imports the raw multiplane tif image and saves each plane/image as MATLAB structure and all structures are saved into a single cell array (I) in a ‘.mat file’. The 1st image of the raw multiplane tif is the raw visium histology slide image, the remaining planes/images consists of the metadata.</p>
+<p>The function imports the raw multiplane tif image and saves each plane/image as MATLAB structure and all structures are saved into a single cell array (I) in a ‘.mat file’. The 1st image of the raw multiplane tif is the raw Visium histology slide image, the remaining planes/images consists of the metadata.</p>
 <p>The function then splits the 1st image of the multiplane tif into individual capture areas (A1,B1,C1,D1) and saves them as both <code>tif images</code> and <code>mat files</code>. The capture areas are resized to 70% of the original size (eg 100 X 100 Pixel region is resized to 70 X 70 pixel region) when saving to tif images as MATLAB cannot store images that occupies more than 2^32 - 1 bytes of data.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb2-1"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">fname</span> <span class="op">=</span> <span class="ss">&#39;/path_to_multiplane_tif/Lieber_Institute_OTS-20-7690_rush_anterior.tif&#39;</span><span class="op">;</span></span>
 <span id="cb2-2"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">splitSlide</span>(<span class="va">fname</span>)</span>
@@ -257,15 +257,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The image ‘I{1}.image’ is split into 4 sub images or capture areas by dividing the x(160858) dimesion into 4 equal parts. Sometimes the center of the image is not the center of the slide, in such case the offset is adjusted manually.</p>
 <p>Below are the output files of <code>slpitSlide</code> function</p>
 <ol style="list-style-type: decimal">
-<li><p><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior.mat">Lieber_Institute_OTS-20-7690_rush_anterior.mat</a> - cell array of multiplane tif stored in mat file.</p></li>
-<li><p><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif">Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif</a> - tif image of compressed capture area A1.</p></li>
-<li><p><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1.mat">Lieber_Institute_OTS-20-7690_rush_anterior_A1.mat</a> - RGB matrix of uncompressed capture area A1 stored in mat file.</p></li>
-<li><p><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_B1.tif">Lieber_Institute_OTS-20-7690_rush_anterior_B1.tif</a> - tif image of compressed capture area B1.</p></li>
-<li><p><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_B1.mat">Lieber_Institute_OTS-20-7690_rush_anterior_B1.mat</a> - RGB matrix of uncompressed capture area B1 stored in mat file.</p></li>
-<li><p><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_C1.tif">Lieber_Institute_OTS-20-7690_rush_anterior_C1.tif</a> - tif image of compressed capture area C1.</p></li>
-<li><p><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_C1.mat">Lieber_Institute_OTS-20-7690_rush_anterior_C1.mat</a> - RGB matrix of uncompressed capture area C1 stored in mat file.</p></li>
-<li><p><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_D1.tif">Lieber_Institute_OTS-20-7690_rush_anterior_D1.tif</a> - tif image of compressed capture area D1.</p></li>
-<li><p><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_D1.mat">Lieber_Institute_OTS-20-7690_rush_anterior_D1.mat</a> - RGB matrix of uncompressed capture area D1 stored in mat file.</p></li>
+<li><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior.mat">Lieber_Institute_OTS-20-7690_rush_anterior.mat</a> - cell array of multiplane tif stored in mat file.<br />
+</li>
+<li><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif">Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif</a> - tif image of compressed capture area A1.<br />
+</li>
+<li><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1.mat">Lieber_Institute_OTS-20-7690_rush_anterior_A1.mat</a> - RGB matrix of uncompressed capture area A1 stored in mat file.<br />
+</li>
+<li><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_B1.tif">Lieber_Institute_OTS-20-7690_rush_anterior_B1.tif</a> - tif image of compressed capture area B1.<br />
+</li>
+<li><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_B1.mat">Lieber_Institute_OTS-20-7690_rush_anterior_B1.mat</a> - RGB matrix of uncompressed capture area B1 stored in mat file.<br />
+</li>
+<li><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_C1.tif">Lieber_Institute_OTS-20-7690_rush_anterior_C1.tif</a> - tif image of compressed capture area C1.<br />
+</li>
+<li><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_C1.mat">Lieber_Institute_OTS-20-7690_rush_anterior_C1.mat</a> - RGB matrix of uncompressed capture area C1 stored in mat file.<br />
+</li>
+<li><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_D1.tif">Lieber_Institute_OTS-20-7690_rush_anterior_D1.tif</a> - tif image of compressed capture area D1.<br />
+</li>
+<li><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_D1.mat">Lieber_Institute_OTS-20-7690_rush_anterior_D1.mat</a> - RGB matrix of uncompressed capture area D1 stored in mat file.</li>
 </ol>
 
 </div>

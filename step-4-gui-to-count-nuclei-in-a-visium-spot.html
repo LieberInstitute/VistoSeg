@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Step 4: GUI to count nuclei in a visium spot | VistoSeg: Visium Histology Image Segmentation and Processing Pipeline</title>
-  <meta name="description" content="4 Step 4: GUI to count nuclei in a visium spot | VistoSeg: Visium Histology Image Segmentation and Processing Pipeline" />
+  <title>4 Step 4: GUI to count nuclei in a Visium spot | VistoSeg: Visium Histology Image Segmentation and Processing Pipeline</title>
+  <meta name="description" content="4 Step 4: GUI to count nuclei in a Visium spot | VistoSeg: Visium Histology Image Segmentation and Processing Pipeline" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Step 4: GUI to count nuclei in a visium spot | VistoSeg: Visium Histology Image Segmentation and Processing Pipeline" />
+  <meta property="og:title" content="4 Step 4: GUI to count nuclei in a Visium spot | VistoSeg: Visium Histology Image Segmentation and Processing Pipeline" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="LieberInstitute/VistoSeg" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Step 4: GUI to count nuclei in a visium spot | VistoSeg: Visium Histology Image Segmentation and Processing Pipeline" />
+  <meta name="twitter:title" content="4 Step 4: GUI to count nuclei in a Visium spot | VistoSeg: Visium Histology Image Segmentation and Processing Pipeline" />
   
   
   
@@ -130,7 +130,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
-<li><a href="index.html#why-spatial-transcriptomics-or-visium-imaging">Why <em>spatial transcriptomics</em> or <em>visium imaging</em>??</a></li>
+<li><a href="index.html#why-spatial-transcriptomics-or-visium-imaging">Why <em>spatial transcriptomics</em> or <em>Visium imaging</em>??</a></li>
 <li><a href="index.html#cite-vistoseg">Cite <code>VistoSeg</code></a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#image-acquisition"><i class="fa fa-check"></i>Image Acquisition</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software Requirements</a></li>
@@ -146,7 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="step-3-space-ranger.html"><a href="step-3-space-ranger.html#what-is-space-ranger"><i class="fa fa-check"></i>What is Space Ranger?</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><i class="fa fa-check"></i><b>4</b> Step 4: GUI to count nuclei in a visium spot</a>
+<li class="chapter" data-level="4" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><i class="fa fa-check"></i><b>4</b> Step 4: GUI to count nuclei in a Visium spot</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#spotspotcheck"><i class="fa fa-check"></i><b>4.1</b> spotspotcheck</a></li>
 <li class="chapter" data-level="4.2" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#countnuclei"><i class="fa fa-check"></i><b>4.2</b> countNuclei</a></li>
@@ -175,12 +175,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="step-4-gui-to-count-nuclei-in-a-visium-spot" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Step 4: GUI to count nuclei in a visium spot</h1>
+<h1><span class="header-section-number">4</span> Step 4: GUI to count nuclei in a Visium spot</h1>
 <div id="spotspotcheck" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> spotspotcheck</h2>
 <p>The GUI is used for
 1. Obtaining nuclei count per Visium spot and saving it to a csv.<br />
-2. Performing quality check on the nuclei segmentations (from <a href="http://research.libd.org/VistoSeg/step-2-nuclei-segmentation-of-individual-capture-areas-images.html">Step2</a>) by allowing the user to zoom in/out and toggle between the nuclei segmentation and visium histology images. The GUI overlays the spot grid on to the visium histology and segmentation images for the user to clearly see the nuclei inside a spot.<br />
+2. Performing quality check on the nuclei segmentations (from <a href="http://research.libd.org/VistoSeg/step-2-nuclei-segmentation-of-individual-capture-areas-images.html">Step2</a>) by allowing the user to zoom in/out and toggle between the nuclei segmentation and Visium histology images. The GUI overlays the spot grid on to the Visium histology and segmentation images for the user to clearly see the nuclei inside a spot.<br />
 3. It allows the user to search for a spot with its associated barcode ID.</p>
 <p>To open the GUI, the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/spotspotcheck.m">spotspotcheck</a> function should be executed in the MATLAB command prompt like below.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb6-1"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">spotspotcheck</span></span>
@@ -190,8 +190,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <center>
 <p><img src="images/start.png" /></p>
 </center>
-<p>Then you hit the <code>Start</code> button which opens up the following window.</p></li>
-<li><p><strong>Select Histology Image</strong> : This window asks you to select the capture area tif that you want the nuclei counts for or to perform quality check on nuclei segmentations.</p>
+<p>Then you hit the <code>Start</code> button, which opens up the following window.</p></li>
+<li><p><strong>Select Histology Image</strong> : This window asks you to select the capture area tif that you want the nuclei counts for, or to perform quality check on nuclei segmentations.</p>
 <center>
 <p><img src="images/Select%20Histology%20Image.png" /></p>
 </center>
@@ -201,7 +201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/Select%20segmentation.png" /></p>
 </center>
 <p>Select the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/refineVNS/Liebert_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat">.mat</a> file and hit the <code>Open</code> button.</p></li>
-<li><p><strong>Select Scale Factors JSON File</strong> : Select the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/scalefactors_json.json">scalefactors_json.json</a> file with the visium spot metrics obtained from the <a href="https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/what-is-space-ranger">Space Ranger</a> software.</p>
+<li><p><strong>Select Scale Factors JSON File</strong> : Select the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/scalefactors_json.json">scalefactors_json.json</a> file with the Visium spot metrics obtained from the <a href="https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/what-is-space-ranger">Space Ranger</a> software.</p>
 <center>
 <p><img src="images/select%20json.png" /></p>
 </center></li>
@@ -214,7 +214,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/spotspotcheck.png" /></p>
 </center></li>
 </ol>
-By clicking anywhere on the image inside the GUI, the user can toggle between the Histology and segmented image, shown below.
+By clicking anywhere on the image inside the GUI, the user can toggle between the histology and segmented image, shown below.
 <center>
 <img src="images/spotspotcheck%20BW.png" />
 </center>
@@ -222,16 +222,16 @@ The zoom in (symbol of magnifying glass with <code>+</code>) option is provided 
 <center>
 <img src="images/zoom%20in%201.png" />
 </center>
-<p>To toggle between histology/segmented images when zoomed in, the cursor should should return to its normal function by unclicking the zoom in (symbol of magnifying glass with <code>+</code>) option.</p>
+<p>To toggle between histology/segmented images when zoomed in, the cursor should return to its normal function by un-clicking the zoom in (symbol of magnifying glass with <code>+</code>) option.</p>
 <p><img src="images/zoom%20in%202.png" title="Color cluster 1" width="350"/> <img src="images/zoom%20in%202%20BW.png" title="Indexed object 1" width="350"/></p>
-The dialog box at the bottom of the GUI with the label <code>Barcode Lookup</code> provides user to input the barcode ID of the specific visium spot the user want to look at. For example if we want to look at the 1st visium spot on this image, paste the barcode ID of the spot (from <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a>) into the white space and hit the <code>Lookup</code> button. It opens up the image where ever this spot is located.
+The dialog box at the bottom of the GUI with the label <code>Barcode Lookup</code> provides user to input the barcode ID of the specific Visium spot the user want to look at. For example, if we want to look at the 1st Visium spot on this image, paste the barcode ID of the spot (from <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a>) into the white space and hit the <code>Lookup</code> button. It opens up the image where ever this spot is located.
 <center>
 <img src="images/Barcode%20ID.png" />
 </center>
 </div>
 <div id="countnuclei" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> countNuclei</h2>
-<p>This function can be run on MATLAB command prompt to obtain the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a> file without going through the GUI.</p>
+<p>This function can be run on MATLAB command prompt to obtain the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a> file without going through the <code>spotspotcheck</code> GUI.</p>
 <p>Inputs to the function are<br />
 1. Filename with full path for the mat file of the final nuclei segmentation.<br />
 2. Filename with full path for the scalefactors_json json file.<br />
