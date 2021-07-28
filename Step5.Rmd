@@ -1,6 +1,7 @@
-# Step 5: Test data and Future directions
+# Step 5: Test data and future directions
 
 ## Public datasets
+
 The pipeline with default settings (smoothening and color clusters of k-means in VNS function) used for in house data has been applied on the [public datasets](https://support.10xgenomics.com/spatial-gene-expression/datasets) provided by 10x Genomics. To demonstrate the utility of the pipeline on different datasets we chose images obtained from different tissues, [breast tissue](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Breast_Cancer_Block_A_Section_1) with high density of cells and [human heart tissue](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Human_Heart) with low density of cells. Decent segmentation results were obtained with the default settings on the human heart tissue image given the low image resolution. With the number of color clusters changed from 5 (defalut) to 3 for breast tissue, the highly clustered cells were detected.
 
 A. Heart Tissue
