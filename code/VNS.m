@@ -4,14 +4,14 @@ function VNS(fname,N)
 tic
 disp('Importing capture area')
 Img1 = imread(fname); %import image
-toc 
+toc
 
 tic
-disp('Performing smoothening and contrast adjustment')
+disp('Performing smoothing and contrast adjustment')
 Img1_smooth = imgaussfilt(Img1,4); %smooth image
 he = imadjust(Img1_smooth, [.2 .3 0; .6 .7 1],[]); %adjust contrast in image
 clear Img1_smooth Img1
-toc 
+toc
 
 
 tic
@@ -30,10 +30,10 @@ disp('saving outputs')
 parfor i = 1:N
 mask{i} = pixel_labels==i;
 cluster{i} = he .* uint8(mask{i});
-imwrite(cluster{i},[fname(1:end-4),'_cluster',num2str(i),'.tif']) 
+imwrite(cluster{i},[fname(1:end-4),'_cluster',num2str(i),'.tif'])
 end
 
 save([fname(1:end-4),'_mask.mat'],'mask','-v7.3')
 save([fname(1:end-4),'_cluster.mat'],'cluster','-v7.3')
 toc
-   
+
