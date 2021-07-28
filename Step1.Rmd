@@ -41,7 +41,7 @@ The 7 images of the multiplane tif are shown below.
 
 <img src="images/img1.png" title="Image 1" /> <img src="images/img2.png" title="Image 2" /> <img src="images/img3.png" title="Image 3" /> <img src="images/img4.png" title="Image 4" /> <img src="images/img5.png" title="Image 5" /> <img src="images/img6.png" title="Image 6" /> <img src="images/img7.png" title="Image 7" /><br/>
 
-Though most of the images look same, the first image in the multiplane tif is the high resolution image of the slide based on the image size (y,x,z) in pixels shown below in MATLAB. 
+Though most of the images look same, the first image in the multiplane tif is the high resolution version of the slide based on the image size (y,x,z) in pixels shown below in MATLAB, while others are lower resolution thumbnails of the same image.
 
 ```MATLAB
 load('/path_to_multiplane_tif/Lieber_Institute_OTS-20-7748_rush_posterior.mat')
