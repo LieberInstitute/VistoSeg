@@ -32,7 +32,7 @@ Select the capture area tif and hit the `Open` button on window, which opens the
 </center>
 Select the [.mat](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/refineVNS/Liebert_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat) file and hit the `Open` button.
 
-4. **Select Scale Factors JSON File** : Select the [scalefactors_json.json](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/scalefactors_json.json) file with the Visium spot metrics obtained from the [Space Ranger](https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/what-is-space-ranger) software.
+4. **Select Scale Factors JSON File** : Select the [scalefactors_json.json](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/scalefactors_json.json) file with the Visium spot metrics obtained from the [`spaceranger`](https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/what-is-space-ranger) software.
 <center>
 ![](images/select json.png) 
 </center>
