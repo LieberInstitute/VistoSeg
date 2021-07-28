@@ -2,31 +2,32 @@
 
 ## spotspotcheck
 
-The GUI is used for
-1. Obtaining nuclei count per Visium spot and saving it to a csv.  
-2. Performing quality check on the nuclei segmentations (from [Step2](http://research.libd.org/VistoSeg/step-2-nuclei-segmentation-of-individual-capture-areas-images.html)) by allowing the user to zoom in/out and toggle between the nuclei segmentation and Visium histology images. The GUI overlays the spot grid on to the Visium histology and segmentation images for the user to clearly see the nuclei inside a spot.  
+`spotspotcheck` is a graphical user interface (GUI) designed for:
+
+1. Obtaining the nuclei count per Visium spot and saving it to a `.csv` file.  
+2. Performing quality check on the nuclei segmentations (from [Step2](http://research.libd.org/VistoSeg/step-2-nuclei-segmentation-of-individual-capture-areas-images.html)) by allowing the user to zoom in/out and toggle between the nuclei segmentation and Visium histology images. The GUI overlays the spot grid on to the Visium histology and segmentation images for the user to clearly see the nuclei inside a spot and visually inspect the results.  
 3. Allowing the user to search for a spot with its associated barcode ID.
 
-To open the GUI, the [spotspotcheck](https://github.com/LieberInstitute/VistoSeg/blob/main/code/spotspotcheck.m) function should be executed in the MATLAB command prompt like below.
+To open the GUI, the [`spotspotcheck`](https://github.com/LieberInstitute/VistoSeg/blob/main/code/spotspotcheck.m) function should be executed in the MATLAB command prompt like below.
 
 ```MATLAB
 spotspotcheck
 loading.....
 ```
 
-1. **Start Window** : A start window opens up like below. If you donot have the [tissue_spots_counts.csv](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv) already, generated from the command line function [countNuclei](https://github.com/LieberInstitute/VistoSeg/blob/main/code/countNuclei.m), the option to `Get Cell Counts` on the window should be checked.
+1. **Start Window** : A start window opens up like below. If you do not have the [tissue_spots_counts.csv](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv) already, generated from the command line function [countNuclei](https://github.com/LieberInstitute/VistoSeg/blob/main/code/countNuclei.m), the option to `Get Cell Counts` on the window should be checked.
 <center>
 ![](images/start.png) 
 </center>
 Then you hit the `Start` button, which opens up the following window.
 
-2. **Select Histology Image** : This window asks you to select the capture area tif that you want the nuclei counts for, or to perform quality check on nuclei segmentations.
+2. **Select Histology Image** : This window asks you to select the capture area `.tif` that you want the nuclei counts for, or to perform quality check on nuclei segmentations.
 <center>
 ![](images/Select Histology Image.png) 
 </center>
-Select the capture area tif and hit the `Open` button on window, which opens the following window.
+Select the capture area `.tif` and hit the `Open` button on window, which opens the following window.
 
-3. **Select Segmented Mat File** : This wondow asks for the final segmented `.mat` file of the nuclei segmentations.
+3. **Select Segmented Mat File** : This window asks for the final segmented `.mat` file of the nuclei segmentations.
 <center>
 ![](images/Select segmentation.png) 
 </center>
@@ -43,12 +44,12 @@ Select the [.mat](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline
 </center>
 
 
-6. **spotspotcheck** GUI opens up, shown below
+6. The **spotspotcheck** GUI opens up as shown below
 <center>
 ![](images/spotspotcheck.png) 
 </center>
 
-By clicking anywhere on the image inside the GUI, the user can toggle between the histology and segmented image, shown below.
+By clicking anywhere on the image inside the GUI, the user can toggle between the histology and segmented image as shown below.
 <center>
 ![](images/spotspotcheck BW.png) 
 </center>
@@ -71,10 +72,11 @@ The dialog box at the bottom of the GUI with the label `Barcode Lookup` provides
 
 This function can be run on MATLAB command prompt to obtain the [tissue_spot_counts.csv](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv) file without going through the `spotspotcheck` GUI.
 
-Inputs to the function are  
-1. Filename with full path for the mat file of the final nuclei segmentation.  
-2. Filename with full path for the scalefactors_json json file.  
-3. Filename with full path for the tissue_positions_list csv file.
+The inputs to the function are:  
+
+1. Filename with full path for the `.mat` file of the final nuclei segmentation.  
+2. Filename with full path for the `scalefactors_json.json` file.  
+3. Filename with full path for the `tissue_positions_list.csv` file.
 
 ```MATLAB
 mask = '/path_to_capture_area_segmentation/Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat';
@@ -101,10 +103,8 @@ counting nuclei per spot
 .
 ```
 
-The  [countNuclei](https://github.com/LieberInstitute/VistoSeg/blob/main/code/countNuclei.m) function generates a nuclei count file listed below. The file is saved in the same path as the [tissue_positions_list.csv](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/tissue_positions_list.csv) that we give to the function.  
+The  [countNuclei](https://github.com/LieberInstitute/VistoSeg/blob/main/code/countNuclei.m) function generates a nuclei count file listed below. The file is saved in the same path as the [tissue_positions_list.csv](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/tissue_positions_list.csv) that is provided to the function.  
+
+Below are the outputs of the [countNuclei](https://github.com/LieberInstitute/VistoSeg/blob/main/code/countNuclei.m) function for the example image.
+
 1.  [tissue_spot_counts.csv](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv)
-
-
-
-
-
