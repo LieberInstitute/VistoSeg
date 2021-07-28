@@ -33,17 +33,14 @@ The above figure describes the VistoSeg pipeline, (A) The data presented here is
 ## Cite `VistoSeg` {-}
 We hope that [VistoSeg](http://research.libd.org/VistoSeg/) will be useful for your research. Please use the following information to cite the package and the overall approach. Thank you!
 ```
-@article {,
-	author = {Tippani, Madhavi and other names to include},
-	title = {VistoSeg: an automated MATLAB pipeline for visualizing and processing high resolution Visium images whose output is used for downstream spatial transcriptomics analyis},
-	elocation-id = {},
+@article {Tippani2021,
+	author = {Tippani, Madhavi and Divecha, Heena R. and Catallini II, Joseph L. and Weber, Lukas M. and Spangler, Abby and Jaffe, Andrew E. and Hicks, Stephanie C. and Martinowich, Keri and Collado-Torres, Leonardo and Page, Stephanie C. and Maynard, Kristen R.},
+	title = {VistoSeg: a MATLAB pipeline to process, analyze and visualize high-resolution histology images for Visium spatial transcriptomics data},
 	year = {2021},
 	doi = {},
-	publisher = {Oxford Bioinformatics},
-	abstract = {},
-	URL = {https://www.overleaf.com/read/fmvrpsyxgsbz},
-	eprint = {https://www.overleaf.com/read/fmvrpsyxgsbz},
-	journal = {bioRxiv}
+	publisher = {Oxford University Press},
+	URL = {},
+	journal = {Bioinformatics}
 }
 ```
 Project lead: Madhavi Tippani, Staff Scientist in the **Imaging Development Group** at the [Lieber Institute for Brain Development](https://www.libd.org/).
@@ -83,7 +80,3 @@ The raw Visium Tiff file is available at the following link (https://visium-libd
 **Other potential datasets**  
 1. [LIBD pilot DLPFC](https://github.com/LieberInstitute/spatialLIBD#raw-data)   
 2. [10x Genomics spatial data sets](https://support.10xgenomics.com/spatial-gene-expression/datasets) 
-
-
-
-
