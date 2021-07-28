@@ -178,25 +178,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">4</span> Step 4: GUI to count nuclei in a Visium spot</h1>
 <div id="spotspotcheck" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> spotspotcheck</h2>
-<p>The GUI is used for
-1. Obtaining nuclei count per Visium spot and saving it to a csv.<br />
-2. Performing quality check on the nuclei segmentations (from <a href="http://research.libd.org/VistoSeg/step-2-nuclei-segmentation-of-individual-capture-areas-images.html">Step2</a>) by allowing the user to zoom in/out and toggle between the nuclei segmentation and Visium histology images. The GUI overlays the spot grid on to the Visium histology and segmentation images for the user to clearly see the nuclei inside a spot.<br />
-3. Allowing the user to search for a spot with its associated barcode ID.</p>
-<p>To open the GUI, the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/spotspotcheck.m">spotspotcheck</a> function should be executed in the MATLAB command prompt like below.</p>
+<p><code>spotspotcheck</code> is a graphical user interface (GUI) designed for:</p>
+<ol style="list-style-type: decimal">
+<li>Obtaining the nuclei count per Visium spot and saving it to a <code>.csv</code> file.<br />
+</li>
+<li>Performing quality check on the nuclei segmentations (from <a href="http://research.libd.org/VistoSeg/step-2-nuclei-segmentation-of-individual-capture-areas-images.html">Step2</a>) by allowing the user to zoom in/out and toggle between the nuclei segmentation and Visium histology images. The GUI overlays the spot grid on to the Visium histology and segmentation images for the user to clearly see the nuclei inside a spot and visually inspect the results.<br />
+</li>
+<li>Allowing the user to search for a spot with its associated barcode ID.</li>
+</ol>
+<p>To open the GUI, the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/spotspotcheck.m"><code>spotspotcheck</code></a> function should be executed in the MATLAB command prompt like below.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb8-1"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="va">spotspotcheck</span></span>
 <span id="cb8-2"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="va">loading</span><span class="op">...</span>..</span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li><p><strong>Start Window</strong> : A start window opens up like below. If you donot have the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spots_counts.csv</a> already, generated from the command line function <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/countNuclei.m">countNuclei</a>, the option to <code>Get Cell Counts</code> on the window should be checked.</p>
+<li><p><strong>Start Window</strong> : A start window opens up like below. If you do not have the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spots_counts.csv</a> already, generated from the command line function <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/countNuclei.m">countNuclei</a>, the option to <code>Get Cell Counts</code> on the window should be checked.</p>
 <center>
 <p><img src="images/start.png" /></p>
 </center>
 <p>Then you hit the <code>Start</code> button, which opens up the following window.</p></li>
-<li><p><strong>Select Histology Image</strong> : This window asks you to select the capture area tif that you want the nuclei counts for, or to perform quality check on nuclei segmentations.</p>
+<li><p><strong>Select Histology Image</strong> : This window asks you to select the capture area <code>.tif</code> that you want the nuclei counts for, or to perform quality check on nuclei segmentations.</p>
 <center>
 <p><img src="images/Select%20Histology%20Image.png" /></p>
 </center>
-<p>Select the capture area tif and hit the <code>Open</code> button on window, which opens the following window.</p></li>
-<li><p><strong>Select Segmented Mat File</strong> : This wondow asks for the final segmented <code>.mat</code> file of the nuclei segmentations.</p>
+<p>Select the capture area <code>.tif</code> and hit the <code>Open</code> button on window, which opens the following window.</p></li>
+<li><p><strong>Select Segmented Mat File</strong> : This window asks for the final segmented <code>.mat</code> file of the nuclei segmentations.</p>
 <center>
 <p><img src="images/Select%20segmentation.png" /></p>
 </center>
@@ -209,12 +213,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <center>
 <p><img src="images/select%20spot%20counts.png" /></p>
 </center></li>
-<li><p><strong>spotspotcheck</strong> GUI opens up, shown below</p>
+<li><p>The <strong>spotspotcheck</strong> GUI opens up as shown below</p>
 <center>
 <p><img src="images/spotspotcheck.png" /></p>
 </center></li>
 </ol>
-By clicking anywhere on the image inside the GUI, the user can toggle between the histology and segmented image, shown below.
+By clicking anywhere on the image inside the GUI, the user can toggle between the histology and segmented image as shown below.
 <center>
 <img src="images/spotspotcheck%20BW.png" />
 </center>
@@ -232,10 +236,14 @@ The dialog box at the bottom of the GUI with the label <code>Barcode Lookup</cod
 <div id="countnuclei" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> countNuclei</h2>
 <p>This function can be run on MATLAB command prompt to obtain the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a> file without going through the <code>spotspotcheck</code> GUI.</p>
-<p>Inputs to the function are<br />
-1. Filename with full path for the mat file of the final nuclei segmentation.<br />
-2. Filename with full path for the scalefactors_json json file.<br />
-3. Filename with full path for the tissue_positions_list csv file.</p>
+<p>The inputs to the function are:</p>
+<ol style="list-style-type: decimal">
+<li>Filename with full path for the <code>.mat</code> file of the final nuclei segmentation.<br />
+</li>
+<li>Filename with full path for the <code>scalefactors_json.json</code> file.<br />
+</li>
+<li>Filename with full path for the <code>tissue_positions_list.csv</code> file.</li>
+</ol>
 <div class="sourceCode" id="cb9"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb9-1"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="va">mask</span> <span class="op">=</span> <span class="ss">&#39;/path_to_capture_area_segmentation/Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat&#39;</span><span class="op">;</span></span>
 <span id="cb9-2"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="va">jsonname</span> <span class="op">=</span> <span class="ss">&#39;/path_to_scalefactors_json/scalefactors_json.json&#39;</span><span class="op">;</span></span>
 <span id="cb9-3"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="va">posname</span> <span class="op">=</span> <span class="ss">&#39;/path_to_tissue_positions_list/tissue_positions_list.csv&#39;</span><span class="op">;</span></span>
@@ -258,8 +266,11 @@ The dialog box at the bottom of the GUI with the label <code>Barcode Lookup</cod
 <span id="cb9-20"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb9-20" aria-hidden="true" tabindex="-1"></a>.</span>
 <span id="cb9-21"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb9-21" aria-hidden="true" tabindex="-1"></a>.</span>
 <span id="cb9-22"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#cb9-22" aria-hidden="true" tabindex="-1"></a>.</span></code></pre></div>
-<p>The <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/countNuclei.m">countNuclei</a> function generates a nuclei count file listed below. The file is saved in the same path as the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/tissue_positions_list.csv">tissue_positions_list.csv</a> that we give to the function.<br />
-1. <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a></p>
+<p>The <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/countNuclei.m">countNuclei</a> function generates a nuclei count file listed below. The file is saved in the same path as the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/tissue_positions_list.csv">tissue_positions_list.csv</a> that is provided to the function.</p>
+<p>Below are the outputs of the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/countNuclei.m">countNuclei</a> function for the example image.</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a></li>
+</ol>
 
 </div>
 </div>
