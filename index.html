@@ -28,7 +28,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  
+  <link rel="shortcut icon" href="icon_32.png" type="image/x-icon" />
 
 <link rel="next" href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
@@ -130,7 +130,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
-<li><a href="index.html#why-spatial-transcriptomics-or-visium-imaging">Why <em>spatial transcriptomics</em> or <em>Visium imaging</em>??</a></li>
+<li><a href="index.html#why-spatial-transcriptomics-or-visium-imaging">Why <em>spatial transcriptomics</em> or <em>Visium imaging</em>?</a></li>
 <li><a href="index.html#cite-vistoseg">Cite <code>VistoSeg</code></a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#image-acquisition"><i class="fa fa-check"></i>Image Acquisition</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software Requirements</a></li>
@@ -151,7 +151,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#spotspotcheck"><i class="fa fa-check"></i><b>4.1</b> spotspotcheck</a></li>
 <li class="chapter" data-level="4.2" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html#countnuclei"><i class="fa fa-check"></i><b>4.2</b> countNuclei</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html"><i class="fa fa-check"></i><b>5</b> Step 5: Test data and Future directions</a>
+<li class="chapter" data-level="5" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html"><i class="fa fa-check"></i><b>5</b> Step 5: Test data and future directions</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#public-datasets"><i class="fa fa-check"></i><b>5.1</b> Public datasets</a></li>
 <li class="chapter" data-level="5.2" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#future-directions"><i class="fa fa-check"></i><b>5.2</b> Future directions</a></li>
@@ -183,7 +183,7 @@ Lieber Institute for Brain Development, Johns Hopkins Medical Campus<br><a class
 </div>
 <div id="overview" class="section level1 unnumbered">
 <h1>Overview</h1>
-Histological imaging is a critical first step of the <strong>spatial transcriptomics</strong> workflow, a barcoding-based transcriptome-wide technology released by <a href="https://www.10xgenomics.com">10X genomics</a>.
+Histological imaging is a critical first step of the <strong>spatial transcriptomics</strong> workflow, a barcoding-based transcriptome-wide technology released by <a href="https://www.10xgenomics.com">10x Genomics</a>.
 <center>
 <img src="images/visium_imaging.png" />
 </center>
@@ -191,26 +191,26 @@ Histological imaging is a critical first step of the <strong>spatial transcripto
 <img src="images/visium_spot.png" />
 </center>
 <div id="why-spatial-transcriptomics-or-visium-imaging" class="section level2 unnumbered">
-<h2>Why <em>spatial transcriptomics</em> or <em>Visium imaging</em>??</h2>
+<h2>Why <em>spatial transcriptomics</em> or <em>Visium imaging</em>?</h2>
 <p>Methods like single-nucleus and single cell RNA-sequencing (RNA-seq) can profile single cells transcriptome-wide enabling researchers to identify cell type compositions; however, these methods necessarily destroy information about spatial positioning. On the other hand, multiplexing and in situ sequencing methods can provide spatial information, but have significant limitations on the number of genes that can be processed as well as issues with microscopy and related computational challenges. <strong>Spatial transcriptomics</strong>, including the 10X Genomics Visium platform, provides solutions to these limitations by allowing researchers to quantify gene expression with high spatial resolution. A critical component for the 10X Genomics platform to provide spatial context is the <strong>Visium imaging</strong> of the <a href="https://www.10xgenomics.com/products/spatial-gene-expression">Visium gene expression slide</a>. On this slide, the experimental tissue sections that are being analyzed are mounted onto the <strong>capture areas (A1,B1,C1,D1)</strong> located on the slide. The whole slide is then imaged, producing a large output image file that contains all of the capture areas. This image of the whole slide then has to be subsequently split into individual capture area images (necessarily JPEG or tif), which are then processed accordingly for the downstream gene expression analyses.</p>
 <p>This website describes the steps required to split, visualize and process the Visium images from spatial transcriptomics projects generated by the <a href="https://www.10xgenomics.com/spatial-transcriptomics">10x Genomics Visium</a> commercial platform.
 
 <img src="images/VistoSeg.png" />
-The above figure describes the VistoSeg pipeline, (A) The data presented here is from tissue sections obtained from three levels of the human dorsolateral prefrontal cortex (DLPFC; posterior, middle and anterior). Each tissue section spans the six cortical layers plus the white matter. (B) Shows the original <em>‘Visium gene expression slide’</em> with 4 capture areas, and the slide scanner used to image the slide. (C) Shows the large tif file produced by the slide scanner, which is then split into the respective capture areas using the function <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/split.m">splitSlide</a> described in <a href="http://research.libd.org/VistoSeg/step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html">Step 1</a>. (D) Shows the individual tif images of capture areas produced by <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/split.m">splitSlide</a>, and the corresponding nuclei segmentations produced by the functions <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/VNS.m">VNS</a> (Visium Nuclei Segmentation) and <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/refineVNS.m">refineVNS</a> explained in <a href="http://research.libd.org/VistoSeg/step-2-nuclei-segmentation-of-individual-capture-areas-images.html">Step 2</a>. (E) The tif images from <em>‘(D)’</em> serve as input to the <a href="https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/using/count">Spaceranger</a> module (explained in <a href="http://research.libd.org/VistoSeg/step-3-Space-Ranger.html">Step 3</a>), which generates <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/tissue_positions_list.csv">tissue_positions_list.csv</a> file and <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/scalefactors_json.json">scalefactors_json.json</a> file that contain <em>‘Visium spot metrics’</em> (F) The function <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/countNuclei.m">countNuclei</a> explained in <a href="http://research.libd.org/VistoSeg/step-4-gui-for-nuclei-count-in-a-visium-spot.html">Step 4</a>, gives the nuclei count per Visium spot info that is stored in <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a> file. (G) Finally, the pipeline provides a GUI called <a href="http://research.libd.org/VistoSeg/step-4-gui-for-nuclei-count-in-a-visium-spot.html#spotspotcheck">spotspotcheck</a> that allows the user to perform visual inspection of the nuclei segmentations by allowing the user to toggle between the Visium and binary images, and also provides zoom in/out options to clearly identify cell bodes within a Visium spot.</p>
+The above figure describes the <strong><code>VistoSeg</code> pipeline</strong>, <strong>(A)</strong> The data presented here is from tissue sections obtained from three levels of the human dorsolateral prefrontal cortex (DLPFC; posterior, middle and anterior). Each tissue section spans the six cortical layers plus the white matter. <strong>(B)</strong> Shows the original <em>‘Visium gene expression slide’</em> with 4 capture areas, and the slide scanner used to image the slide. <strong>(C)</strong> Shows the large tif file produced by the slide scanner, which is then split into the respective capture areas using the function <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/split.m">splitSlide</a> described in <a href="http://research.libd.org/VistoSeg/step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html">Step 1</a>. <strong>(D)</strong> Shows the individual tif images of capture areas produced by <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/split.m">splitSlide</a>, and the corresponding nuclei segmentations produced by the functions <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/VNS.m">VNS</a> (Visium Nuclei Segmentation) and <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/refineVNS.m">refineVNS</a> explained in <a href="http://research.libd.org/VistoSeg/step-2-nuclei-segmentation-of-individual-capture-areas-images.html">Step 2</a>. <strong>(E)</strong> The tif images from <em>‘(D)’</em> serve as input to the <a href="https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/using/count">Spaceranger</a> module (explained in <a href="https://research.libd.org/VistoSeg/step-3-space-ranger.html">Step 3</a>), which generates <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/tissue_positions_list.csv">tissue_positions_list.csv</a> file and <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/scalefactors_json.json">scalefactors_json.json</a> file that contain <em>‘Visium spot metrics’</em>. <strong>(F)</strong> The function <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/countNuclei.m">countNuclei</a> explained in <a href="https://research.libd.org/VistoSeg/step-4-gui-to-count-nuclei-in-a-visium-spot.html">Step 4</a>, gives the nuclei count per Visium spot info that is stored in <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a> file. <strong>(G)</strong> Finally, the pipeline provides a GUI called <a href="https://research.libd.org/VistoSeg/step-4-gui-to-count-nuclei-in-a-visium-spot.html#spotspotcheck">spotspotcheck</a> that allows the user to perform visual inspection of the nuclei segmentations by allowing the user to toggle between the Visium and binary images, and also provides zoom in/out options to clearly identify cell bodes within a Visium spot.</p>
 </div>
 <div id="cite-vistoseg" class="section level2 unnumbered">
 <h2>Cite <code>VistoSeg</code></h2>
-<p>We hope that <a href="http://research.libd.org/VistoSeg/">VistoSeg</a> will be useful for your research. Please use the following information to cite the package and the overall approach. Thank you!</p>
+<p>We hope that <a href="http://research.libd.org/VistoSeg/"><code>VistoSeg</code></a> will be useful for your research. Please use the following information to cite the package and the overall approach. Thank you!</p>
 <pre><code>@article {Tippani2021,
     author = {Tippani, Madhavi and Divecha, Heena R. and Catallini II, Joseph L. and Weber, Lukas M. and Spangler, Abby and Jaffe, Andrew E. and Hicks, Stephanie C. and Martinowich, Keri and Collado-Torres, Leonardo and Page, Stephanie C. and Maynard, Kristen R.},
     title = {VistoSeg: a MATLAB pipeline to process, analyze and visualize high-resolution histology images for Visium spatial transcriptomics data},
     year = {2021},
-    doi = {},
-    publisher = {Oxford University Press},
-    URL = {},
-    journal = {Bioinformatics}
+    doi = {TODO},
+    publisher = {Cold Spring Harbor Laboratory},
+    URL = {TODO},
+    journal = {bioRxiv}
 }</code></pre>
-Project lead: Madhavi Tippani, Staff Scientist in the <strong>Imaging Development Group</strong> at the <a href="https://www.libd.org/">Lieber Institute for Brain Development</a>.
+Project lead: <a href="https://twitter.com/MadhaviTippani">Madhavi Tippani</a>, Staff Scientist in the <strong>Imaging Development Group</strong> at the <a href="https://www.libd.org/">Lieber Institute for Brain Development</a>.
 <center>
 <img src="http://lcolladotor.github.io/img/LIBD_logo.jpg" width="250px">
 </center>
@@ -228,14 +228,14 @@ The pipeline was developed under the following software configuration.
 <p><code>VistoSeg</code> has been tested on Linux, Windows and MacOS.</p>
 <ol style="list-style-type: decimal">
 <li><p><code>MATLAB</code><br />
-MATLAB version R2019a 64-bit or later is required to run the VistoSeg pipeline with the <a href="https://www.mathworks.com/products/image.html">Image Processing Toolbox</a> preloaded.</p></li>
+MATLAB version R2019a 64-bit or later is required to run the <code>VistoSeg</code> pipeline with the <a href="https://www.mathworks.com/products/image.html">Image Processing Toolbox</a> preloaded.</p></li>
 <li><p><code>Memory</code><br />
 Visium whole slide images are high resolution, and the typical size of these multiplane tif images produced in-house is ~25GB. The system RAM (we use ~75GB) should be thrice the size of the multiplane tif image to load it into MATLAB and split them into individual capture areas. The rest of the processing, on individual capture tifs can be performed on a system with as little as 16GB of RAM.</p></li>
 <li><p><code>Installation</code><br />
 The pipeline is availble at (<a href="https://github.com/LieberInstitute/VistoSeg" class="uri">https://github.com/LieberInstitute/VistoSeg</a>), which can be download to your system from the Github website directly or the main repository can be cloned to your system using the following command on terminal/command prompt.<br />
 <code>git clone https://github.com/LieberInstitute/VistoSeg.git</code></p></li>
 </ol>
-<p>All the code exists in the <a href="https://github.com/LieberInstitute/VistoSeg/tree/main/code">code</a> directory inside the main <a href="https://github.com/LieberInstitute/VistoSeg">VistoSeg</a> directory.
+<p>All the code exists in the <a href="https://github.com/LieberInstitute/VistoSeg/tree/main/code">code</a> directory inside the main <a href="https://github.com/LieberInstitute/VistoSeg"><code>VistoSeg</code></a> directory.
 The user’s working directory on MATLAB should be the path to the <a href="https://github.com/LieberInstitute/VistoSeg/tree/main/code">code</a> directory in the downloaded repository, to run any functions this pipeline provides. Once the repository is downloaded, the user can run either of the following code to change their working directory on MATLAB to the <a href="https://github.com/LieberInstitute/VistoSeg/tree/main/code">code</a> directory.<br />
 <code>cd /path_to_the_downloaded_repository/VistoSeg/code/</code>
 <code>addpath(genpath('/path_to_the_downloaded_repository/VistoSeg/code/'))</code></p>
