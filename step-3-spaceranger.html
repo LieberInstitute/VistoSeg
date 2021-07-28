@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Step 3: Space Ranger | VistoSeg: Visium Histology Image Segmentation and Processing Pipeline</title>
-  <meta name="description" content="3 Step 3: Space Ranger | VistoSeg: Visium Histology Image Segmentation and Processing Pipeline" />
+  <title>3 Step 3: spaceranger | VistoSeg: Visium Histology Image Segmentation and Processing Pipeline</title>
+  <meta name="description" content="3 Step 3: spaceranger | VistoSeg: Visium Histology Image Segmentation and Processing Pipeline" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Step 3: Space Ranger | VistoSeg: Visium Histology Image Segmentation and Processing Pipeline" />
+  <meta property="og:title" content="3 Step 3: spaceranger | VistoSeg: Visium Histology Image Segmentation and Processing Pipeline" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="LieberInstitute/VistoSeg" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Step 3: Space Ranger | VistoSeg: Visium Histology Image Segmentation and Processing Pipeline" />
+  <meta name="twitter:title" content="3 Step 3: spaceranger | VistoSeg: Visium Histology Image Segmentation and Processing Pipeline" />
   
   
   
@@ -142,9 +142,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#vns---visium-nuclei-segmentation"><i class="fa fa-check"></i><b>2.1</b> VNS - Visium Nuclei Segmentation</a></li>
 <li class="chapter" data-level="2.2" data-path="step-2-nuclei-segmentation-of-individual-capture-areas-images.html"><a href="step-2-nuclei-segmentation-of-individual-capture-areas-images.html#refinevns"><i class="fa fa-check"></i><b>2.2</b> refineVNS</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="step-3-space-ranger.html"><a href="step-3-space-ranger.html"><i class="fa fa-check"></i><b>3</b> Step 3: Space Ranger</a>
+<li class="chapter" data-level="3" data-path="step-3-spaceranger.html"><a href="step-3-spaceranger.html"><i class="fa fa-check"></i><b>3</b> Step 3: spaceranger</a>
 <ul>
-<li class="chapter" data-level="" data-path="step-3-space-ranger.html"><a href="step-3-space-ranger.html#what-is-space-ranger"><i class="fa fa-check"></i>What is Space Ranger?</a></li>
+<li class="chapter" data-level="" data-path="step-3-spaceranger.html"><a href="step-3-spaceranger.html#what-is-spaceranger"><i class="fa fa-check"></i>What is spaceranger?</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><a href="step-4-gui-to-count-nuclei-in-a-visium-spot.html"><i class="fa fa-check"></i><b>4</b> Step 4: GUI to count nuclei in a Visium spot</a>
 <ul>
@@ -174,11 +174,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="step-3-space-ranger" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Step 3: Space Ranger</h1>
-<div id="what-is-space-ranger" class="section level2 unnumbered">
-<h2>What is Space Ranger?</h2>
-<p>Space Ranger is a set of analysis pipelines that process Visium Spatial Gene Expression data with brightfield and fluorescence microscope images.</p>
+<div id="step-3-spaceranger" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Step 3: spaceranger</h1>
+<div id="what-is-spaceranger" class="section level2 unnumbered">
+<h2>What is spaceranger?</h2>
+<p><code>spaceranger</code> is a set of analysis pipelines that process Visium Spatial Gene Expression data with brightfield and fluorescence microscope images.</p>
 <p>The following links and the flowchart provide useful information about <code>spaceranger</code> and how to run it on histology images.</p>
 <ol style="list-style-type: decimal">
 <li>Blog post on running <a href="http://research.libd.org/rstatsclub/2020/10/20/using-space-ranger-at-jhpce/#.YBpZO2QzYq0"><code>spaceranger</code> on JHPCE</a><br />
@@ -189,8 +189,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>Useful links: <a href="https://docs.google.com/presentation/d/1xw5A0fkJVBZ66lYV87hZg9JFOOZcfVyibsam1kivrqM/edit#slide=id.g9fa4604752_0_29" class="uri">https://docs.google.com/presentation/d/1xw5A0fkJVBZ66lYV87hZg9JFOOZcfVyibsam1kivrqM/edit#slide=id.g9fa4604752_0_29</a></li>
 </ol>
-<p>The output files <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/scalefactors_json.json">scalefactors_json.json</a> and <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_positions_list.csv">tissue_positions_list.csv</a> generated by the <a href="https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/using/count">spaceranger count</a> module are required for the next image processing steps. These files provide the Visium spot dimensions, spot locations and barcode IDs to reconstruct thr spot grid and overlay the histology image for visual inspection.</p>
-<p>The individual split images from <a href="http://research.libd.org/VistoSeg/step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html">Step 1</a> go through the 10X <a href="https://support.10xgenomics.com/spatial-gene-expression/software/visualization/latest/alignment">Loupe</a> browser for manual alignment of the fiducial frame and tissue detection. The output from Loupe Browser along with the split images, their fastqs, slide number, capture area etc all go into <code>spaceranger</code> which finally provides the Visium spot metrics. This entire process is shown in a brief flowchart below.</p>
+<p>The output files <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/scalefactors_json.json">scalefactors_json.json</a> and <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spaceranger/tissue_positions_list.csv">tissue_positions_list.csv</a> generated by the <a href="https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/using/count">spaceranger count</a> module are required for the next image processing steps. These files provide the Visium spot dimensions, spot locations and barcode IDs to reconstruct the spot grid and overlay the histology image for visual inspection.</p>
+<p>The individual split images from <a href="http://research.libd.org/VistoSeg/step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html">Step 1</a> go through the 10x Genomics <a href="https://support.10xgenomics.com/spatial-gene-expression/software/visualization/latest/alignment">Loupe</a> browser for manual alignment of the fiducial frame and tissue detection. The output from Loupe Browser along with the split images, their fastqs, slide number, capture area, etc all go into <code>spaceranger</code> which finally provides the Visium spot metrics. This entire process is shown in a brief flowchart below.</p>
 <center>
 <img src="images/spaceranger.png" />
 </center>
