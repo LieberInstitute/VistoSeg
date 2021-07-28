@@ -74,17 +74,23 @@ MATLAB version R2019a 64-bit or later is required to run the `VistoSeg` pipeline
 Visium whole slide images are high resolution, and the typical size of these multiplane tif images produced in-house is ~25GB. The system RAM (we use ~75GB) should be thrice the size of the multiplane tif image to load it into MATLAB and split them into individual capture areas. The rest of the processing, on individual capture tifs can be performed on a system with as little as 16GB of RAM.
 
 3. `Installation`  
-The pipeline is availble at (https://github.com/LieberInstitute/VistoSeg), which can be download to your system from the Github website directly or the main repository can be cloned to your system using the following command on terminal/command prompt.  
-              `git clone https://github.com/LieberInstitute/VistoSeg.git`
-    
+The pipeline is available at https://github.com/LieberInstitute/VistoSeg, which can be download to your system from the Github website directly or the main repository can be cloned to your system using the following command on terminal/command prompt.  
+
+```{bash, eval = FALSE}
+git clone https://github.com/LieberInstitute/VistoSeg.git
+```
+
 All the code exists in the [code](https://github.com/LieberInstitute/VistoSeg/tree/main/code) directory inside the main [`VistoSeg`](https://github.com/LieberInstitute/VistoSeg) directory. 
 The user's working directory on MATLAB should be the path to the [code](https://github.com/LieberInstitute/VistoSeg/tree/main/code) directory in the downloaded repository, to run any functions this pipeline provides. Once the repository is downloaded, the user can run either of the following code to change their working directory on MATLAB to the [code](https://github.com/LieberInstitute/VistoSeg/tree/main/code) directory.  
-              `cd /path_to_the_downloaded_repository/VistoSeg/code/` 
-              `addpath(genpath('/path_to_the_downloaded_repository/VistoSeg/code/'))`
+
+```{bash, eval = FALSE}
+cd /path_to_the_downloaded_repository/VistoSeg/code/
+addpath(genpath('/path_to_the_downloaded_repository/VistoSeg/code/'))
+```
 
 ## Data Availability {-}
 
-The raw Visium Tiff file is available at the following link (https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior.tif).
+The raw Visium Tiff file is available at through [AWS](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior.tif).
 
 **Other potential datasets**  
 1. [LIBD pilot DLPFC](https://github.com/LieberInstitute/spatialLIBD#raw-data)   
