@@ -14,7 +14,7 @@ output:
 ---
 
 # Overview {-}
-**Visium imaging** is a part of whole **spatial transcriptomics** workflow, a barcoding-based transcriptome-wide technology released by [10X genomics](https://www.10xgenomics.com).
+Histological imaging is a critical first step of the **spatial transcriptomics** workflow, a barcoding-based transcriptome-wide technology released by [10X genomics](https://www.10xgenomics.com).
 <center>
 ![](images/visium_imaging.png) 
 </center>
