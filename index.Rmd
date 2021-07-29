@@ -85,13 +85,22 @@ The user's working directory on MATLAB should be the path to the [code](https://
 
 ```{bash, eval = FALSE}
 cd /path_to_the_downloaded_repository/VistoSeg/code/
+```
+
+```MATLAB
 addpath(genpath('/path_to_the_downloaded_repository/VistoSeg/code/'))
 ```
 
+## Getting Help {-}
+
+If you are using `VistoSeg` and are running into unexpected problems, please [report them](https://github.com/LieberInstitute/VistoSeg/issues) publicly such that other users might benefit from the answers. Thank you!
+
 ## Data Availability {-}
 
-The raw Visium Tiff file is available at through [AWS](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior.tif).
+The raw Visium `.tif` file is available at through [AWS](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior.tif).
 
 **Other potential datasets**  
 1. [LIBD pilot DLPFC](https://github.com/LieberInstitute/spatialLIBD#raw-data)   
 2. [10x Genomics spatial data sets](https://support.10xgenomics.com/spatial-gene-expression/datasets) 
+
+

@@ -2,9 +2,11 @@
 
 ## Public datasets
 
-The pipeline with default settings (smoothening and color clusters of k-means in VNS function) used for in house data has been applied on the [public datasets](https://support.10xgenomics.com/spatial-gene-expression/datasets) provided by 10x Genomics. To demonstrate the utility of the pipeline on different datasets we chose images obtained from different tissues, [breast tissue](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Breast_Cancer_Block_A_Section_1) with high density of cells and [human heart tissue](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Human_Heart) with low density of cells. Decent segmentation results were obtained with the default settings on the human heart tissue image given the low image resolution. With the number of color clusters changed from 5 (defalut) to 3 for breast tissue, the highly clustered cells were detected.
+The pipeline with default settings (smoothing and color clusters of k-means in VNS function) used for the [Maynard, Collado-Torres et al, Nature Neuroscience, 2021](https://doi.org/10.1038/s41593-020-00787-0) LIBD data has been applied on the [public datasets](https://support.10xgenomics.com/spatial-gene-expression/datasets) provided by 10x Genomics. To demonstrate the utility of the pipeline on different datasets we chose images obtained from different tissues, in particular a [breast tissue](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Breast_Cancer_Block_A_Section_1) sample with high density of cells and a [human heart tissue](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Human_Heart) sample with low density of cells. Decent segmentation results were obtained with the default settings on the human heart tissue image given the low image resolution. With the number of color clusters changed from 5 (default) to 3 for breast tissue, the highly clustered cells were detected.
 
-A. Heart Tissue
+### Heart Tissue
+
+Below is the full code for analyzing the heart tissue sample with low density of cells.
 
 ```Matlab
 code = '/path to the code/VistoSeg/code';
@@ -56,10 +58,15 @@ counting nuclei per spot
 
 Zoomed in versions from `spotspotcheck` are shown below for better visualization.
 <img src="images/human_heart_HE.png" title="Image 1" width="350"/> <img src="images/human_heart_BW.png" title="Image 2" width="350"/> 
-  1.Output from spotspotcheck [tissue_spot_counts.csv](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts_heart.csv)  
-  2.Final nuclei segmentations: [nuclei.mat](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/refineVNS/V1_Human_Heart_image_nuclei.mat)
 
-B. Breast Tissue
+Here are the final output files:
+
+1. Output from `spotspotcheck` [tissue_spot_counts.csv](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts_heart.csv)  
+2. Final nuclei segmentations: [nuclei.mat](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/refineVNS/V1_Human_Heart_image_nuclei.mat)
+
+### Breast Tissue
+
+Below is the full code for analyzing the breast tissue sample with a high density of cells. Note that `N` was changed from the default of 5 to 3.
 
 ```Matlab
 code = '/path to the code/VistoSeg/code';
@@ -106,13 +113,17 @@ counting nuclei per spot
 .
 .
 ```
-Below images are the raw Histology tif file of breast tissue and the extracted/segmented nuclei. 
+Below images are the raw Histology `.tif` file of breast tissue and the extracted/segmented nuclei. 
 <img src="images/tissue_hires_image.png" title="Image 1" width="350"/> <img src="images/Breast_nuclei.png" title="Image 2" width="350"/> 
 
-  1.Output from spotspotcheck [tissue_spot_counts.csv](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts_breast.csv)  
-  2.Final nuclei segmentations: [nuclei.mat](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/refineVNS/V1_Human_Heart_image_nuclei.mat)
+Here are the final output files:
+
+1. Output from `spotspotcheck` [tissue_spot_counts.csv](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts_breast.csv)  
+2. Final nuclei segmentations: [nuclei.mat](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/refineVNS/V1_Human_Heart_image_nuclei.mat)
 
 ## Future directions
 
-1. Integrate Atlas Aligner for brain region identification
-2. Integrate [VAMPIRE](https://www.nature.com/articles/srep18437) for cell morphology detection
+Below is a non-comprehensive list of future directions. Please [get in touch with us](https://github.com/LieberInstitute/VistoSeg/issues) if you have suggestions.
+
+1. Integrate Atlas Aligner for brain region identification.
+2. Integrate [VAMPIRE](https://doi.org/10.1038/srep18437) for cell morphology detection.
