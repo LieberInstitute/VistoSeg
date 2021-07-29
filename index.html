@@ -134,6 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="index.html#cite-vistoseg">Cite <code>VistoSeg</code></a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#image-acquisition"><i class="fa fa-check"></i>Image Acquisition</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software Requirements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#getting-help"><i class="fa fa-check"></i>Getting Help</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-availability"><i class="fa fa-check"></i>Data Availability</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html"><i class="fa fa-check"></i><b>1</b> Step 1: Split Visium histology whole slide image into individual capture area images</a></li>
@@ -153,7 +154,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html"><i class="fa fa-check"></i><b>5</b> Step 5: Test data and future directions</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#public-datasets"><i class="fa fa-check"></i><b>5.1</b> Public datasets</a></li>
+<li class="chapter" data-level="5.1" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#public-datasets"><i class="fa fa-check"></i><b>5.1</b> Public datasets</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#heart-tissue"><i class="fa fa-check"></i><b>5.1.1</b> Heart Tissue</a></li>
+<li class="chapter" data-level="5.1.2" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#breast-tissue"><i class="fa fa-check"></i><b>5.1.2</b> Breast Tissue</a></li>
+</ul></li>
 <li class="chapter" data-level="5.2" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#future-directions"><i class="fa fa-check"></i><b>5.2</b> Future directions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="r-session-information.html"><a href="r-session-information.html"><i class="fa fa-check"></i>R session information</a></li>
@@ -237,12 +242,16 @@ The pipeline is available at <a href="https://github.com/LieberInstitute/VistoSe
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="index.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/LieberInstitute/VistoSeg.git</span></code></pre></div>
 <p>All the code exists in the <a href="https://github.com/LieberInstitute/VistoSeg/tree/main/code">code</a> directory inside the main <a href="https://github.com/LieberInstitute/VistoSeg"><code>VistoSeg</code></a> directory.
 The user’s working directory on MATLAB should be the path to the <a href="https://github.com/LieberInstitute/VistoSeg/tree/main/code">code</a> directory in the downloaded repository, to run any functions this pipeline provides. Once the repository is downloaded, the user can run either of the following code to change their working directory on MATLAB to the <a href="https://github.com/LieberInstitute/VistoSeg/tree/main/code">code</a> directory.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="index.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /path_to_the_downloaded_repository/VistoSeg/code/</span>
-<span id="cb3-2"><a href="index.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">addpath</span><span class="er">(</span><span class="ex">genpath</span><span class="er">(</span><span class="st">&#39;/path_to_the_downloaded_repository/VistoSeg/code/&#39;</span><span class="kw">))</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="index.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /path_to_the_downloaded_repository/VistoSeg/code/</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb4-1"><a href="index.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">addpath</span>(<span class="va">genpath</span>(<span class="ss">&#39;/path_to_the_downloaded_repository/VistoSeg/code/&#39;</span>))</span></code></pre></div>
+</div>
+<div id="getting-help" class="section level2 unnumbered">
+<h2>Getting Help</h2>
+<p>If you are using <code>VistoSeg</code> and are running into unexpected problems, please <a href="https://github.com/LieberInstitute/VistoSeg/issues">report them</a> publicly such that other users might benefit from the answers. Thank you!</p>
 </div>
 <div id="data-availability" class="section level2 unnumbered">
 <h2>Data Availability</h2>
-<p>The raw Visium Tiff file is available at through <a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior.tif">AWS</a>.</p>
+<p>The raw Visium <code>.tif</code> file is available at through <a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior.tif">AWS</a>.</p>
 <p><strong>Other potential datasets</strong><br />
 1. <a href="https://github.com/LieberInstitute/spatialLIBD#raw-data">LIBD pilot DLPFC</a><br />
 2. <a href="https://support.10xgenomics.com/spatial-gene-expression/datasets">10x Genomics spatial data sets</a></p>

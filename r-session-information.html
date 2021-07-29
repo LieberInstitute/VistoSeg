@@ -134,6 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="index.html#cite-vistoseg">Cite <code>VistoSeg</code></a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#image-acquisition"><i class="fa fa-check"></i>Image Acquisition</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software Requirements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#getting-help"><i class="fa fa-check"></i>Getting Help</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-availability"><i class="fa fa-check"></i>Data Availability</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html"><i class="fa fa-check"></i><b>1</b> Step 1: Split Visium histology whole slide image into individual capture area images</a></li>
@@ -153,7 +154,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html"><i class="fa fa-check"></i><b>5</b> Step 5: Test data and future directions</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#public-datasets"><i class="fa fa-check"></i><b>5.1</b> Public datasets</a></li>
+<li class="chapter" data-level="5.1" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#public-datasets"><i class="fa fa-check"></i><b>5.1</b> Public datasets</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#heart-tissue"><i class="fa fa-check"></i><b>5.1.1</b> Heart Tissue</a></li>
+<li class="chapter" data-level="5.1.2" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#breast-tissue"><i class="fa fa-check"></i><b>5.1.2</b> Breast Tissue</a></li>
+</ul></li>
 <li class="chapter" data-level="5.2" data-path="step-5-test-data-and-future-directions.html"><a href="step-5-test-data-and-future-directions.html#future-directions"><i class="fa fa-check"></i><b>5.2</b> Future directions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="r-session-information.html"><a href="r-session-information.html"><i class="fa fa-check"></i>R session information</a></li>
@@ -177,11 +182,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="r-session-information" class="section level1 unnumbered">
 <h1>R session information</h1>
 <p>Details on the R version used for making this book. The source code is available at <a href="https://github.com/LieberInstitute/VisiumLIBD"><code>LieberInstitute/VisiumLIBD</code></a>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="r-session-information.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Load the package at the top of your script</span></span>
-<span id="cb12-2"><a href="r-session-information.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;sessioninfo&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r-session-information.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Reproducibility information</span></span>
-<span id="cb13-2"><a href="r-session-information.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">width =</span> <span class="dv">120</span>)</span>
-<span id="cb13-3"><a href="r-session-information.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">session_info</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r-session-information.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Load the package at the top of your script</span></span>
+<span id="cb13-2"><a href="r-session-information.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;sessioninfo&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="r-session-information.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Reproducibility information</span></span>
+<span id="cb14-2"><a href="r-session-information.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">width =</span> <span class="dv">120</span>)</span>
+<span id="cb14-3"><a href="r-session-information.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">session_info</span>()</span></code></pre></div>
 <pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  setting  value                       
 ##  version  R version 4.0.3 (2020-10-10)
@@ -192,7 +197,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  collate  en_US.UTF-8                 
 ##  ctype    en_US.UTF-8                 
 ##  tz       Etc/UTC                     
-##  date     2021-07-28                  
+##  date     2021-07-29                  
 ## 
 ## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  package     * version date       lib source        
@@ -218,10 +223,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] /__w/_temp/Library
 ## [2] /usr/local/lib/R/site-library
 ## [3] /usr/local/lib/R/library</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="r-session-information.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">proc.time</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="r-session-information.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">proc.time</span>()</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.575   0.107   0.581</code></pre>
-<p>This book was last updated at 2021-07-28 23:57:32.</p>
+##   0.556   0.105   0.552</code></pre>
+<p>This book was last updated at 2021-07-29 00:09:55.</p>
 
 </div>
             </section>

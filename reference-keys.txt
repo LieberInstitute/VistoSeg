@@ -8,4 +8,6 @@ spotspotcheck
 countnuclei
 step-5-test-data-and-future-directions
 public-datasets
+heart-tissue
+breast-tissue
 future-directions
