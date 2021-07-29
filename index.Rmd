@@ -54,6 +54,8 @@ Project lead: [Madhavi Tippani](https://twitter.com/MadhaviTippani), Staff Scien
 <img src="http://lcolladotor.github.io/img/LIBD_logo.jpg" width="250px">
 </center>
 
+Initial versions of `spotspotcheck` and `countNuclei` were developed by [Joseph L. Catallini II](https://www.linkedin.com/in/joseph-catallini-ii/).
+
 ## Image Acquisition {-}
 
 The 10X [Visium Spatial Gene Expression Imaging Guidelines](https://support.10xgenomics.com/spatial-gene-expression/imaging/doc/technical-note-visium-spatial-gene-expression-imaging-guidelines) are followed for acquiring the images. Images are acquired at 40x magnification using a Leica CS2 slide scanner and saved as *'.SVS files.'* These *'.SVS files'* are then exported as *'TIF files'* for downstream analysis. The entire Visium slide (4 capture areas with fiducial frames), is scanned in a single file (~20GB).
