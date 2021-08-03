@@ -3,7 +3,9 @@
 The functions [VNS](https://github.com/LieberInstitute/VistoSeg/blob/main/code/VNS.m) (Visium Nuclei Segmentation) and [refineVNS](https://github.com/LieberInstitute/VistoSeg/blob/main/code/refineVNS.m) from the pipeline are used to perform nuclei segmentation. 
 
 ## VNS - Visium Nuclei Segmentation
+
 The inputs to the [VNS](https://github.com/LieberInstitute/VistoSeg/blob/main/code/VNS.m) function  are  
+
 1. The full path to the `.tif` image of a single capture area (output from [Step 1](http://research.libd.org/VistoSeg/step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html): splitSlide function).  
 2. The number of colors the user visually identified in the single capture area image.
 
@@ -13,7 +15,8 @@ The [VNS](https://github.com/LieberInstitute/VistoSeg/blob/main/code/VNS.m) func
 
 ```MATLAB
 fname = '/path_to_capture_area_tif/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif';
-N = 5; % with some trial and error 5 (white,pink,dark pink,cream,blue) colors seem a good prediction for the images produced in-house
+N = 5; % with some trial and error 5 (white,pink,dark pink,cream,blue) colors
+% seem a good prediction for the images produced in-house
 
 VNS(fname,N)
 Importing capture area

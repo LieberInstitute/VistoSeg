@@ -55,6 +55,7 @@ By clicking anywhere on the image inside the GUI, the user can toggle between th
 </center>
 
 The zoom in (symbol of magnifying glass with `+`) option is provided in the menubar at the top of the GUI (Note the position of this option on the GUI may change depending on the version of MATLAB being used, but it is always represented by the `+` symbol). Selecting/clicking this option opens a cursor with `+` symbol, which lets the user select a rectangular region of interest to zoom in to, like the image below. The `Zoom Out` button at the bottom of GUI is used for the images to return to their original size on GUI.
+
 <center>
 ![](images/zoom in 1.png) 
 </center>
