@@ -259,8 +259,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-42"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="va">ans</span> <span class="op">=</span></span>
 <span id="cb6-43"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-44"><a href="step-1-split-visium-histology-whole-slide-image-into-individual-capture-area-images.html#cb6-44" aria-hidden="true" tabindex="-1"></a>         <span class="fl">612</span>        <span class="fl">1600</span>           <span class="fl">3</span></span></code></pre></div>
-<p>The image ‘I{1}.image’ is split into 4 sub images or capture areas by dividing the x(160858) dimesion into 4 equal parts. Sometimes the center of the image is not the center of the slide, in such case the offset is adjusted manually.</p>
-<p>Below are the output files of <code>slpitSlide</code> function</p>
+<p>The image <code>I{1}.image</code> is split into 4 sub images or capture areas by dividing the x(160858) dimension into 4 equal parts (in general they can be a few pixels off in the X-axis). Sometimes the center of the image is not the center of the slide, in such case the offset is adjusted manually.</p>
+<p>Below are the output files of <code>splitSlide</code> function</p>
 <ol style="list-style-type: decimal">
 <li><a href="https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior.mat">Lieber_Institute_OTS-20-7690_rush_anterior.mat</a> - cell array of multiplane tif stored in a <code>.mat</code> file.<br />
 </li>
