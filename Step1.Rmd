@@ -91,9 +91,9 @@ ans =
 
 ```
 
-The image 'I{1}.image' is split into 4 sub images or capture areas by dividing the x(160858) dimesion into 4 equal parts. Sometimes the center of the image is not the center of the slide, in such case the offset is adjusted manually. 
+The image `I{1}.image` is split into 4 sub images or capture areas by dividing the x(160858) dimension into 4 equal parts (in general they can be a few pixels off in the X-axis). Sometimes the center of the image is not the center of the slide, in such case the offset is adjusted manually. 
 
-Below are the output files of `slpitSlide` function
+Below are the output files of `splitSlide` function
 
 1. [Lieber_Institute_OTS-20-7690_rush_anterior.mat](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior.mat) - cell array of multiplane tif stored in a `.mat` file.  
 2. [Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif](https://visium-libd.s3.amazonaws.com/Lieber_Institute_OTS-20-7690_rush_anterior_A1.tif) - `.tif` image of compressed capture area A1.  
