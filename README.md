@@ -10,4 +10,4 @@ This repository describes steps to run Image processing on Visium histology imag
 
 ## Internal
 
-JHPCE location: `/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/VisiumLIBD`
+JHPCE location: `/dcs04/lieber/lcolladotor/spatialDLPFC_LIBD4035/VisiumLIBD`
