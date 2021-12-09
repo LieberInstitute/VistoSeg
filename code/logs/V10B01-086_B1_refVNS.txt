@@ -1,0 +1,75 @@
+Adding LIBD modules
+Loading git
+Loading LIBD module for git-status-size/github
+Loading LIBD module for git-lfs/2.8.0
+Loading LIBD module for rmate/1.5.9
+Loading LIBD module for ruby/2.6.4p104
+Loading conda_R/4.1
+**** Job starts ****
+Thu Dec  2 10:34:40 EST 2021
+**** JHPCE info ****
+User: hdivecha
+Job id: 7904418
+Job name: refineVNS.sh
+Hostname: compute-093.cm.cluster
+Task id: 1
+****
+Sample id: V10B01-086_B1
+****
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+ 
+For online documentation, see https://www.mathworks.com/support
+For product information, visit www.mathworks.com.
+ 
+loading data
+{Error using load
+Unable to read file
+'/dcs04/lieber/lcolladotor/spatialHPC_LIBD4035/spatial_hpc/processed-data/Images/VistoSeg/Capture_areas/V10B01-086_B1_mask.mat'.
+No such file or directory.
+
+Error in refineVNS (line 6)
+load(mask_name)
+} 
+>> **** Job ends ****
+Thu Dec  2 10:34:48 EST 2021
+Adding LIBD modules
+Loading git
+Loading LIBD module for git-status-size/github
+Loading LIBD module for git-lfs/2.8.0
+Loading LIBD module for rmate/1.5.9
+Loading LIBD module for ruby/2.6.4p104
+Loading conda_R/4.1
+**** Job starts ****
+Thu Dec  2 10:47:07 EST 2021
+**** JHPCE info ****
+User: hdivecha
+Job id: 7904427
+Job name: refineVNS.sh
+Hostname: compute-093.cm.cluster
+Task id: 1
+****
+Sample id: V10B01-086_B1
+****
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+ 
+For online documentation, see https://www.mathworks.com/support
+For product information, visit www.mathworks.com.
+ 
+loading data
+Elapsed time is 6.966517 seconds.
+refining segmentations
+Elapsed time is 129.343458 seconds.
+saving final segmentations
+Elapsed time is 5.052477 seconds.
+>> **** Job ends ****
+Thu Dec  2 10:49:37 EST 2021

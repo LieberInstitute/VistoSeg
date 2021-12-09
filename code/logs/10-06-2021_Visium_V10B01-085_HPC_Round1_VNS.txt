@@ -1,0 +1,49 @@
+Adding LIBD modules
+Loading git
+Loading LIBD module for git-status-size/github
+Loading LIBD module for git-lfs/2.8.0
+Loading LIBD module for rmate/1.5.9
+Loading LIBD module for ruby/2.6.4p104
+Loading conda_R/4.1
+**** Job starts ****
+Thu Nov 18 06:54:03 EST 2021
+**** JHPCE info ****
+User: hdivecha
+Job id: 7844877
+Job name: VNS.sh
+Hostname: compute-075.cm.cluster
+Task id: 1
+****
+Sample id: 10-06-2021_Visium_V10B01-085_HPC_Round1_VNS
+****
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+ 
+For online documentation, see https://www.mathworks.com/support
+For product information, visit www.mathworks.com.
+ 
+The multiplane tif has 7 images
+Imported image 7 of the multiplane tif
+Elapsed time is 0.507698 seconds.
+Imported image 6 of the multiplane tif
+Elapsed time is 0.296864 seconds.
+Imported image 5 of the multiplane tif
+Elapsed time is 0.171766 seconds.
+Imported image 4 of the multiplane tif
+Elapsed time is 2.381525 seconds.
+Imported image 3 of the multiplane tif
+Elapsed time is 39.437108 seconds.
+Imported image 2 of the multiplane tif
+Elapsed time is 0.075158 seconds.
+Imported image 1 of the multiplane tif
+Elapsed time is 718.232818 seconds.
+Saving the multiplane tif to mat file
+Elapsed time is 5534.604062 seconds.
+Splitting whole slide into individual capture areas
+Elapsed time is 10891.114853 seconds.
+>> **** Job ends ****
+Thu Nov 18 11:41:30 EST 2021

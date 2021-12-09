@@ -1,0 +1,86 @@
+Adding LIBD modules
+Loading git
+Loading LIBD module for git-status-size/github
+Loading LIBD module for git-lfs/2.8.0
+Loading LIBD module for rmate/1.5.9
+Loading LIBD module for ruby/2.6.4p104
+Loading conda_R/4.1
+**** Job starts ****
+Mon Dec  6 09:39:31 EST 2021
+**** JHPCE info ****
+User: hdivecha
+Job id: 7940704
+Job name: countNuclei.sh
+Hostname: compute-116.cm.cluster
+Task id: undefined
+****
+Sample id: V10B01-086_D1
+****
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+ 
+For online documentation, see https://www.mathworks.com/support
+For product information, visit www.mathworks.com.
+ 
+loading data
+Elapsed time is 3.539362 seconds.
+53991 cells detected
+4992 spots detected
+counting nuclei per spot
+100 spots finished in time 76.0554s
+200 spots finished in time 139.9754s
+300 spots finished in time 203.0615s
+400 spots finished in time 265.8979s
+500 spots finished in time 330.2387s
+600 spots finished in time 396.6493s
+700 spots finished in time 463.3449s
+800 spots finished in time 529.1497s
+900 spots finished in time 595.5289s
+1000 spots finished in time 663.8419s
+1100 spots finished in time 732.8271s
+1200 spots finished in time 804.6792s
+1300 spots finished in time 875.6452s
+1400 spots finished in time 949.129s
+1500 spots finished in time 1040.4559s
+1600 spots finished in time 1136.0975s
+1700 spots finished in time 1231.0083s
+1800 spots finished in time 1319.4315s
+1900 spots finished in time 1412.8075s
+2000 spots finished in time 1503.1896s
+2100 spots finished in time 1598.2563s
+2200 spots finished in time 1696.6537s
+2300 spots finished in time 1789.5104s
+2400 spots finished in time 1883.5476s
+2500 spots finished in time 1976.6596s
+2600 spots finished in time 2074.5956s
+2700 spots finished in time 2173.01s
+2800 spots finished in time 2268.4421s
+2900 spots finished in time 2362.2258s
+3000 spots finished in time 2459.485s
+3100 spots finished in time 2559.5958s
+3200 spots finished in time 2660.6045s
+3300 spots finished in time 2761.7134s
+3400 spots finished in time 2863.9175s
+3500 spots finished in time 2972.0786s
+3600 spots finished in time 3079.3592s
+3700 spots finished in time 3191.9127s
+3800 spots finished in time 3302.8758s
+3900 spots finished in time 3415.4695s
+4000 spots finished in time 3529.7565s
+4100 spots finished in time 3641.4989s
+4200 spots finished in time 3753.882s
+4300 spots finished in time 3845.8693s
+4400 spots finished in time 3944.4251s
+4500 spots finished in time 4037.5156s
+4600 spots finished in time 4115.5002s
+4700 spots finished in time 4195.8231s
+4800 spots finished in time 4274.7373s
+4900 spots finished in time 4354.0153s
+writing table
+Elapsed time is 4429.920738 seconds.
+>> **** Job ends ****
+Mon Dec  6 10:53:30 EST 2021

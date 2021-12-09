@@ -1,0 +1,40 @@
+Adding LIBD modules
+Loading git
+Loading LIBD module for git-status-size/github
+Loading LIBD module for git-lfs/2.8.0
+Loading LIBD module for rmate/1.5.9
+Loading LIBD module for ruby/2.6.4p104
+Loading conda_R/4.1
+**** Job starts ****
+Tue Nov 30 12:05:45 EST 2021
+**** JHPCE info ****
+User: hdivecha
+Job id: 7883958
+Job name: VNS.sh
+Hostname: compute-096.cm.cluster
+Task id: 1
+****
+Sample id: V10B01-086_B1
+****
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+ 
+For online documentation, see https://www.mathworks.com/support
+For product information, visit www.mathworks.com.
+ 
+Importing capture area
+Elapsed time is 60.357413 seconds.
+Performing smoothing and contrast adjustment
+Elapsed time is 64.104039 seconds.
+Performing rgb to Lab color space conversion
+Elapsed time is 78.822547 seconds.
+Applying Kmeans
+Elapsed time is 1426.268879 seconds.
+saving outputs
+Elapsed time is 150.671422 seconds.
+>> **** Job ends ****
+Tue Nov 30 12:35:46 EST 2021
