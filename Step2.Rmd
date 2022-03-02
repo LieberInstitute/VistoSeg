@@ -92,5 +92,5 @@ A zoomed in version, basically the 1st 500 pixels in x ang y of the above sectio
 
 Below are the outputs of the [refineVNS](https://github.com/LieberInstitute/VistoSeg/blob/main/code/refineVNS.m) function for the example image.
 
-1.  [Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.tif](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.tif)  
-2.  [Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat)
+1.  [Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.tif](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/refineVNS/Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.tif)  
+2.  [Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat](https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/refineVNS/Lieber_Institute_OTS-20-7690_rush_anterior_A1_nuclei.mat)
