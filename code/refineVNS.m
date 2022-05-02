@@ -17,9 +17,10 @@ idx_light_blue = imbinarize(nonzeros(L_blue));
 blue_idx = find(mask{M});
 mask_dark_blue = mask{M};
 mask_dark_blue(blue_idx(idx_light_blue)) = 0;
-
+%mask_dark_blue = bwareafilt(mask_dark_blue,[8 200000]);
 blue_nuclei = he .* uint8(mask_dark_blue);
 toc 
+
 
 disp('saving final segmentations')
 tic
