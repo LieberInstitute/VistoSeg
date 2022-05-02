@@ -57,14 +57,14 @@ function start(~, ~, countCheck)
     R = ceil(w.spot_diameter_fullres/2);
     tbl = readtable(fullfile(posPath, posFile));
     count = [];
-    %prop = [];
+    prop = [];
     
     if size(tbl, 2) > 6
         b = 7;
         for C = 1:numel(O)
         count.(O{C}) = table2array(tbl(:, b));
-        %prop.(O{C}) = table2array(tbl(:, b+1));
-        b = b+3;
+        prop.(O{C}) = table2array(tbl(:, b+1));
+        b = b+2;
         end
     end
     if countCheck.Value

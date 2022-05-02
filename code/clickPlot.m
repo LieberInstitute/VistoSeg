@@ -20,14 +20,15 @@ function clickPlot(im, mask, R, tbl, count, O)
     zoomoutButton = uicontrol('Style', 'push', 'units', 'normalized', 'position', [0.3 0.05 0.1 0.02], 'String', 'Zoom Out');
     zoomoutButton.Callback = {@zoomout, imsize};
     channelDD = uicontrol('Style','popupmenu','units', 'normalized','position', [0.5 0.05 0.1 0.02], 'String', O);
-    channelDD.Callback = {@selection,im,O,ax,cmap,count,spotCol,spotRow} ;
+    channelDD.Callback = {@selection,im,O,ax,cmap,count,spotCol,spotRow};
+    
     set(ax, 'ButtonDownFcn', {@click, im, mask, O, channelDD, cmap})
-
+    
      if ~isempty(count)
          C = get(channelDD,'Value');
          text(spotCol, spotRow, string(count.(O{C})), 'Color', 'red', 'FontSize', 20, 'Clipping','on');
      end
-   
+
 end
 
 function click(hObj, ~, im, mask, O, channelDD, cmap)
@@ -80,8 +81,10 @@ C = get(hObj,'Value');
 set(ax, 'CData', im.(O{C}));
 colormap(gca, cmap)
 set(ax, 'UserData', true);
+t = findobj(gca,'type','text');
+delete(t)
 if ~isempty(count)
-    text(spotCol, spotRow, string(count.(O{C})), 'Color', 'red', 'FontSize', 20);
+    text(spotCol, spotRow, string(count.(O{C})), 'Color', 'red', 'FontSize', 20, 'Clipping','on');
 end
 
 end
