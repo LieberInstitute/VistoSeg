@@ -109,7 +109,7 @@ The raw Visium `.tif` file is available at through [AWS](https://visium-libd.s3.
 
 **Other potential datasets**  
 1. [LIBD pilot DLPFC](https://github.com/LieberInstitute/spatialLIBD#raw-data)   
-2. [10x Genomics spatial data sets](https://support.10xgenomics.com/spatial-gene-expression/datasets) 
-3. All input files and output files for every step in the pipeline are provided at the end of the section.
+2. [10x Genomics spatial data sets](https://support.10xgenomics.com/spatial-gene-expression/datasets)   
+3. All input files and output files for the samples images used in every step in the pipeline are provided at the end of the section.
 
 
