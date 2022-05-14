@@ -41,16 +41,15 @@ We hope that [`VistoSeg`](http://research.libd.org/VistoSeg/) will be useful for
 ```
 @article {Tippani2021,
 	author = {Tippani, Madhavi and Divecha, Heena R. and Catallini II,
-	    Joseph L. and Weber, Lukas M. and Spangler, Abby and Jaffe,
+	    Joseph L. and Kwon, Sang Ho and Weber, Lukas M. and Spangler, Abby and Jaffe,
 	    Andrew E. and Hicks, Stephanie C. and Martinowich, Keri and
 	    Collado-Torres, Leonardo and Page, Stephanie C. and Maynard,
 	    Kristen R.},
-	title = {VistoSeg: a MATLAB pipeline to process, analyze and
-	    visualize high-resolution histology images for Visium
-	    spatial transcriptomics data},
+	title = {VistoSeg: processing utilities for high-resolution Visium/Visium-IF 
+	images for spatial transcriptomics data},
 	year = {2021},
 	doi = {TODO},
-	publisher = {Cold Spring Harbor Laboratory},
+	publisher = {TODO},
 	URL = {TODO},
 	journal = {bioRxiv}
 }
