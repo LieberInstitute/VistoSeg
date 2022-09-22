@@ -21,6 +21,8 @@ mask_dark_blue(blue_idx(idx_light_blue)) = 0;
 blue_nuclei = he .* uint8(mask_dark_blue);
 toc 
 
+stats =  struct2table(regionprops(mask_dark_blue, rgb2gray(he), 'Area', 'BoundingBox', 'Centroid', 'Circularity', 'Eccentricity', 'MajorAxisLength', 'MinorAxisLength', 'Perimeter', 'MeanIntensity' , 'WeightedCentroid'));
+writetable(stats,[fname(1:end-4),'_refineVNS_metric.csv'])
 
 disp('saving final segmentations')
 tic
