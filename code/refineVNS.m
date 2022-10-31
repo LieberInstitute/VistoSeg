@@ -17,9 +17,12 @@ idx_light_blue = imbinarize(nonzeros(L_blue));
 blue_idx = find(mask{M});
 mask_dark_blue = mask{M};
 mask_dark_blue(blue_idx(idx_light_blue)) = 0;
-
+%mask_dark_blue = bwareafilt(mask_dark_blue,[8 200000]);
 blue_nuclei = he .* uint8(mask_dark_blue);
 toc 
+
+stats =  struct2table(regionprops(mask_dark_blue, rgb2gray(he), 'Area', 'BoundingBox', 'Centroid', 'Circularity', 'Eccentricity', 'MajorAxisLength', 'MinorAxisLength', 'Perimeter', 'MeanIntensity' , 'WeightedCentroid'));
+writetable(stats,[fname(1:end-4),'_refineVNS_metric.csv'])
 
 disp('saving final segmentations')
 tic
