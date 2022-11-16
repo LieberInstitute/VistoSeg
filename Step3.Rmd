@@ -7,7 +7,7 @@
 The following links and the flowchart provide useful information about `spaceranger` and how to run it on histology images. 
 
 1. [Blog post on running `spaceranger` on JHPCE](http://research.libd.org/rstatsclub/2020/10/20/using-space-ranger-at-jhpce/#.YBpZO2QzYq0)  
-2. [Website describing the details](https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/what-is-space-ranger_
+2. [Website describing the details](https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/what-is-space-ranger)
 3. [Installation](https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/installation)
 4. [Useful links](https://docs.google.com/presentation/d/1xw5A0fkJVBZ66lYV87hZg9JFOOZcfVyibsam1kivrqM/edit#slide=id.g9fa4604752_0_29)
 
