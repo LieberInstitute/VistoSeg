@@ -1,7 +1,7 @@
-function splitSlide_IF(fname)
+function splitSlide_IF(fname,O)
 
 img = load(fname);
-O = fieldnames(img);
+%O = fieldnames(img);
 %N = 4; %number of capture areas
 disp(['The IF image has ',num2str(numel(O)),' channels'])
 
