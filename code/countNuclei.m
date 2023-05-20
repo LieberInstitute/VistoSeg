@@ -2,7 +2,7 @@
 %jsonname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/outputs/NextSeq/DLPFC_Br3942_post_manual_alignment/outs/spatial/scalefactors_json.json';
 %posname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/outputs/NextSeq/DLPFC_Br3942_post_manual_alignment/outs/spatial/tissue_positions_list.csv';
 
-function [count,prop] = countNuclei(mask,jsonname,posname,Y) 
+function [count,prop] = countNuclei(mask,jsonname,posname,~) 
 
 disp('loading data')
 
