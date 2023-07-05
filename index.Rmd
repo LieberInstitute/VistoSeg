@@ -39,7 +39,7 @@ The above figure describes the **`VistoSeg` pipeline**, **(A)** The data present
 
 We hope that [`VistoSeg`](http://research.libd.org/VistoSeg/) will be useful for your research. Please use the following information to cite the package and the overall approach. Thank you!
 ```
-@article {Tippani2021,
+@article {Tippani2022,
 	author = {Tippani, Madhavi and Divecha, Heena R. and Catallini II,
 	    Joseph L. and Kwon, Sang Ho and Weber, Lukas M. and Spangler, Abby and Jaffe,
 	    Andrew E. and Hicks, Stephanie C. and Martinowich, Keri and
@@ -47,8 +47,8 @@ We hope that [`VistoSeg`](http://research.libd.org/VistoSeg/) will be useful for
 	    Kristen R.},
 	title = {VistoSeg: processing utilities for high-resolution Visium/Visium-IF 
 	images for spatial transcriptomics data},
-	year = {2021},
-	doi = {TODO},
+	year = {2022},
+	doi = {[https://doi.org/10.1101/2021.08.04.452489](https://doi.org/10.1101/2021.08.04.452489)},
 	publisher = {TODO},
 	URL = {TODO},
 	journal = {bioRxiv}
