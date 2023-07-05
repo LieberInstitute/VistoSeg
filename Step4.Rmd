@@ -27,7 +27,7 @@ Then you hit the `Start` button, which opens up the following window.
 </center>
 Select the capture area `.tif` and hit the `Open` button on window, which opens the following window.
 
-3. **Select Segmented Mat File** : This window asks for the final segmented `.mat` file of the nuclei segmentations.
+3. **Select Segmented Mat File** : This window asks for the final segmented `.mat` file of the nuclei segmentations. 
 <center>
 ![](images/Select segmentation.png) 
 </center>
@@ -75,7 +75,7 @@ This function can be run on MATLAB command prompt to obtain the [tissue_spot_cou
 
 The inputs to the function are:  
 
-1. Filename with full path for the `.mat` file of the final nuclei segmentation.  
+1. Filename with full path for the `.mat` file of the final nuclei segmentation. Segmentations in `.tif` format from alternative methods can be converted to `.mat` format using the function [tif2mat](https://github.com/LieberInstitute/VistoSeg/blob/main/code/tif2mat.m). We are working on creating functions to convert other formats to `.mat` format.
 2. Filename with full path for the `scalefactors_json.json` file.  
 3. Filename with full path for the `tissue_positions_list.csv` file.
 
