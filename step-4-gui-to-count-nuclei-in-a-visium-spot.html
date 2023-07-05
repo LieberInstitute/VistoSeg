@@ -243,8 +243,7 @@ The dialog box at the bottom of the GUI with the label <code>Barcode Lookup</cod
 <p>This function can be run on MATLAB command prompt to obtain the <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/pipeline_outputs/spotspotcheck/tissue_spot_counts.csv">tissue_spot_counts.csv</a> file without going through the <code>spotspotcheck</code> GUI.</p>
 <p>The inputs to the function are:</p>
 <ol style="list-style-type: decimal">
-<li>Filename with full path for the <code>.mat</code> file of the final nuclei segmentation.<br />
-</li>
+<li>Filename with full path for the <code>.mat</code> file of the final nuclei segmentation. Segmentations in <code>.tif</code> format from alternative methods can be converted to <code>.mat</code> format using the function <a href="https://github.com/LieberInstitute/VistoSeg/blob/main/code/tif2mat.m">tif2mat</a>. We are working on creating functions to convert other formats to <code>.mat</code> format.</li>
 <li>Filename with full path for the <code>scalefactors_json.json</code> file.<br />
 </li>
 <li>Filename with full path for the <code>tissue_positions_list.csv</code> file.</li>
