@@ -2,7 +2,7 @@
 %jsonname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/outputs/NextSeq/DLPFC_Br3942_post_manual_alignment/outs/spatial/scalefactors_json.json';
 %posname = '/dcl02/lieber/ajaffe/SpatialTranscriptomics/LIBD/spatialDLPFC/outputs/NextSeq/DLPFC_Br3942_post_manual_alignment/outs/spatial/tissue_positions_list.csv';
 
-function [count,prop] = countNuclei(mask,jsonname,posname,~) 
+function [count,prop,countC] = countNuclei(mask,jsonname,posname,~) 
 
 disp('loading data')
 
@@ -22,18 +22,12 @@ prop = [];
         for C = 1:numel(O)
         count.(O{C}) = table2array(tbl(:, b));
         prop.(O{C}) = table2array(tbl(:, b+1));
+        countC.(O{C}) = table2array(tbl(:, b+2));
         b = b+3;
         end
     else
-        tbl.Properties.VariableNames = {'barcode','tissue','row','col','imagerow','imagecol'};
-        switch nargin
-           case 4
-            [count,prop] = countSpots_centroid(BW, R, tbl, posPath);
-           case 3
-            [count,prop] = countSpots(BW, R, tbl, posPath);
-           otherwise
-             disp('not enough inputs')
-        end
+       tbl.Properties.VariableNames = {'barcode','tissue','row','col','imagerow','imagecol'};
+       [count,prop,countC] = countSpots_centroid(BW, R, tbl, posPath);
         
     end
 end
