@@ -58,17 +58,25 @@ function start(~, ~, countCheck)
     tbl = readtable(fullfile(posPath, posFile));
     count = [];
     prop = [];
+    countC = [];
     
     if size(tbl, 2) > 6
         b = 7;
         for C = 1:numel(O)
+        if (size(tbl, 2)-6)/numel(O)==2
         count.(O{C}) = table2array(tbl(:, b));
         prop.(O{C}) = table2array(tbl(:, b+1));
         b = b+2;
+        else
+        count.(O{C}) = table2array(tbl(:, b));
+        prop.(O{C}) = table2array(tbl(:, b+1));
+        countC.(O{C}) = table2array(tbl(:, b+2));
+        b = b+3;
+        end
         end
     end
     if countCheck.Value
-        [count,~] = countSpots(BW, R, tbl, posPath);
+        [count,~,~] = countSpots_centroid(BW, R, tbl, posPath);
     end
     clickPlot(im, BW, R, tbl, count, O);    
 
