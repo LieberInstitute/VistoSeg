@@ -1,7 +1,8 @@
-function [count,prop] = countSpots_centroid(BW, R, tbl, posPath)
+function [count,prop,countC] = countSpots_centroid(BW, R, tbl, posPath)
   
 count = [];
 prop = [];
+countC = [];
 
 O = fieldnames(BW);
 
@@ -21,6 +22,7 @@ for C = 1:numel(O)
 	disp([num2str(numROI),' ', O{C},' ROIS detected'])
     count.(O{C}) = zeros(nSpots, 1);
     prop.(O{C}) = zeros(nSpots, 1);
+    countC.(O{C}) = zeros(nSpots, 1);
 end
 
 tic
@@ -42,9 +44,10 @@ for i = 1:nSpots
 %         temp = BW.(O{C})(min(tempx):max(tempx),min(tempy):max(tempy));
 %         imshow(temp)
 %         viscircles(size(temp)/2, repelem(R, 1), 'Color', 'r');
-
-        count.(O{C})(i) = length(find(isincircle));
+        count.(O{C})(i) = length([signal.Area]);
         prop.(O{C})(i) = sum([signal.Area])/spot.Area;
+        countC.(O{C})(i) = length(find(isincircle));
+        
       end
       
       if mod(i,100) == 0
@@ -54,8 +57,8 @@ for i = 1:nSpots
 end
 
 for C = 1:numel(O)
- temp = [count.(O{C}) prop.(O{C})];  
- tbl = [tbl array2table(temp, 'VariableNames', {['N',O{C}],['P',O{C}]})];        
+ temp = [count.(O{C}) prop.(O{C}) countC.(O{C})];  
+ tbl = [tbl array2table(temp, 'VariableNames', {['N',O{C}],['P',O{C}],['CN',O{C}]})];        
 end
 
 if ~exist(posPath, 'dir')
