@@ -28,20 +28,13 @@ end
 tic
 disp('counting dots per Visium spot')
 
-for i = 1:nSpots 
-    idx = mask(crow(i), ccol(i));
-    spot = regionprops(mask==idx);
-      for C = 1:numel(O)
+for C = 1:numel(O)
+points = struct2table(regionprops(BW.(O{C}), 'Centroid')).Centroid;
+    for i = 1:nSpots 
+        idx = mask(crow(i), ccol(i));
+        spot = regionprops(mask==idx);
         signal = struct2table(regionprops(mask==idx & BW.(O{C})>0));
-        %comment line 37 and uncomment lines 38 39 if MATLAB version<2021
-        points = struct2table(regionprops(BW.(O{C}), 'Centroid')).Centroid;
-%         points = struct2table(regionprops(BW.(O{C}), 'Centroid'));
-%         points = points.Centroid;
-        if isempty(points)
-            isincircle = 0;
-        else 
         isincircle = sum((points - [ccol(i) crow(i)]).^2,2)<= R^2;
-        end
         %check
 %         [tempx,tempy] = find(mask == idx);
 %         temp = BW.(O{C})(min(tempx):max(tempx),min(tempy):max(tempy));
@@ -50,13 +43,12 @@ for i = 1:nSpots
         count.(O{C})(i) = length([signal.Area]);
         prop.(O{C})(i) = sum([signal.Area])/spot.Area;
         countC.(O{C})(i) = length(find(isincircle));
-        
-      end
-      
-      if mod(i,100) == 0
+        if mod(i,100) == 0
         disp([num2str(i),' spots finished in time ', num2str(toc),'s'])
-      end
+        end
 
+    end
+    disp([num2str(C),'Channel done', num2str(toc),'s'])  
 end
 
 for C = 1:numel(O)
